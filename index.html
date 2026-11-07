@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>The 100 Fragrant Landscapes of Japan: a map of scents</title>
+<meta name="description" content="Map of the 100 Fragrant Landscapes of Japan selected in 2001, by kind of scent. #30DayMapChallenge 2026 Day 19 Senses: Smell.">
+<meta property="og:title" content="The 100 Fragrant Landscapes of Japan: a map of scents">
+<meta property="og:description" content="Map of the 100 Fragrant Landscapes of Japan selected in 2001, by kind of scent.">
+<meta property="og:image" content="docs/screenshot.png">
+<meta name="theme-color" content="#0f141b">
+<link rel="stylesheet" href="https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.css">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div id="map" role="region" aria-label="Map"></div>
+
+<header class="panel title-panel">
+  <div class="title-row">
+    <h1>
+      <span class="t-main" data-i18n="title">The 100 Fragrant Landscapes of Japan</span>
+      <span class="t-sub" data-i18n="subtitle">a map of scents</span>
+    </h1>
+    <div class="lang" role="group" aria-label="Language">
+      <button type="button" data-lang="en" aria-pressed="true">EN</button>
+      <button type="button" data-lang="ja" aria-pressed="false">日本語</button>
+    </div>
+  </div>
+  <p class="lead" data-i18n="lead">In 2001 Japan’s Ministry of the Environment chose 100 places where a scent is part of the landscape. Pick a scent on the wheel to see where it drifts.</p>
+  <a class="pair" id="pairLink" href="https://shinyanakashima.github.io/30daymapchallenge-2026day11-100soundscapes/">
+    <span class="pair-k" data-i18n="pairKicker">Part 2 of a pair · Day 11</span>
+    <span class="pair-t" data-i18n="pairTitle">The 100 Soundscapes of Japan →</span>
+  </a>
+  <button type="button" class="about-btn" aria-expanded="false" aria-controls="about" data-i18n="about">About &amp; notes</button>
+</header>
+
+<aside class="panel count-panel" aria-label="Scents by type" id="countPanel">
+  <div class="count-head"><span id="countFocus" data-i18n="countAll">All scents</span><b id="countTotal">100</b></div>
+  <ul class="count-list" id="countList"></ul>
+</aside>
+
+<section class="panel wheel-panel" aria-label="Scent wheel" id="wheelPanel">
+  <svg id="wheel" viewBox="-130 -130 260 260" role="group" aria-label="Scent type"></svg>
+  <p class="wheel-hint" data-i18n="wheelHint">Choose a scent</p>
+</section>
+
+<section id="card" class="panel card" hidden aria-live="polite">
+  <button type="button" class="close" id="cardClose" aria-label="Close">×</button>
+  <div class="card-cat" id="cardCat"></div>
+  <h2 id="cardName"></h2>
+  <div class="card-alt" id="cardAlt"></div>
+  <div class="card-place" id="cardPlace"></div>
+  <p class="card-desc" id="cardDesc"></p>
+  <div class="card-months" id="cardMonths" aria-hidden="true"></div>
+  <div class="card-when" id="cardWhen"></div>
+  <div class="card-loc" id="cardLoc"></div>
+</section>
+
+<section id="about" class="panel about" hidden>
+  <button type="button" class="close" id="aboutClose" aria-label="Close">×</button>
+  <div class="about-body" id="aboutBody"></div>
+</section>
+
+<script src="https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>
