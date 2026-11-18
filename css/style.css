@@ -85,25 +85,33 @@ h1 .t-sub { display: block; font-size: 14px; font-weight: 400; color: var(--ink-
 .dot { width: 10px; height: 10px; border-radius: 50%; display: inline-block; box-shadow: 0 0 6px 1px currentColor; }
 
 /* wheel (bottom-right) */
-.wheel-panel { right: var(--gutter); bottom: 28px; width: 252px; padding: 8px 8px 6px; text-align: center; }
+.wheel-panel {
+  right: var(--gutter); bottom: 28px; width: 268px; padding: 6px 6px 8px; text-align: center;
+  background: radial-gradient(closest-side, rgba(12, 10, 32, 0.9) 70%, rgba(12, 10, 32, 0) 100%);
+  border: 0; border-radius: 50%; backdrop-filter: none; -webkit-backdrop-filter: none;
+}
 #wheel { width: 100%; height: auto; display: block; overflow: visible; }
 .seg { cursor: pointer; outline: none; }
-.seg path.fill { transition: opacity 0.25s; }
-.seg text { font-size: 11px; fill: #111; font-weight: 600; pointer-events: none; }
-.seg text.n { font-size: 10px; font-weight: 400; fill: rgba(0, 0, 0, 0.62); }
-.seg.dim path.fill { opacity: 0.22; }
-.seg.dim text { fill: rgba(233, 237, 242, 0.75); }
-.seg.dim text.n { fill: rgba(233, 237, 242, 0.5); }
-.seg path.ring { fill: none; stroke: var(--accent); stroke-width: 2.5; opacity: 0; }
-.seg[aria-pressed="true"] path.ring { opacity: 1; }
-.seg:focus-visible path.ring { opacity: 1; stroke-dasharray: 4 3; }
+.seg path { transition: opacity 0.35s; }
+.seg path.fill { opacity: 0.75; }
+.seg path.rim { opacity: 0.8; }
+.seg path.glow { opacity: 0; }
+.seg text { font-size: 11px; fill: var(--ink); font-weight: 600; pointer-events: none; transition: opacity 0.35s; }
+.seg text.n { font-size: 10px; font-weight: 400; fill: var(--ink-2); }
+.seg.lit path.fill { opacity: 1; }
+.seg.lit path.rim { opacity: 1; }
+.seg.lit path.glow { opacity: 0.9; }
+.seg.dim path.fill, .seg.dim path.rim { opacity: 0.25; }
+.seg.dim text { opacity: 0.45; }
+.seg:focus-visible path.rim { stroke: var(--accent); stroke-width: 1.5; }
 .hub { cursor: pointer; outline: none; }
-.hub circle { fill: rgba(255, 255, 255, 0.05); stroke: rgba(255, 255, 255, 0.18); }
-.hub[aria-pressed="true"] circle { fill: rgba(255, 255, 255, 0.12); stroke: var(--accent); }
+.hub circle { fill: rgba(10, 9, 25, 0.85); stroke: rgba(160, 130, 255, 0.28); }
 .hub:focus-visible circle { stroke: var(--accent); stroke-dasharray: 4 3; }
-.hub text { fill: var(--ink); font-size: 12px; font-weight: 600; pointer-events: none; }
-.hub text.n { font-size: 20px; font-weight: 700; }
-.wheel-hint { margin: 2px 0 0; font-size: 11.5px; color: var(--ink-3); }
+.hub text { pointer-events: none; }
+.hub .hn { fill: var(--ink); font-size: 24px; font-weight: 700; font-variant-numeric: tabular-nums; }
+.hub .hl { fill: var(--ink-2); font-size: 10.5px; font-weight: 600; letter-spacing: 0.02em; }
+.wheel-hint { margin: 0 auto; max-width: 240px; min-height: 16px; font-size: 11.5px; line-height: 1.4; color: var(--ink-3); transition: color 0.3s; }
+.wheel-hint.on { color: var(--ink-2); }
 
 .lang button:focus-visible, .about-btn:focus-visible, .close:focus-visible, .count-list button:focus-visible, .pair:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
 
@@ -155,9 +163,8 @@ h1 .t-sub { display: block; font-size: 14px; font-weight: 400; color: var(--ink-
   .count-head b { font-size: 18px; }
   .count-list button { font-size: 11.5px; padding: 2px 1px; gap: 6px; }
   .count-list button .bar { display: none; }
-  .wheel-panel { right: var(--gutter); bottom: 34px; width: 152px; padding: 4px; }
+  .wheel-panel { right: var(--gutter); bottom: 34px; width: 160px; padding: 2px; }
   .seg text { font-size: 12.5px; }
-  .seg text.n { display: none; }
   .wheel-hint { display: none; }
   .card { left: var(--gutter); right: var(--gutter); top: auto; bottom: 34px; width: auto; max-height: 52%; z-index: 4; }
   .maplibregl-ctrl-top-right { display: none; }
@@ -171,5 +178,3 @@ h1 .t-sub { display: block; font-size: 14px; font-weight: 400; color: var(--ink-
 .title-panel::before { content: ""; position: absolute; left: 0; right: 0; top: 0; height: 3px; background: var(--spectrum); }
 .count-head b { background: linear-gradient(90deg, #ffffff, #d9c8ff); -webkit-background-clip: text; background-clip: text; color: transparent; }
 .lang button[aria-pressed="true"] { background: rgba(127, 6, 255, 0.45); }
-.hub[aria-pressed="true"] circle { fill: rgba(127, 6, 255, 0.28); }
-.wheel-panel { box-shadow: 0 0 24px rgba(127, 6, 255, 0.18); }

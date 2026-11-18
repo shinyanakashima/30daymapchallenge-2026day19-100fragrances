@@ -4,9 +4,10 @@
   // order around the wheel, clockwise from the top
   var CATS = ['flower', 'green', 'water', 'smoke', 'other', 'food'];
   // palette taken from the Mapterhorn logo, as in Day 11
+  // hues from the Mapterhorn logo, toned down so the hazes read as scent rather than neon
   var COLORS = {
-    flower: '#ff008f', green: '#c1ff00', water: '#03d8a0',
-    smoke: '#bf01ff', other: '#d9c8ff', food: '#ff7b00'
+    flower: '#ff6eb4', green: '#b8e05a', water: '#3cd2ad',
+    smoke: '#b77cf2', other: '#cfc2f2', food: '#ff9a52'
   };
   var MONTHS_EN = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
   var DAY11 = 'https://shinyanakashima.github.io/30daymapchallenge-2026day11-100soundscapes/';
@@ -32,6 +33,15 @@
         smoke: ['Steam &', 'smoke'], other: ['Other'], food: ['Food &', 'drink']
       },
       catShort: { flower: 'Flowers', green: 'Woods', water: 'Sea', smoke: 'Steam', other: 'Other', food: 'Food' },
+      catNote: {
+        flower: 'lavender, plum, wisteria, peony, osmanthus',
+        green: 'cedar, cypress, camphor, moss, grassland',
+        water: 'tide, rocky shores, sea fog, river wind',
+        smoke: 'hot springs, incense, kilns, candles',
+        other: 'old books, ink, indigo, rain on stone',
+        food: 'crackers, tea, sake, soy sauce, eel'
+      },
+      hubAll: 'all scents',
       also: 'also',
       season: 'Season',
       allYear: 'All year',
@@ -91,6 +101,15 @@
         smoke: ['湯けむり', '・煙'], other: ['そのほか'], food: ['食べ物', '・飲み物']
       },
       catShort: { flower: '花', green: '木・森', water: '海', smoke: '湯・煙', other: 'ほか', food: '食' },
+      catNote: {
+        flower: 'ラベンダー・梅・藤・牡丹・金木犀',
+        green: '杉・檜・楠・苔・草原',
+        water: '潮・磯・海霧・川を渡る風',
+        smoke: '温泉・線香・窯・ろうそく',
+        other: '古書・墨・藍・雨上がりの石',
+        food: 'せんべい・茶・酒・醤油・うなぎ'
+      },
+      hubAll: 'すべて',
       also: 'ほかに',
       season: '季節',
       allYear: '一年中',
@@ -146,7 +165,7 @@
 
   // ---------- state ----------
   var params = new URLSearchParams(location.search);
-  var state = { lang: 'en', focus: null, selected: null };
+  var state = { lang: 'en', focus: null, preview: null, selected: null };
   try {
     var saved = localStorage.getItem('fragrances-lang');
     if (saved === 'ja' || saved === 'en') state.lang = saved;
@@ -217,7 +236,7 @@
     return ['match', ['get', 'category'], 'flower', COLORS.flower, 'green', COLORS.green, 'water', COLORS.water,
       'smoke', COLORS.smoke, 'other', COLORS.other, COLORS.food];
   }
-  // feature-state "f": 1 = in focus (or no focus), 0 = faded
+  // feature-state "f": 2 = the scent in focus, 1 = no focus, 0 = faded
   var F = ['coalesce', ['feature-state', 'f'], 1];
   var SEL = ['boolean', ['feature-state', 'sel'], false];
 
@@ -262,7 +281,7 @@
             'circle-radius': hazeRadius(1, 1),
             'circle-color': catColor(),
             'circle-blur': 1,
-            'circle-opacity': ['case', ['==', F, 1], 0.34, 0.035],
+            'circle-opacity': ['match', F, 2, 0.36, 1, 0.26, 0.03],
             'circle-pitch-alignment': 'map'
           }
         });
@@ -272,7 +291,7 @@
             'circle-radius': hazeRadius(0.7, 1),
             'circle-color': catColor(),
             'circle-blur': 1,
-            'circle-opacity': ['case', ['==', F, 1], 0.3, 0.03],
+            'circle-opacity': ['match', F, 2, 0.28, 1, 0.2, 0.025],
             'circle-translate': [0, 0]
           }
         });
@@ -282,7 +301,7 @@
             'circle-radius': hazeRadius(0.26, 1),
             'circle-color': catColor(),
             'circle-blur': 0.9,
-            'circle-opacity': ['case', ['==', F, 1], 0.5, 0.05]
+            'circle-opacity': ['match', F, 2, 0.55, 1, 0.36, 0.04]
           }
         });
         map.addLayer({
@@ -338,18 +357,41 @@
   // ---------- focus ----------
   function setFocus(c) {
     state.focus = (c && c !== state.focus) ? c : null;
+    state.preview = null;
     applyFocus();
   }
-  function applyFocus() {
+  // hovering a part of the wheel shows its places on the map before it is chosen
+  function setPreview(c) {
+    if (state.preview === c) return;
+    state.preview = c;
+    paintFocus();
+  }
+  function paintFocus() {
     var t = T[state.lang];
+    var f = state.preview || state.focus;
     items.forEach(function (it) {
-      var on = !state.focus || it.category === state.focus;
-      if (map.getSource('pts')) map.setFeatureState({ source: 'pts', id: it.id }, { f: on ? 1 : 0 });
+      var v = !f ? 1 : (it.category === f ? 2 : 0);
+      if (map.getSource('pts')) map.setFeatureState({ source: 'pts', id: it.id }, { f: v });
     });
     Array.prototype.forEach.call(document.querySelectorAll('#wheel .seg'), function (g) {
       var c = g.getAttribute('data-cat');
-      g.setAttribute('aria-pressed', state.focus === c ? 'true' : 'false');
-      g.classList.toggle('dim', !!state.focus && state.focus !== c);
+      g.classList.toggle('dim', !!f && f !== c);
+      g.classList.toggle('lit', f === c);
+    });
+    var hn = document.querySelector('#wheel .hub .hn'), hl = document.querySelector('#wheel .hub .hl');
+    if (hn) {
+      hn.textContent = f ? (counts[f] || 0) : items.length;
+      hl.textContent = f ? t.cat[f] : t.hubAll;
+      hl.setAttribute('style', f ? 'fill:' + COLORS[f] : '');
+    }
+    $('wheelHint').textContent = f ? t.catNote[f] : t.wheelHint;
+    $('wheelHint').classList.toggle('on', !!f);
+  }
+  function applyFocus() {
+    var t = T[state.lang];
+    paintFocus();
+    Array.prototype.forEach.call(document.querySelectorAll('#wheel .seg'), function (g) {
+      g.setAttribute('aria-pressed', state.focus === g.getAttribute('data-cat') ? 'true' : 'false');
     });
     var hub = document.querySelector('#wheel .hub');
     if (hub) hub.setAttribute('aria-pressed', state.focus ? 'false' : 'true');
@@ -395,41 +437,58 @@
     var t = T[state.lang];
     var narrow = isNarrow();
     svg.setAttribute('aria-label', t.wheelLabel);
-    var R0 = 50, R1 = 124, GAP = 1.6, step = 360 / CATS.length;
+    var R0 = 54, R1 = 124, RIM = 5, GAP = 1.2;
+    // each part of the wheel takes an angle in proportion to its count (with a minimum, so labels fit)
+    var MIN = 38, total = items.length;
+    var raw = CATS.map(function (c) { return 360 * (counts[c] || 0) / total; });
+    var extra = raw.reduce(function (acc, v) { return acc + Math.max(0, MIN - v); }, 0);
+    var big = raw.reduce(function (acc, v) { return acc + (v > MIN ? v : 0); }, 0);
+    var spans = raw.map(function (v) { return v < MIN ? MIN : v - extra * v / big; });
+    var defs = el('defs', {}, svg);
+    var blur = el('filter', { id: 'wglow', x: '-30%', y: '-30%', width: '160%', height: '160%' }, defs);
+    el('feGaussianBlur', { stdDeviation: '4' }, blur);
+    var start = -spans[0] / 2;
     CATS.forEach(function (c, i) {
-      var a0 = i * step - step / 2 + GAP, a1 = i * step + step / 2 - GAP;
+      var a0 = start + GAP, a1 = start + spans[i] - GAP, mid = start + spans[i] / 2;
+      start += spans[i];
+      var gr = el('radialGradient', { id: 'wg-' + c, cx: 0, cy: 0, r: R1, gradientUnits: 'userSpaceOnUse' }, defs);
+      el('stop', { offset: (R0 / R1).toFixed(3), 'stop-color': COLORS[c], 'stop-opacity': 0.04 }, gr);
+      el('stop', { offset: '1', 'stop-color': COLORS[c], 'stop-opacity': 0.42 }, gr);
       var g = el('g', { 'class': 'seg', 'data-cat': c, role: 'button', tabindex: '0', 'aria-pressed': 'false' }, svg);
-      el('path', { 'class': 'fill', d: arcPath(R0, R1, a0, a1), fill: COLORS[c] }, g);
-      el('path', { 'class': 'ring', d: arcPath(R0 + 2, R1 - 2, a0 + 0.8, a1 - 0.8) }, g);
+      el('path', { 'class': 'glow', d: arcPath(R1 - RIM, R1 + 2, a0, a1), fill: COLORS[c], filter: 'url(#wglow)' }, g);
+      el('path', { 'class': 'fill', d: arcPath(R0, R1, a0, a1), fill: 'url(#wg-' + c + ')' }, g);
+      el('path', { 'class': 'rim', d: arcPath(R1 - RIM, R1, a0, a1), fill: COLORS[c] }, g);
       var title = el('title', {}, g);
       title.textContent = t.cat[c] + ': ' + (counts[c] || 0);
       g.setAttribute('aria-label', t.cat[c] + ', ' + (counts[c] || 0));
-      var mid = polar(87, i * step);
+      var p = polar(88, mid);
       var lines = narrow ? [t.catShort[c]] : t.catWheel[c];
       var lh = narrow ? 17 : 13;
-      var y0 = mid[1] - (lines.length - 1) * lh / 2 - (narrow ? -5 : 4);
-      lines.forEach(function (s, k) {
-        var tx = el('text', { x: mid[0].toFixed(1), y: (y0 + k * lh).toFixed(1), 'text-anchor': 'middle' }, g);
+      var y0 = p[1] - (lines.length - 1) * lh / 2 - (narrow ? -5 : 4);
+      lines.forEach(function (str, k) {
+        var tx = el('text', { x: p[0].toFixed(1), y: (y0 + k * lh).toFixed(1), 'text-anchor': 'middle' }, g);
         if (narrow) tx.setAttribute('style', 'font-size:' + (state.lang === 'ja' ? 19 : 17) + 'px');
-        tx.textContent = s;
+        tx.textContent = str;
       });
       if (!narrow) {
-        var tn = el('text', { 'class': 'n', x: mid[0].toFixed(1), y: (y0 + lines.length * lh).toFixed(1), 'text-anchor': 'middle' }, g);
+        var tn = el('text', { 'class': 'n', x: p[0].toFixed(1), y: (y0 + lines.length * lh).toFixed(1), 'text-anchor': 'middle' }, g);
         tn.textContent = counts[c] || 0;
       }
       g.addEventListener('click', function () { setFocus(c); });
+      g.addEventListener('mouseenter', function () { setPreview(c); });
+      g.addEventListener('mouseleave', function () { setPreview(null); });
+      g.addEventListener('focus', function () { setPreview(c); });
+      g.addEventListener('blur', function () { setPreview(null); });
       g.addEventListener('keydown', function (e) {
         if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); setFocus(c); }
       });
     });
     var hub = el('g', { 'class': 'hub', role: 'button', tabindex: '0', 'aria-pressed': 'true', 'aria-label': t.all }, svg);
-    el('circle', { r: R0 - 5 }, hub);
-    var h1 = el('text', { y: narrow ? -2 : -6, 'text-anchor': 'middle' }, hub);
-    h1.textContent = t.all;
-    if (narrow) h1.setAttribute('style', 'font-size:17px');
-    var h2 = el('text', { 'class': 'n', y: narrow ? 20 : 16, 'text-anchor': 'middle' }, hub);
-    h2.textContent = items.length;
-    if (narrow) h2.setAttribute('style', 'font-size:22px');
+    el('circle', { r: R0 - 6 }, hub);
+    var hn = el('text', { 'class': 'hn', y: narrow ? 4 : 2, 'text-anchor': 'middle' }, hub);
+    if (narrow) hn.setAttribute('style', 'font-size:26px');
+    var hl = el('text', { 'class': 'hl', y: narrow ? 26 : 20, 'text-anchor': 'middle' }, hub);
+    if (narrow) hl.setAttribute('style', 'font-size:13px');
     hub.addEventListener('click', function () { setFocus(null); });
     hub.addEventListener('keydown', function (e) {
       if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); setFocus(null); }
@@ -540,6 +599,7 @@
       var v = t[e.getAttribute('data-i18n')];
       if (typeof v === 'string') e.textContent = v;
     });
+    $('wheelHint').textContent = t.wheelHint;
     $('pairLink').href = DAY11 + (state.lang === 'ja' ? '?lang=ja' : '');
     Array.prototype.forEach.call(document.querySelectorAll('.lang button'), function (b) {
       b.setAttribute('aria-pressed', b.getAttribute('data-lang') === state.lang ? 'true' : 'false');
