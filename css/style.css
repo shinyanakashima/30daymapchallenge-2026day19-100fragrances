@@ -1,18 +1,20 @@
 :root {
-  --sea: #0f141b;
-  --land: #262c35;
+  --sea: #0a0919;
+  --land: #1f1b42;
   --ink: #e9edf2;
   --ink-2: #aab3bf;
   --ink-3: #78828f;
-  --panel: rgba(15, 20, 27, 0.86);
-  --panel-line: rgba(255, 255, 255, 0.09);
-  --flower: #ff8fc6;
-  --green: #7ccf6a;
-  --food: #ffb547;
-  --water: #4fb0ff;
-  --smoke: #d6cfc2;
-  --other: #a98bff;
+  --panel: rgba(12, 10, 32, 0.84);
+  --panel-line: rgba(160, 130, 255, 0.18);
+  --flower: #ff008f;
+  --green: #c1ff00;
+  --food: #ff7b00;
+  --water: #03d8a0;
+  --smoke: #bf01ff;
+  --other: #d9c8ff;
   --accent: #f4f1ea;
+  --violet: #7f06ff;
+  --spectrum: linear-gradient(90deg, #03d8a0, #164ab7, #5a20c2, #7f06ff, #bf01ff, #ff008f, #ea0043, #ff7b00, #f4ff00, #c1ff00, #99ff00, #41ff00);
   --radius: 10px;
   --gutter: 16px;
   font-family: "Inter", "Helvetica Neue", Arial, "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Noto Sans JP", Meiryo, sans-serif;
@@ -24,7 +26,7 @@ body { -webkit-font-smoothing: antialiased; }
 button { font: inherit; color: inherit; cursor: pointer; }
 
 #map { position: absolute; inset: 0; }
-.maplibregl-ctrl-attrib, .maplibregl-ctrl-attrib.maplibregl-compact { background: rgba(15, 20, 27, 0.8) !important; color: var(--ink-3) !important; font-size: 11px; }
+.maplibregl-ctrl-attrib, .maplibregl-ctrl-attrib.maplibregl-compact { background: rgba(12, 10, 32, 0.8) !important; color: var(--ink-3) !important; font-size: 11px; }
 .maplibregl-ctrl-attrib-inner { color: var(--ink-3); }
 .maplibregl-ctrl-attrib a { color: var(--ink-2) !important; }
 .maplibregl-ctrl-attrib-button { filter: invert(1); }
@@ -122,7 +124,7 @@ h1 .t-sub { display: block; font-size: 14px; font-weight: 400; color: var(--ink-
 .close { position: absolute; top: 6px; right: 8px; background: none; border: 0; font-size: 22px; line-height: 1; color: var(--ink-2); padding: 4px 6px; }
 
 /* about */
-.about { left: 50%; top: 50%; transform: translate(-50%, -50%); width: min(560px, calc(100% - 2 * var(--gutter))); max-height: calc(100% - 2 * var(--gutter)); overflow: auto; padding: 18px 20px; z-index: 5; background: rgba(15, 20, 27, 0.96); }
+.about { left: 50%; top: 50%; transform: translate(-50%, -50%); width: min(560px, calc(100% - 2 * var(--gutter))); max-height: calc(100% - 2 * var(--gutter)); overflow: auto; padding: 18px 20px; z-index: 5; background: rgba(12, 10, 32, 0.96); }
 .about h3 { margin: 0 0 6px; font-size: 15px; }
 .about h3:not(:first-child) { margin-top: 16px; }
 .about p, .about li { font-size: 13px; line-height: 1.65; color: var(--ink-2); }
@@ -163,3 +165,11 @@ h1 .t-sub { display: block; font-size: 14px; font-weight: 400; color: var(--ink-
 @media (max-width: 720px) and (max-height: 600px) {
   .pair { display: none; }
 }
+
+/* thin spectrum line along the top of the title panel, from the Mapterhorn logo colours (as in Day 11) */
+.title-panel { overflow: hidden; }
+.title-panel::before { content: ""; position: absolute; left: 0; right: 0; top: 0; height: 3px; background: var(--spectrum); }
+.count-head b { background: linear-gradient(90deg, #ffffff, #d9c8ff); -webkit-background-clip: text; background-clip: text; color: transparent; }
+.lang button[aria-pressed="true"] { background: rgba(127, 6, 255, 0.45); }
+.hub[aria-pressed="true"] circle { fill: rgba(127, 6, 255, 0.28); }
+.wheel-panel { box-shadow: 0 0 24px rgba(127, 6, 255, 0.18); }

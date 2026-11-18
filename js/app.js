@@ -3,9 +3,10 @@
 
   // order around the wheel, clockwise from the top
   var CATS = ['flower', 'green', 'water', 'smoke', 'other', 'food'];
+  // palette taken from the Mapterhorn logo, as in Day 11
   var COLORS = {
-    flower: '#ff8fc6', green: '#7ccf6a', water: '#4fb0ff',
-    smoke: '#d6cfc2', other: '#a98bff', food: '#ffb547'
+    flower: '#ff008f', green: '#c1ff00', water: '#03d8a0',
+    smoke: '#bf01ff', other: '#d9c8ff', food: '#ff7b00'
   };
   var MONTHS_EN = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
   var DAY11 = 'https://shinyanakashima.github.io/30daymapchallenge-2026day11-100soundscapes/';
@@ -167,6 +168,7 @@
       version: 8,
       sources: {
         land: { type: 'geojson', data: 'data/japan-land.geojson' },
+        seamask: { type: 'geojson', data: 'data/japan-sea-mask.geojson' },
         gsi: {
           type: 'raster',
           tiles: ['https://cyberjapandata.gsi.go.jp/xyz/blank/{z}/{x}/{y}.png'],
@@ -174,18 +176,18 @@
         }
       },
       layers: [
-        { id: 'bg', type: 'background', paint: { 'background-color': '#0f141b' } },
-        { id: 'land', type: 'fill', source: 'land', paint: { 'fill-color': '#262c35', 'fill-opacity': ['interpolate', ['linear'], ['zoom'], 5, 1, 6, 0] } },
+        { id: 'bg', type: 'background', paint: { 'background-color': '#0a0919' } },
+        { id: 'land', type: 'fill', source: 'land', paint: { 'fill-color': '#1f1b42', 'fill-outline-color': '#2f2a5e' } },
         {
           id: 'gsi', type: 'raster', source: 'gsi', minzoom: 5,
           paint: {
-            'raster-opacity': ['interpolate', ['linear'], ['zoom'], 5, 0, 6, 1],
-            'raster-brightness-max': 0.16,
-            'raster-brightness-min': 0.04,
-            'raster-saturation': -1,
-            'raster-contrast': 0
+            // light overlay on the indigo land: keeps prefecture lines and labels faintly visible
+            'raster-opacity': ['interpolate', ['linear'], ['zoom'], 5, 0, 6, 0.07, 9, 0.1],
+            'raster-saturation': -1
           }
-        }
+        },
+        // the blank-map tiles paint the sea white too, so cover everything outside the land outline
+        { id: 'seamask', type: 'fill', source: 'seamask', minzoom: 5, paint: { 'fill-color': '#0a0919', 'fill-antialias': false } }
       ]
     },
     bounds: [[122.6, 24.0], [146.2, 45.6]],

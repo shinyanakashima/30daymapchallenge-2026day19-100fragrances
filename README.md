@@ -71,7 +71,7 @@ Rules for mixed entries: the main kind is the scent the title puts first (e.g. N
 | `months_estimated` | `true` if the months were read from words such as “spring” or “autumn” |
 | `description_ja` / `description_en` | Short description written for this map (1–2 sentences) |
 
-`data/japan-land.geojson` is the land outline of Japan extracted from Natural Earth 1:10m countries (same file as Day 11).
+`data/japan-land.geojson` is the land outline of Japan extracted from Natural Earth 1:10m countries, and `data/japan-sea-mask.geojson` is its inverse, used to keep the blank-map tiles on land only (same files as Day 11).
 
 ### How the data was made
 
@@ -98,6 +98,7 @@ Rules for mixed entries: the main kind is the scent the title puts first (e.g. N
 - Base map: Natural Earth (public domain), via world-atlas 2.0.2. https://www.naturalearthdata.com/
 - Coordinates checked with the GSI address search and reverse geocoder; a few sites located with © OpenStreetMap contributors.
 - Map library: MapLibre GL JS 4.7.1
+- Colour palette: taken from the [Mapterhorn](https://mapterhorn.com/) logo, as in Day 11
 
 ---
 
@@ -145,6 +146,7 @@ Day 11「[日本の音風景100選 音の暦](https://shinyanakashima.github.io/
 
 - 環境省「かおり風景100選」（一覧表・各地点の紹介ページ）、報道発表資料「かおり風景１００選の選定について」（2001年10月30日）
 - 背景地図：地理院タイル（白地図）、Natural Earth
+- 配色：[Mapterhorn](https://mapterhorn.com/) のロゴの色（Day 11 と共通）
 
 ## License
 
