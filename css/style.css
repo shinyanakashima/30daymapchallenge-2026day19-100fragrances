@@ -79,7 +79,7 @@ h1 .t-sub { display: inline; font-size: 14px; font-weight: 400; color: var(--ink
 
 /* wheel (bottom-right) */
 .wheel-panel {
-  right: var(--gutter); bottom: 28px; width: 300px; padding: 6px 6px 8px; text-align: center;
+  right: var(--gutter); bottom: 26px; width: 340px; padding: 4px 4px 8px; text-align: center;
   background: radial-gradient(closest-side, rgba(12, 10, 32, 0.9) 70%, rgba(12, 10, 32, 0) 100%);
   border: 0; border-radius: 50%; backdrop-filter: none; -webkit-backdrop-filter: none;
 }
@@ -103,13 +103,33 @@ h1 .t-sub { display: inline; font-size: 14px; font-weight: 400; color: var(--ink
 .hub text { pointer-events: none; }
 .hub .hn { fill: var(--ink); font-size: 24px; font-weight: 700; font-variant-numeric: tabular-nums; }
 .hub .hl { fill: var(--ink-2); font-size: 10.5px; font-weight: 600; letter-spacing: 0.02em; }
+.hub .hm { fill: var(--ink-2); font-size: 10.5px; letter-spacing: 0.04em; }
+/* dots for each place along the rim */
+.pdot { fill: rgba(255, 255, 255, 0.7); cursor: pointer; transition: opacity 0.3s, r 0.15s; }
+.pdot:hover { r: 4; fill: #fff; }
+.pdot.off { opacity: 0.12; }
+/* month ring */
+.mon { cursor: pointer; outline: none; }
+.mon path { fill: rgba(160, 130, 255, 0.08); stroke: rgba(160, 130, 255, 0.16); stroke-width: 0.8; transition: fill 0.25s; }
+.mon text { fill: var(--ink-3); font-size: 10px; font-weight: 600; pointer-events: none; }
+.mon:hover path { fill: rgba(160, 130, 255, 0.2); }
+.mon:hover text { fill: var(--ink); }
+.mon.on path { fill: rgba(127, 6, 255, 0.55); stroke: rgba(220, 200, 255, 0.7); }
+.mon.on text { fill: #fff; }
+.mon:focus-visible path { stroke: var(--accent); stroke-width: 1.5; }
+/* name tag on hover */
+.name-tag .maplibregl-popup-content { background: rgba(12, 10, 32, 0.92); color: var(--ink); border: 1px solid var(--panel-line); border-radius: 8px; padding: 5px 10px; font-size: 12.5px; box-shadow: 0 0 18px rgba(127, 6, 255, 0.25); pointer-events: none; display: flex; align-items: center; gap: 7px; }
+.name-tag .maplibregl-popup-tip { display: none; }
+.name-tag { pointer-events: none; }
+.name-tag .dot { width: 8px; height: 8px; flex: none; }
+.card-months span.cur { outline: 1.5px solid var(--ink); outline-offset: -1.5px; }
 .wheel-hint { margin: 0 auto; max-width: 260px; min-height: 16px; font-size: 11.5px; line-height: 1.4; color: var(--ink-3); transition: color 0.3s; }
 .wheel-hint.on { color: var(--ink-2); }
 
 .lang button:focus-visible, .about-btn:focus-visible, .close:focus-visible, .pair:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
 
 /* card */
-.card { top: calc(var(--hd-h) + 12px); right: 58px; width: 330px; max-height: calc(100% - var(--hd-h) - 360px); overflow: auto; padding: 14px 16px 14px; }
+.card { top: calc(var(--hd-h) + 12px); right: 58px; width: 330px; max-height: calc(100% - var(--hd-h) - 400px); overflow: auto; padding: 14px 16px 14px; }
 .card h2 { margin: 4px 26px 2px 0; font-size: 17px; line-height: 1.35; }
 .card-alt { font-size: 12.5px; color: var(--ink-3); }
 .card-cat { font-size: 11.5px; letter-spacing: 0.04em; display: flex; flex-wrap: wrap; align-items: center; gap: 6px; color: var(--ink-2); }
@@ -137,7 +157,7 @@ h1 .t-sub { display: inline; font-size: 14px; font-weight: 400; color: var(--ink
 
 /* shorter desktop windows */
 @media (min-width: 721px) and (max-height: 760px) {
-  .card { max-height: calc(100% - var(--hd-h) - 330px); }
+  .card { max-height: calc(100% - var(--hd-h) - 370px); }
 }
 
 /* phone */
@@ -156,7 +176,7 @@ h1 .t-sub { display: inline; font-size: 14px; font-weight: 400; color: var(--ink
   .about-btn { font-size: 11.5px; flex: none; }
   .lang { flex: none; }
   .lang button { padding: 3px 7px; font-size: 11.5px; }
-  .wheel-panel { right: auto; left: 50%; transform: translateX(-50%); bottom: 30px; width: 224px; padding: 2px 2px 4px; }
+  .wheel-panel { right: auto; left: 50%; transform: translateX(-50%); bottom: 26px; width: 260px; padding: 2px 2px 4px; }
   .wheel-hint { font-size: 11px; max-width: 220px; }
   .seg text { font-size: 12.5px; }
   .card { left: var(--gutter); right: var(--gutter); top: auto; bottom: 34px; width: auto; max-height: 52%; z-index: 4; }

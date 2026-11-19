@@ -42,6 +42,10 @@
         food: 'crackers, tea, sake, soy sauce, eel'
       },
       hubAll: 'all scents',
+      monthName: function (m) { return ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'][m - 1]; },
+      monthTick: function (m) { return MONTHS_EN[m - 1].charAt(0); },
+      monthHint: function (m, n) { return 'Scents of ' + ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'][m - 1] + ': ' + n + ' places'; },
+      monthLabel: 'Month',
       also: 'also',
       season: 'Season',
       allYear: 'All year',
@@ -79,7 +83,8 @@
         '<li>Base map: land outline from <a href="https://www.naturalearthdata.com/" target="_blank" rel="noopener">Natural Earth</a>; detail from <a href="https://maps.gsi.go.jp/development/ichiran.html" target="_blank" rel="noopener">GSI Tiles (blank map)</a>, Geospatial Information Authority of Japan.</li>' +
         '</ul>' +
         '<p>#30DayMapChallenge 2026 · Day 19 · Senses: Smell · <a href="https://github.com/shinyanakashima/30daymapchallenge-2026day19-100fragrances" target="_blank" rel="noopener">Data &amp; code</a></p>' +
-        '<p>Keyboard: ← / → move around the wheel, 0 shows all, Esc closes.</p>'
+        '<p>The outer ring of the wheel picks a month: only the scents of that month stay lit. Hover a name tag or a dot on the wheel to find a place.</p>' +
+        '<p>Keyboard: ← / → move around the wheel, ↑ / ↓ change the month, 0 shows all, Esc closes.</p>'
     },
     ja: {
       title: '日本のかおり風景100選',
@@ -110,6 +115,10 @@
         food: 'せんべい・茶・酒・醤油・うなぎ'
       },
       hubAll: 'すべて',
+      monthName: function (m) { return m + '月'; },
+      monthTick: function (m) { return String(m); },
+      monthHint: function (m, n) { return m + '月にかおる場所 ' + n + '件'; },
+      monthLabel: '月',
       also: 'ほかに',
       season: '季節',
       allYear: '一年中',
@@ -147,7 +156,8 @@
         '<li>背景地図：陸域の輪郭 <a href="https://www.naturalearthdata.com/" target="_blank" rel="noopener">Natural Earth</a>、詳細 <a href="https://maps.gsi.go.jp/development/ichiran.html" target="_blank" rel="noopener">地理院タイル（白地図）</a>（国土地理院）</li>' +
         '</ul>' +
         '<p>#30DayMapChallenge 2026・Day 19・Senses: Smell・<a href="https://github.com/shinyanakashima/30daymapchallenge-2026day19-100fragrances" target="_blank" rel="noopener">データとコード</a></p>' +
-        '<p>キーボード：← / → で輪を回る、0 ですべて、Esc で閉じる。</p>'
+        '<p>輪の外周で月を選ぶと、その月にかおる場所だけが残ります。輪の縁の点にマウスを乗せると、その場所が地図に示されます。</p>' +
+        '<p>キーボード：← / → で輪を回る、↑ / ↓ で月を変える、0 ですべて、Esc で閉じる。</p>'
     }
   };
 
@@ -165,13 +175,15 @@
 
   // ---------- state ----------
   var params = new URLSearchParams(location.search);
-  var state = { lang: 'en', focus: null, preview: null, selected: null };
+  var state = { lang: 'en', focus: null, preview: null, month: null, selected: null };
   try {
     var saved = localStorage.getItem('fragrances-lang');
     if (saved === 'ja' || saved === 'en') state.lang = saved;
   } catch (e) { /* storage unavailable */ }
   if (params.get('lang') === 'ja' || params.get('lang') === 'en') state.lang = params.get('lang');
   if (CATS.indexOf(params.get('scent')) >= 0) state.focus = params.get('scent');
+  var pm = parseInt(params.get('month'), 10);
+  if (pm >= 1 && pm <= 12) state.month = pm;
 
   var reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)');
   var items = [];
@@ -228,8 +240,8 @@
 
   function fitPadding() {
     var w = window.innerWidth;
-    if (w <= 720) return { top: 90, bottom: 250, left: 20, right: 20 };
-    return { top: 84, bottom: 30, left: 60, right: 300 };
+    if (w <= 720) return { top: 90, bottom: 290, left: 20, right: 20 };
+    return { top: 84, bottom: 30, left: 60, right: 340 };
   }
 
   function catColor() {
@@ -239,6 +251,20 @@
   // feature-state "f": 2 = the scent in focus, 1 = no focus, 0 = faded
   var F = ['coalesce', ['feature-state', 'f'], 1];
   var SEL = ['boolean', ['feature-state', 'sel'], false];
+  var HL = ['boolean', ['feature-state', 'hl'], false];
+  // opacity of a haze layer; th (latitude) is used while the hazes first rise, north to south
+  function hazeOpacity(a2, a1, a0, th) {
+    var base = ['match', F, 2, a2, 1, a1, a0];
+    if (th == null) return base;
+    return ['*', ['min', 1, ['max', 0, ['/', ['-', ['get', 'lat'], th], 2.5]]], base];
+  }
+  var OP = { 'haze-wide': [0.36, 0.26, 0.03], 'haze-drift': [0.28, 0.2, 0.025], 'haze-core': [0.55, 0.36, 0.04] };
+  function setReveal(th) {
+    Object.keys(OP).forEach(function (id) {
+      var o = OP[id];
+      map.setPaintProperty(id, 'circle-opacity', hazeOpacity(o[0], o[1], o[2], th));
+    });
+  }
 
   // haze radius at each zoom; B is the breathing factor (an expression)
   function hazeRadius(scale, B) {
@@ -268,7 +294,7 @@
             return {
               type: 'Feature', id: it.id,
               // per-point phases so the hazes do not breathe in step
-              properties: { id: it.id, category: it.category, p1: (it.id * 2.39996) % 6.2832, p2: (it.id * 1.3) % 6.2832 },
+              properties: { id: it.id, category: it.category, lat: it.lat, p1: (it.id * 2.39996) % 6.2832, p2: (it.id * 1.3) % 6.2832 },
               geometry: { type: 'Point', coordinates: [it.lon, it.lat] }
             };
           })
@@ -281,7 +307,7 @@
             'circle-radius': hazeRadius(1, 1),
             'circle-color': catColor(),
             'circle-blur': 1,
-            'circle-opacity': ['match', F, 2, 0.36, 1, 0.26, 0.03],
+            'circle-opacity': hazeOpacity(0.36, 0.26, 0.03, introOn() ? 47 : null),
             'circle-pitch-alignment': 'map'
           }
         });
@@ -291,7 +317,7 @@
             'circle-radius': hazeRadius(0.7, 1),
             'circle-color': catColor(),
             'circle-blur': 1,
-            'circle-opacity': ['match', F, 2, 0.28, 1, 0.2, 0.025],
+            'circle-opacity': hazeOpacity(0.28, 0.2, 0.025, introOn() ? 47 : null),
             'circle-translate': [0, 0]
           }
         });
@@ -301,7 +327,7 @@
             'circle-radius': hazeRadius(0.26, 1),
             'circle-color': catColor(),
             'circle-blur': 0.9,
-            'circle-opacity': ['match', F, 2, 0.55, 1, 0.36, 0.04]
+            'circle-opacity': hazeOpacity(0.55, 0.36, 0.04, introOn() ? 47 : null)
           }
         });
         map.addLayer({
@@ -311,7 +337,7 @@
             'circle-color': 'rgba(0,0,0,0)',
             'circle-stroke-color': '#ffffff',
             'circle-stroke-width': 1.5,
-            'circle-stroke-opacity': ['case', SEL, 0.9, 0]
+            'circle-stroke-opacity': ['case', SEL, 0.9, HL, 0.55, 0]
           }
         });
         // invisible target for clicks
@@ -339,9 +365,18 @@
           select(best ? best.id : null);
         });
         map.on('mousemove', function (e) {
-          var hits = map.queryRenderedFeatures([[e.point.x - 8, e.point.y - 8], [e.point.x + 8, e.point.y + 8]], { layers: ['hit'] });
+          var hits = map.queryRenderedFeatures([[e.point.x - 10, e.point.y - 10], [e.point.x + 10, e.point.y + 10]], { layers: ['hit'] });
           map.getCanvas().style.cursor = hits.length ? 'pointer' : '';
+          var best = null, bd = Infinity;
+          hits.forEach(function (f) {
+            var it = byId[f.properties.id];
+            var q = map.project([it.lon, it.lat]);
+            var d = Math.hypot(q.x - e.point.x, q.y - e.point.y) + (isLit(it) ? 0 : 1000);
+            if (d < bd) { bd = d; best = it; }
+          });
+          hoverPlace(best ? best.id : null);
         });
+        map.getCanvas().addEventListener('mouseleave', function () { hoverPlace(null); });
 
         if (window.innerWidth <= 720) {
           var attrib = document.querySelector('.maplibregl-ctrl-attrib');
@@ -349,14 +384,43 @@
         }
         buildWheel();
         applyFocus();
+        if (introOn()) introStart = performance.now();
         startAnimation();
       });
   });
 
+  // ---------- name tag on hover ----------
+  var tag = new maplibregl.Popup({ closeButton: false, closeOnClick: false, offset: 14, className: 'name-tag', maxWidth: '260px' });
+  var hovered = null;
+  function hoverPlace(id) {
+    if (hovered === id) return;
+    if (hovered && map.getSource('pts')) map.setFeatureState({ source: 'pts', id: hovered }, { hl: false });
+    hovered = id;
+    if (!id) { tag.remove(); return; }
+    var it = byId[id];
+    map.setFeatureState({ source: 'pts', id: id }, { hl: true });
+    tag.setLngLat([it.lon, it.lat])
+      .setHTML('<i class="dot" style="background:' + COLORS[it.category] + ';color:' + COLORS[it.category] + '"></i>' +
+        esc(state.lang === 'ja' ? it.name_ja : it.name_en))
+      .addTo(map);
+  }
+  function isLit(it) {
+    var f = state.preview || state.focus;
+    return (!f || it.category === f) && (!state.month || it.months.indexOf(state.month) >= 0);
+  }
+
   // ---------- focus ----------
+  function clearAll() {
+    state.focus = null; state.month = null; state.preview = null;
+    applyFocus();
+  }
   function setFocus(c) {
     state.focus = (c && c !== state.focus) ? c : null;
     state.preview = null;
+    applyFocus();
+  }
+  function setMonth(m) {
+    state.month = (m && m !== state.month) ? m : null;
     applyFocus();
   }
   // hovering a part of the wheel shows its places on the map before it is chosen
@@ -368,23 +432,36 @@
   function paintFocus() {
     var t = T[state.lang];
     var f = state.preview || state.focus;
+    var any = !!f || !!state.month;
+    var n = 0;
     items.forEach(function (it) {
-      var v = !f ? 1 : (it.category === f ? 2 : 0);
+      var lit = isLit(it);
+      if (lit) n++;
+      var v = !any ? 1 : (lit ? 2 : 0);
       if (map.getSource('pts')) map.setFeatureState({ source: 'pts', id: it.id }, { f: v });
+    });
+    Array.prototype.forEach.call(document.querySelectorAll('#wheel .pdot'), function (d) {
+      d.classList.toggle('off', !isLit(byId[+d.getAttribute('data-id')]));
+    });
+    Array.prototype.forEach.call(document.querySelectorAll('#wheel .mon'), function (g) {
+      var m = +g.getAttribute('data-m');
+      g.classList.toggle('on', state.month === m);
+      g.setAttribute('aria-pressed', state.month === m ? 'true' : 'false');
     });
     Array.prototype.forEach.call(document.querySelectorAll('#wheel .seg'), function (g) {
       var c = g.getAttribute('data-cat');
       g.classList.toggle('dim', !!f && f !== c);
       g.classList.toggle('lit', f === c);
     });
-    var hn = document.querySelector('#wheel .hub .hn'), hl = document.querySelector('#wheel .hub .hl');
+    var hn = document.querySelector('#wheel .hub .hn'), hl = document.querySelector('#wheel .hub .hl'), hm = document.querySelector('#wheel .hub .hm');
     if (hn) {
-      hn.textContent = f ? (counts[f] || 0) : items.length;
+      hn.textContent = n;
       hl.textContent = f ? t.cat[f] : t.hubAll;
       hl.setAttribute('style', f ? 'fill:' + COLORS[f] : '');
+      hm.textContent = state.month ? t.monthName(state.month) : '';
     }
-    $('wheelHint').textContent = f ? t.catNote[f] : t.wheelHint;
-    $('wheelHint').classList.toggle('on', !!f);
+    $('wheelHint').textContent = f ? t.catNote[f] : (state.month ? t.monthHint(state.month, n) : t.wheelHint);
+    $('wheelHint').classList.toggle('on', any);
   }
   function applyFocus() {
     var t = T[state.lang];
@@ -393,12 +470,15 @@
       g.setAttribute('aria-pressed', state.focus === g.getAttribute('data-cat') ? 'true' : 'false');
     });
     var hub = document.querySelector('#wheel .hub');
-    if (hub) hub.setAttribute('aria-pressed', state.focus ? 'false' : 'true');
+    if (hub) hub.setAttribute('aria-pressed', (state.focus || state.month) ? 'false' : 'true');
     try {
       var u = new URL(location.href);
       if (state.focus) u.searchParams.set('scent', state.focus); else u.searchParams.delete('scent');
+      if (state.month) u.searchParams.set('month', state.month); else u.searchParams.delete('month');
       history.replaceState(null, '', u.toString());
     } catch (e) { /* ignore */ }
+    if (state.selected) renderCard();
+    if (hovered) { var h = hovered; hovered = null; hoverPlace(h); }
     if (reduceMotion && reduceMotion.matches) drawStatic();
   }
 
@@ -453,18 +533,27 @@
       var title = el('title', {}, g);
       title.textContent = t.cat[c] + ': ' + (counts[c] || 0);
       g.setAttribute('aria-label', t.cat[c] + ', ' + (counts[c] || 0));
-      var p = polar(88, mid);
+      var p = polar(narrow ? 84 : 88, mid);
       var lines = narrow ? [t.catShort[c]] : t.catWheel[c];
       var lh = narrow ? 17 : 13;
       var y0 = p[1] - (lines.length - 1) * lh / 2 - (narrow ? 2 : 4);
       lines.forEach(function (str, k) {
         var tx = el('text', { x: p[0].toFixed(1), y: (y0 + k * lh).toFixed(1), 'text-anchor': 'middle' }, g);
-        if (narrow) tx.setAttribute('style', 'font-size:' + (state.lang === 'ja' ? 19 : 17) + 'px');
+        if (narrow) tx.setAttribute('style', 'font-size:' + (state.lang === 'ja' ? 17 : 16) + 'px');
         tx.textContent = str;
       });
       var tn = el('text', { 'class': 'n', x: p[0].toFixed(1), y: (y0 + lines.length * lh - (narrow ? 2 : 0)).toFixed(1), 'text-anchor': 'middle' }, g);
       if (narrow) tn.setAttribute('style', 'font-size:14px');
       tn.textContent = counts[c] || 0;
+      // one dot per place along the rim, north to south
+      var mine = items.filter(function (it) { return it.category === c; }).sort(function (x, y) { return y.lat - x.lat; });
+      mine.forEach(function (it, k) {
+        var q = polar(R1 - 12, a0 + (k + 0.5) * (a1 - a0) / mine.length);
+        var d = el('circle', { 'class': 'pdot', 'data-id': it.id, cx: q[0].toFixed(1), cy: q[1].toFixed(1), r: narrow ? 2.6 : 2.1 }, g);
+        d.addEventListener('mouseenter', function () { hoverPlace(it.id); });
+        d.addEventListener('mouseleave', function () { hoverPlace(null); });
+        d.addEventListener('click', function (e) { e.stopPropagation(); select(it.id); });
+      });
       g.addEventListener('click', function () { setFocus(c); });
       g.addEventListener('mouseenter', function () { setPreview(c); });
       g.addEventListener('mouseleave', function () { setPreview(null); });
@@ -480,10 +569,29 @@
     if (narrow) hn.setAttribute('style', 'font-size:26px');
     var hl = el('text', { 'class': 'hl', y: narrow ? 26 : 20, 'text-anchor': 'middle' }, hub);
     if (narrow) hl.setAttribute('style', 'font-size:13px');
-    hub.addEventListener('click', function () { setFocus(null); });
+    var hm = el('text', { 'class': 'hm', y: narrow ? -24 : -22, 'text-anchor': 'middle' }, hub);
+    if (narrow) hm.setAttribute('style', 'font-size:13px');
+    hub.addEventListener('click', clearAll);
     hub.addEventListener('keydown', function (e) {
-      if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); setFocus(null); }
+      if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); clearAll(); }
     });
+    // month ring around the wheel
+    var MR0 = 134, MR1 = 156;
+    for (var m = 1; m <= 12; m++) {
+      (function (m) {
+        var a0 = (m - 1) * 30 - 15 + 1.2, a1 = (m - 1) * 30 + 15 - 1.2;
+        var g = el('g', { 'class': 'mon', 'data-m': m, role: 'button', tabindex: '0', 'aria-pressed': 'false', 'aria-label': t.monthLabel + ' ' + t.monthName(m) }, svg);
+        el('path', { d: arcPath(MR0, MR1, a0, a1) }, g);
+        var q = polar((MR0 + MR1) / 2, (m - 1) * 30);
+        var tx = el('text', { x: q[0].toFixed(1), y: (q[1] + (narrow ? 5 : 3.6)).toFixed(1), 'text-anchor': 'middle' }, g);
+        if (narrow) tx.setAttribute('style', 'font-size:14px');
+        tx.textContent = t.monthTick(m);
+        g.addEventListener('click', function () { setMonth(m); });
+        g.addEventListener('keydown', function (e) {
+          if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); setMonth(m); }
+        });
+      })(m);
+    }
   }
 
   // ---------- keyboard ----------
@@ -494,7 +602,9 @@
     var i = state.focus ? CATS.indexOf(state.focus) : -1;
     if (e.key === 'ArrowRight') { setFocus(CATS[(i + 1) % CATS.length]); e.preventDefault(); }
     else if (e.key === 'ArrowLeft') { setFocus(CATS[(i - 1 + CATS.length) % CATS.length]); e.preventDefault(); }
-    else if (e.key === '0') { setFocus(null); }
+    else if (e.key === 'ArrowDown') { state.month = state.month ? state.month % 12 + 1 : 1; applyFocus(); e.preventDefault(); }
+    else if (e.key === 'ArrowUp') { state.month = state.month ? (state.month + 10) % 12 + 1 : 12; applyFocus(); e.preventDefault(); }
+    else if (e.key === '0') { clearAll(); }
   });
 
   // ---------- card ----------
@@ -529,7 +639,7 @@
     var cells = '';
     for (var m = 1; m <= 12; m++) {
       var on = it.months.indexOf(m) >= 0;
-      cells += '<span class="' + (on ? 'on' : '') + '"' + (on ? ' style="background:' + col + '"' : '') + '>' +
+      cells += '<span class="' + (on ? 'on' : '') + (m === state.month ? ' cur' : '') + '"' + (on ? ' style="background:' + col + '"' : '') + '>' +
         (ja ? m : MONTHS_EN[m - 1].charAt(0)) + '</span>';
     }
     $('cardMonths').innerHTML = cells;
@@ -603,6 +713,8 @@
   // The hazes slowly breathe and the middle layer drifts a little, like a scent on a light wind.
   var rafId = null;
   var lastDraw = 0;
+  var INTRO_MS = 3600, introStart = null, introDone = false;
+  function introOn() { return !introDone && !(reduceMotion && reduceMotion.matches); }
   function drawHaze(t, drift) {
     if (!map.getLayer('haze-wide')) return;
     map.setPaintProperty('haze-wide', 'circle-radius', hazeRadius(1, breath(t, 0.13, 0.55, 'p1')));
@@ -611,6 +723,13 @@
     map.setPaintProperty('haze-drift', 'circle-translate', drift);
   }
   function frame(ts) {
+    if (introStart != null && !introDone) {
+      // hazes rise one after another from Hokkaido down to Okinawa
+      var k = Math.min(1, (ts - introStart) / INTRO_MS);
+      var e = 1 - Math.pow(1 - k, 2);
+      setReveal(47 - e * 27);
+      if (k >= 1) { introDone = true; setReveal(null); }
+    }
     if (ts - lastDraw > 50) {
       var t = ts / 1000;
       drawHaze(t, [Math.sin(t * 0.21) * 5 + 2, Math.cos(t * 0.17) * 3 - 1]);
@@ -620,6 +739,7 @@
   }
   function drawStatic() {
     if (!map.getLayer('haze-wide')) return;
+    if (!introDone) { introDone = true; setReveal(null); }
     map.setPaintProperty('haze-wide', 'circle-radius', hazeRadius(1, 1));
     map.setPaintProperty('haze-drift', 'circle-radius', hazeRadius(0.7, 1));
     map.setPaintProperty('haze-core', 'circle-radius', hazeRadius(0.26, 1));
