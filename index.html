@@ -51,6 +51,11 @@
 
 <section id="card" class="panel card" hidden aria-live="polite">
   <button type="button" class="close" id="cardClose" aria-label="Close">×</button>
+  <div class="tour-ctl" id="tourCtl" hidden>
+    <button type="button" id="tourPrev" aria-label="Previous place"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 5h2v14H6zM19 5v14L9 12z"/></svg></button>
+    <button type="button" id="tourPause" aria-pressed="false" aria-label="Pause"><svg viewBox="0 0 24 24" aria-hidden="true" class="i-pause"><path d="M7 5h4v14H7zM13 5h4v14h-4z"/></svg><svg viewBox="0 0 24 24" aria-hidden="true" class="i-play"><path d="M8 5v14l11-7z"/></svg></button>
+    <button type="button" id="tourNext" aria-label="Next place"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M16 5h2v14h-2zM5 5v14l10-7z"/></svg></button>
+  </div>
   <figure class="card-photo" id="cardPhoto" hidden>
     <img id="cardImg" alt="" decoding="async">
     <figcaption id="cardCredit"></figcaption>

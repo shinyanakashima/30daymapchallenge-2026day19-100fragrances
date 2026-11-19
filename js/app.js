@@ -48,7 +48,7 @@
       monthHint: function (m, n) { return 'Scents of ' + ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'][m - 1] + ': ' + n + ' places'; },
       monthLabel: 'Month',
       also: 'also',
-      tour: 'Tour from the south', tourShort: 'Tour', tourStop: 'Stop', tourSpeed: 'Tour speed',
+      tour: 'Tour from the south', tourShort: 'Tour', tourStop: 'Stop', tourSpeed: 'Tour speed', tourPause: 'Pause', tourResume: 'Resume', tourPrev: 'Previous place', tourNext: 'Next place',
       photo: 'Photo',
       season: 'Season',
       allYear: 'All year',
@@ -89,7 +89,7 @@
         '<p>#30DayMapChallenge 2026 · Day 19 · Senses: Smell · <a href="https://github.com/shinyanakashima/30daymapchallenge-2026day19-100fragrances" target="_blank" rel="noopener">Data &amp; code</a></p>' +
         '<p>The map is tilted, and a thin plume of scent rises from each place, swaying as it fades.</p>' +
         '<p>The outer ring of the wheel picks a month: only the scents of that month stay lit. Hover a name tag or a dot on the wheel to find a place.</p>' +
-        '<p>“Tour from the south” visits the places one by one from Okinawa up to Hokkaido (only the scents chosen on the wheel, if any). Drag the map, click a place or press Esc to stop. The ×1 button (or + / −) changes the speed.</p>' +
+        '<p>“Tour from the south” visits the places one by one from Okinawa up to Hokkaido (only the scents chosen on the wheel, if any). Drag the map, click a place or press Esc to stop. The buttons over the photo (or Space) pause and resume, and ×1 (or + / −) changes the speed.</p>' +
         '<p>Keyboard: ← / → move around the wheel (during the tour, previous / next place), ↑ / ↓ change the month, 0 shows all, Esc closes.</p>'
     },
     ja: {
@@ -127,7 +127,7 @@
       monthHint: function (m, n) { return m + '月にかおる場所 ' + n + '件'; },
       monthLabel: '月',
       also: 'ほかに',
-      tour: '南からめぐる', tourShort: 'めぐる', tourStop: '止める', tourSpeed: 'ツアーの速さ',
+      tour: '南からめぐる', tourShort: 'めぐる', tourStop: '止める', tourSpeed: 'ツアーの速さ', tourPause: '一時停止', tourResume: '再開', tourPrev: '前の場所', tourNext: '次の場所',
       photo: '写真',
       season: '季節',
       allYear: '一年中',
@@ -168,7 +168,7 @@
         '<p>#30DayMapChallenge 2026・Day 19・Senses: Smell・<a href="https://github.com/shinyanakashima/30daymapchallenge-2026day19-100fragrances" target="_blank" rel="noopener">データとコード</a></p>' +
         '<p>地図を斜めから見下ろし、各地点からかおりが細く立ちのぼって揺れながら消えていく様子を描いています。</p>' +
         '<p>輪の外周で月を選ぶと、その月にかおる場所だけが残ります。輪の縁の点にマウスを乗せると、その場所が地図に示されます。</p>' +
-        '<p>「南からめぐる」を押すと、沖縄から北海道へ南から順に1か所ずつめぐります（輪で種類や月を選んでいるときは、その場所だけ）。地図をドラッグする、地点を押す、Esc で止まります。×1 のボタン（または ＋ / −）で速さを変えられます。</p>' +
+        '<p>「南からめぐる」を押すと、沖縄から北海道へ南から順に1か所ずつめぐります（輪で種類や月を選んでいるときは、その場所だけ）。地図をドラッグする、地点を押す、Esc で止まります。写真の上のボタン（またはスペース）で一時停止・再開、×1 のボタン（または ＋ / −）で速さを変えられます。</p>' +
         '<p>キーボード：← / → で輪を回る（ツアー中は前後の場所へ）、↑ / ↓ で月を変える、0 ですべて、Esc で閉じる。</p>'
     }
   };
@@ -650,6 +650,7 @@
     var tag = (e.target && e.target.tagName) || '';
     if (e.key === 'Escape') { if (tour.on) { tourStop(); return; } select(null); closeAbout(); return; }
     if (tag === 'INPUT' || tag === 'TEXTAREA') return;
+    if (tour.on && (e.key === ' ' || e.key === 'Spacebar') && tag !== 'BUTTON') { tourPause(!tour.paused); e.preventDefault(); return; }
     if (tour.on && (e.key === '+' || e.key === '=' || e.key === '-')) { nextSpeed(e.key === '-' ? -1 : 1); e.preventDefault(); return; }
     if (tour.on && (e.key === 'ArrowRight' || e.key === 'ArrowLeft')) { tourGo(tour.i + (e.key === 'ArrowRight' ? 1 : -1)); e.preventDefault(); return; }
     var i = state.focus ? CATS.indexOf(state.focus) : -1;
@@ -733,7 +734,7 @@
 
   // ---------- tour ----------
   // Visit the places one by one from the south (Okinawa) to the north (Hokkaido).
-  var tour = { on: false, list: [], i: 0, timer: null };
+  var tour = { on: false, paused: false, list: [], i: 0, timer: null };
   var FLY_MS = 2000, STAY_MS = 3000;
   var SPEEDS = [1, 2, 0.5], speed = 1;
   try { var sv = parseFloat(localStorage.getItem('fragrances-tour-speed')); if (SPEEDS.indexOf(sv) >= 0) speed = sv; } catch (e) { /* ignore */ }
@@ -763,6 +764,22 @@
     sp.textContent = '×' + speed;
     sp.setAttribute('aria-label', t.tourSpeed + ' ×' + speed);
     document.body.classList.toggle('touring', tour.on);
+    $('tourCtl').hidden = !tour.on;
+    var pz = $('tourPause');
+    pz.setAttribute('aria-pressed', tour.paused ? 'true' : 'false');
+    pz.setAttribute('aria-label', tour.paused ? t.tourResume : t.tourPause);
+    $('tourPrev').setAttribute('aria-label', t.tourPrev);
+    $('tourNext').setAttribute('aria-label', t.tourNext);
+  }
+  function tourSchedule(ms) {
+    clearTimeout(tour.timer);
+    if (!tour.paused) tour.timer = setTimeout(function () { tourGo(tour.i + 1); }, ms);
+  }
+  function tourPause(p) {
+    if (!tour.on) return;
+    tour.paused = p;
+    if (p) clearTimeout(tour.timer); else tourSchedule(STAY_MS / speed);
+    tourUI();
   }
   function tourGo(i) {
     if (!tour.on) return;
@@ -778,18 +795,18 @@
     var opts = { center: [it.lon, it.lat], zoom: 7.4, pitch: 55, bearing: camAngles().bearing, padding: tourPadding() };
     var fly = FLY_MS / speed, stay = STAY_MS / speed;
     if (still) map.jumpTo(opts); else map.flyTo(Object.assign({ duration: fly, curve: 1.3 }, opts));
-    tour.timer = setTimeout(function () { tourGo(tour.i + 1); }, (still ? 0 : fly) + stay);
+    tourSchedule((still ? 0 : fly) + stay);
   }
   function tourStart() {
     var list = items.filter(isLit).sort(function (a, b) { return a.lat - b.lat || a.lon - b.lon; });
     if (!list.length) return;
-    tour.on = true; tour.list = list;
+    tour.on = true; tour.paused = false; tour.list = list;
     closeAbout();
     tourGo(0);
   }
   function tourStop(finished) {
     if (!tour.on) return;
-    tour.on = false;
+    tour.on = false; tour.paused = false;
     clearTimeout(tour.timer);
     tourUI();
     if (finished) {
@@ -807,6 +824,9 @@
   }
   $('tourBtn').addEventListener('click', function () { if (tour.on) tourStop(); else tourStart(); });
   $('tourSpeed').addEventListener('click', function () { nextSpeed(0); });
+  $('tourPause').addEventListener('click', function () { tourPause(!tour.paused); });
+  $('tourPrev').addEventListener('click', function () { tourGo(tour.i - 1); });
+  $('tourNext').addEventListener('click', function () { tourGo(tour.i + 1); });
   // dragging or zooming the map by hand ends the tour
   ['dragstart', 'wheel', 'touchstart'].forEach(function (ev) {
     map.on(ev, function (e) { if (tour.on && e.originalEvent) tourStop(); });

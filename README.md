@@ -19,7 +19,7 @@ It is the second half of a pair with Day 11, [The 100 Soundscapes of Japan: a so
 - Each place is a dot on the rim of the wheel, north to south; hover a dot or a haze for a name tag, click for details
 - Click a haze for a photo, its name, place, kind of scent, season and a short description
 - On opening, the hazes rise one after another from Hokkaido down to Okinawa
-- **Tour from the south**: the map flies from Okinawa up to Hokkaido, stopping at each place with its card open (only the scents chosen on the wheel, if any). Drag the map, click a place or press Esc to stop; ← / → move to the previous or next place; the ×1 button (or + / −) switches between ×1, ×2 and ×0.5 speed
+- **Tour from the south**: the map flies from Okinawa up to Hokkaido, stopping at each place with its card open (only the scents chosen on the wheel, if any). Drag the map, click a place or press Esc to stop; ← / → move to the previous or next place; the ×1 button (or + / −) switches between ×1, ×2 and ×0.5 speed; buttons over the photo (or Space) pause, resume and step back or forward
 - English and Japanese (`?lang=ja`); a kind of scent can be set with `?scent=flower` (`green`, `water`, `smoke`, `food`, `other`)
 - Keyboard: ← / → move around the wheel, ↑ / ↓ change the month, 0 shows all, Esc closes
 - The hazes and plumes stop moving, and do not rise on opening, when the device is set to reduce motion
@@ -121,7 +121,7 @@ Day 11「[日本の音風景100選 音の暦](https://shinyanakashima.github.io/
 - 輪の縁の点が各地点（北から南の順）。点や霞にマウスを乗せると名前が出ます
 - 霞をクリックすると、写真、名称、場所、かおりの種類、季節、短い説明を表示
 - 開いたとき、北海道から沖縄へ順に霞が立ちのぼります
-- 「南からめぐる」：沖縄から北海道へ、南から順に1か所ずつ地図が寄り、カードを開きます（輪で種類や月を選んでいるときはその場所だけ）。地図をドラッグする、地点を押す、Esc で止まり、← / → で前後の場所へ移ります。×1 のボタン（または ＋ / −）で ×1・×2・×0.5 に切り替えられます
+- 「南からめぐる」：沖縄から北海道へ、南から順に1か所ずつ地図が寄り、カードを開きます（輪で種類や月を選んでいるときはその場所だけ）。地図をドラッグする、地点を押す、Esc で止まり、← / → で前後の場所へ移ります。×1 のボタン（または ＋ / −）で ×1・×2・×0.5 に切り替えられます。写真の上のボタン（またはスペース）で一時停止・再開・前後の移動ができます
 - 英語と日本語の切り替え（`?lang=ja`）
 - 「動きを減らす」設定の端末では霞の揺らぎ・煙の動き・開いたときの立ちのぼりを止めます
 

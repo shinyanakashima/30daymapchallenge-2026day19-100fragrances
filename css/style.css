@@ -154,6 +154,18 @@ h1 .t-sub { display: inline; font-size: 14px; font-weight: 400; color: var(--ink
 @media (max-width: 720px) {
   .card-photo img { height: 130px; }
 }
+/* tour controls over the photo */
+.tour-ctl { position: absolute; top: 8px; left: 8px; z-index: 2; display: flex; gap: 2px; padding: 3px; border-radius: 999px; background: rgba(10, 9, 25, 0.75); border: 1px solid rgba(220, 200, 255, 0.25); backdrop-filter: blur(4px); -webkit-backdrop-filter: blur(4px); }
+.tour-ctl[hidden] { display: none; }
+.tour-ctl button { width: 30px; height: 30px; display: grid; place-items: center; background: none; border: 0; border-radius: 50%; color: #fff; padding: 0; }
+.tour-ctl button:hover { background: rgba(127, 6, 255, 0.45); }
+.tour-ctl button:focus-visible { outline: 2px solid var(--accent); outline-offset: 1px; }
+.tour-ctl svg { width: 15px; height: 15px; fill: currentColor; }
+.tour-ctl .i-play { display: none; }
+.tour-ctl #tourPause[aria-pressed="true"] .i-pause { display: none; }
+.tour-ctl #tourPause[aria-pressed="true"] .i-play { display: block; }
+.tour-ctl #tourPause[aria-pressed="true"] { background: rgba(127, 6, 255, 0.6); }
+.card:has(.tour-ctl:not([hidden])):has(.card-photo[hidden]) { padding-top: 50px; }
 .card-months span.cur { outline: 1.5px solid var(--ink); outline-offset: -1.5px; }
 .wheel-hint { margin: 0 auto; max-width: 260px; min-height: 16px; font-size: 11.5px; line-height: 1.4; color: var(--ink-3); transition: color 0.3s; }
 .wheel-hint.on { color: var(--ink-2); }
