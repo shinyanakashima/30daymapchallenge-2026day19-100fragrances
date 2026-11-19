@@ -14,7 +14,7 @@ This map places the 100 scents as soft, drifting hazes coloured by the kind of s
 
 It is the second half of a pair with Day 11, [The 100 Soundscapes of Japan: a sound calendar](https://shinyanakashima.github.io/30daymapchallenge-2026day11-100soundscapes/). Day 11 shows sounds by *when* you can hear them; this map shows scents by *what* they smell of.
 
-- Scent wheel with six kinds of scent, each part sized by its count; hover a part to see its places, click to keep them. The counts are also listed in the bottom-left corner
+- Scent wheel with six kinds of scent, each part sized by its count; hover a part to see its places, click to keep them. The wheel in the corner also gives the count for each kind
 - Click a haze for its name, place, kind of scent, season and a short description
 - English and Japanese (`?lang=ja`); a kind of scent can be set with `?scent=flower` (`green`, `water`, `smoke`, `food`, `other`)
 - Keyboard: ← / → move around the wheel, 0 shows all, Esc closes
@@ -109,7 +109,7 @@ Rules for mixed entries: the main kind is the scent the title puts first (e.g. N
 
 Day 11「[日本の音風景100選 音の暦](https://shinyanakashima.github.io/30daymapchallenge-2026day11-100soundscapes/?lang=ja)」と対になる2部作の後編です。Day 11 は音を「いつ聞けるか」で、この地図はかおりを「どんなかおりか」で見せます。
 
-- 6つのかおりの種類を選べる輪（各区画の大きさは件数に比例）。マウスを乗せるとその場所が浮かび、クリックで固定。種類ごとの件数は左下にも表示
+- 6つのかおりの種類を選べる輪（各区画の大きさは件数に比例）。マウスを乗せるとその場所が浮かび、クリックで固定。種類ごとの件数も輪に表示
 - 霞をクリックすると、名称、場所、かおりの種類、季節、短い説明を表示
 - 英語と日本語の切り替え（`?lang=ja`）
 - 「動きを減らす」設定の端末では霞の揺らぎを止めます

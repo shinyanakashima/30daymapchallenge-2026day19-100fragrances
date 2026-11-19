@@ -20,7 +20,6 @@
       pairKicker: 'Part 2 of a pair · Day 11',
       pairTitle: 'The 100 Soundscapes of Japan →',
       about: 'About & notes',
-      countAll: 'All scents',
       wheelHint: 'Choose a scent',
       all: 'All',
       wheelLabel: 'Scent type',
@@ -88,7 +87,6 @@
       pairKicker: '2部作の後編・Day 11',
       pairTitle: '日本の音風景100選 音の暦 →',
       about: 'この地図について・注記',
-      countAll: 'すべてのかおり',
       wheelHint: 'かおりを選ぶ',
       all: 'すべて',
       wheelLabel: 'かおりの種類',
@@ -228,8 +226,8 @@
 
   function fitPadding() {
     var w = window.innerWidth;
-    if (w <= 720) return { top: 165, bottom: 205, left: 20, right: 20 };
-    return { top: 30, bottom: 30, left: 260, right: 220 };
+    if (w <= 720) return { top: 165, bottom: 250, left: 20, right: 20 };
+    return { top: 30, bottom: 30, left: 240, right: 280 };
   }
 
   function catColor() {
@@ -348,7 +346,6 @@
           if (attrib) { attrib.classList.remove('maplibregl-compact-show'); attrib.removeAttribute('open'); }
         }
         buildWheel();
-        buildCounts();
         applyFocus();
         startAnimation();
       });
@@ -395,13 +392,6 @@
     });
     var hub = document.querySelector('#wheel .hub');
     if (hub) hub.setAttribute('aria-pressed', state.focus ? 'false' : 'true');
-    Array.prototype.forEach.call(document.querySelectorAll('#countList button'), function (b) {
-      var c = b.getAttribute('data-cat');
-      b.setAttribute('aria-pressed', state.focus === c ? 'true' : 'false');
-      b.classList.toggle('dim', !!state.focus && state.focus !== c);
-    });
-    $('countFocus').textContent = state.focus ? t.cat[state.focus] : t.countAll;
-    $('countTotal').textContent = state.focus ? (counts[state.focus] || 0) : items.length;
     try {
       var u = new URL(location.href);
       if (state.focus) u.searchParams.set('scent', state.focus); else u.searchParams.delete('scent');
@@ -464,16 +454,15 @@
       var p = polar(88, mid);
       var lines = narrow ? [t.catShort[c]] : t.catWheel[c];
       var lh = narrow ? 17 : 13;
-      var y0 = p[1] - (lines.length - 1) * lh / 2 - (narrow ? -5 : 4);
+      var y0 = p[1] - (lines.length - 1) * lh / 2 - (narrow ? 2 : 4);
       lines.forEach(function (str, k) {
         var tx = el('text', { x: p[0].toFixed(1), y: (y0 + k * lh).toFixed(1), 'text-anchor': 'middle' }, g);
         if (narrow) tx.setAttribute('style', 'font-size:' + (state.lang === 'ja' ? 19 : 17) + 'px');
         tx.textContent = str;
       });
-      if (!narrow) {
-        var tn = el('text', { 'class': 'n', x: p[0].toFixed(1), y: (y0 + lines.length * lh).toFixed(1), 'text-anchor': 'middle' }, g);
-        tn.textContent = counts[c] || 0;
-      }
+      var tn = el('text', { 'class': 'n', x: p[0].toFixed(1), y: (y0 + lines.length * lh - (narrow ? 2 : 0)).toFixed(1), 'text-anchor': 'middle' }, g);
+      if (narrow) tn.setAttribute('style', 'font-size:14px');
+      tn.textContent = counts[c] || 0;
       g.addEventListener('click', function () { setFocus(c); });
       g.addEventListener('mouseenter', function () { setPreview(c); });
       g.addEventListener('mouseleave', function () { setPreview(null); });
@@ -492,26 +481,6 @@
     hub.addEventListener('click', function () { setFocus(null); });
     hub.addEventListener('keydown', function (e) {
       if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); setFocus(null); }
-    });
-  }
-
-  function buildCounts() {
-    var ul = $('countList');
-    ul.innerHTML = '';
-    var t = T[state.lang];
-    var max = Math.max.apply(null, CATS.map(function (c) { return counts[c] || 0; }));
-    CATS.forEach(function (c) {
-      var li = document.createElement('li');
-      var b = document.createElement('button');
-      b.type = 'button';
-      b.setAttribute('data-cat', c);
-      b.setAttribute('aria-pressed', 'false');
-      b.innerHTML = '<i class="dot" style="background:' + COLORS[c] + ';color:' + COLORS[c] + '"></i>' +
-        '<span>' + esc(t.cat[c]) + '</span><span class="n">' + (counts[c] || 0) + '</span>' +
-        '<i class="bar" style="background:' + COLORS[c] + ';width:' + Math.round(100 * (counts[c] || 0) / max) + '%"></i>';
-      b.addEventListener('click', function () { setFocus(c); });
-      li.appendChild(b);
-      ul.appendChild(li);
     });
   }
 
@@ -607,7 +576,6 @@
     if (!$('about').hidden) $('aboutBody').innerHTML = t.about_html;
     if (items.length) {
       buildWheel();
-      buildCounts();
       applyFocus();
       if (state.selected) renderCard();
     }
