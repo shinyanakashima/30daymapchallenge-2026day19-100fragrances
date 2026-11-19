@@ -16,7 +16,8 @@
     en: {
       title: 'The 100 Fragrant Landscapes of Japan',
       subtitle: 'a map of scents',
-      lead: 'In 2001 Japan’s Ministry of the Environment chose 100 places where a scent is part of the landscape. Pick a scent on the wheel to see where it drifts.',
+      lead: '100 places where a scent is part of the landscape, chosen in 2001 by Japan’s Ministry of the Environment.',
+      pairShort: 'Day 11: Soundscapes →',
       pairKicker: 'Part 2 of a pair · Day 11',
       pairTitle: 'The 100 Soundscapes of Japan →',
       about: 'About & notes',
@@ -83,7 +84,8 @@
     ja: {
       title: '日本のかおり風景100選',
       subtitle: 'かおりの地図',
-      lead: '2001年、環境省は「かおり風景100選」を選びました。輪からかおりの種類を選ぶと、そのかおりの場所が浮かび上がります。',
+      lead: '2001年に環境省が選んだ、かおりが風景の一部になっている100の場所。',
+      pairShort: 'Day 11 音の暦 →',
       pairKicker: '2部作の後編・Day 11',
       pairTitle: '日本の音風景100選 音の暦 →',
       about: 'この地図について・注記',
@@ -226,8 +228,8 @@
 
   function fitPadding() {
     var w = window.innerWidth;
-    if (w <= 720) return { top: 165, bottom: 250, left: 20, right: 20 };
-    return { top: 30, bottom: 30, left: 240, right: 280 };
+    if (w <= 720) return { top: 90, bottom: 250, left: 20, right: 20 };
+    return { top: 84, bottom: 30, left: 60, right: 300 };
   }
 
   function catColor() {
