@@ -47,6 +47,7 @@
       monthHint: function (m, n) { return 'Scents of ' + ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'][m - 1] + ': ' + n + ' places'; },
       monthLabel: 'Month',
       also: 'also',
+      photo: 'Photo',
       season: 'Season',
       allYear: 'All year',
       estimated: 'estimated',
@@ -120,6 +121,7 @@
       monthHint: function (m, n) { return m + '月にかおる場所 ' + n + '件'; },
       monthLabel: '月',
       also: 'ほかに',
+      photo: '写真',
       season: '季節',
       allYear: '一年中',
       estimated: '推定',
@@ -619,6 +621,26 @@
 
   function esc(s) { return String(s).replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); }
 
+  function renderPhoto(it, t) {
+    var fig = $('cardPhoto'), img = $('cardImg');
+    var im = it.image;
+    if (!im) { fig.hidden = true; img.removeAttribute('src'); return; }
+    if (img.getAttribute('src') !== im.url) {
+      fig.hidden = true;
+      img.onload = function () { fig.hidden = false; };
+      img.onerror = function () { fig.hidden = true; };
+      img.src = im.url;
+    } else {
+      fig.hidden = !img.complete || !img.naturalWidth;
+    }
+    img.alt = state.lang === 'ja' ? it.name_ja : it.name_en;
+    var lic = im.license_url
+      ? '<a href="' + esc(im.license_url) + '" target="_blank" rel="noopener">' + esc(im.license) + '</a>'
+      : esc(im.license);
+    $('cardCredit').innerHTML = esc(t.photo) + ': <a href="' + esc(im.source_page) + '" target="_blank" rel="noopener">' +
+      esc(im.artist) + '</a> / ' + lic + ' · Wikimedia Commons';
+  }
+
   function renderCard() {
     var it = byId[state.selected];
     if (!it) return;
@@ -630,6 +652,7 @@
       cat += '<span class="also">' + esc(t.also) + ': ' + it.category_also.map(function (c) { return esc(t.cat[c]); }).join(ja ? '、' : ', ') + '</span>';
     }
     $('cardCat').innerHTML = cat;
+    renderPhoto(it, t);
     $('cardName').textContent = ja ? it.name_ja : it.name_en;
     $('cardAlt').textContent = ja ? it.name_en : it.name_ja;
     $('cardPlace').textContent = ja

@@ -122,6 +122,15 @@ h1 .t-sub { display: inline; font-size: 14px; font-weight: 400; color: var(--ink
 .name-tag .maplibregl-popup-tip { display: none; }
 .name-tag { pointer-events: none; }
 .name-tag .dot { width: 8px; height: 8px; flex: none; }
+/* photo in the card (as in Day 11) */
+.card-photo { margin: -14px -16px 10px; position: relative; background: #141130; }
+.card-photo img { display: block; width: 100%; height: 180px; object-fit: cover; border-radius: var(--radius) var(--radius) 0 0; }
+.card-photo figcaption { font-size: 10.5px; line-height: 1.45; color: var(--ink-3); padding: 5px 16px 0; }
+.card-photo figcaption a { color: var(--ink-2); }
+.card:has(.card-photo:not([hidden])) .close { background: rgba(10, 9, 25, 0.7); border-radius: 50%; width: 30px; height: 30px; padding: 0; line-height: 30px; text-align: center; top: 8px; right: 8px; z-index: 1; }
+@media (max-width: 720px) {
+  .card-photo img { height: 130px; }
+}
 .card-months span.cur { outline: 1.5px solid var(--ink); outline-offset: -1.5px; }
 .wheel-hint { margin: 0 auto; max-width: 260px; min-height: 16px; font-size: 11.5px; line-height: 1.4; color: var(--ink-3); transition: color 0.3s; }
 .wheel-hint.on { color: var(--ink-2); }
