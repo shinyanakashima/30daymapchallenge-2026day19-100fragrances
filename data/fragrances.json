@@ -44,7 +44,7 @@
     "note_ja": "古書・墨・にかわ・和漢薬・化粧・藍・雨上がりの石"
    }
   },
-  "fields_note_ja": "category はこの地図での主なかおりの種類、category_also は副次的なかおり。scent_source_ja・months_basis_ja は環境省の紹介ページの「かおりの源」「季節」。months は季節を月に読み替えたもの（all_year=true は一年中、months_estimated=true は「春」「秋」などの表現から読み替えたもの）。municipality_ja は現在の市町村名、municipality_listed_ja は100選一覧表の表記（選定当時）。location_type=area は範囲が広く代表点を置いたもの。"
+  "fields_note_ja": "image はWikipedia／Wikimedia Commonsの自由ライセンス画像（地点そのものではなく関連する対象の写真の場合あり）。category はこの地図での主なかおりの種類、category_also は副次的なかおり。scent_source_ja・months_basis_ja は環境省の紹介ページの「かおりの源」「季節」。months は季節を月に読み替えたもの（all_year=true は一年中、months_estimated=true は「春」「秋」などの表現から読み替えたもの）。municipality_ja は現在の市町村名、municipality_listed_ja は100選一覧表の表記（選定当時）。location_type=area は範囲が広く代表点を置いたもの。"
  },
  "items": [
   {
@@ -74,7 +74,17 @@
    "months_basis_ja": "５～９月",
    "months_estimated": false,
    "description_ja": "丘や畑一面にラベンダーが広がり、初夏から夏にかけて紫の花と香りが盆地を包む。",
-   "description_en": "Fields of lavender roll across the hills of the Furano basin, and from early summer the air smells of it."
+   "description_en": "Fields of lavender roll across the hills of the Furano basin, and from early summer the air smells of it.",
+   "image": {
+    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e7/A_Field_Of_Lavender_Farm_Tomita_%2832578019%29.jpeg/960px-A_Field_Of_Lavender_Farm_Tomita_%2832578019%29.jpeg",
+    "source_page": "https://commons.wikimedia.org/wiki/File:A_Field_Of_Lavender_Farm_Tomita_(32578019).jpeg",
+    "file": "A Field Of Lavender Farm Tomita (32578019).jpeg",
+    "artist": "Jolly Yau",
+    "license": "CC BY-SA 3.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/3.0",
+    "via": "commons",
+    "article_ja": null
+   }
   },
   {
    "id": 2,
@@ -101,7 +111,17 @@
    "months_basis_ja": "６～８月",
    "months_estimated": false,
    "description_ja": "かつて世界のハッカの多くを生産した町。記念館やハーブ園で、市民が育てるハッカの清涼な香りに出会える。",
-   "description_en": "Kitami once grew most of the world’s peppermint. The mint museum and herb gardens, planted by residents, keep the cool scent alive."
+   "description_en": "Kitami once grew most of the world’s peppermint. The mint museum and herb gardens, planted by residents, keep the cool scent alive.",
+   "image": {
+    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f9/Kitami_mint_memorial_museum001.jpg/960px-Kitami_mint_memorial_museum001.jpg",
+    "source_page": "https://commons.wikimedia.org/wiki/File:Kitami_mint_memorial_museum001.jpg",
+    "file": "Kitami mint memorial museum001.jpg",
+    "artist": "Vanquish0",
+    "license": "CC BY-SA 4.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+    "via": "wikipedia",
+    "article_ja": "北見ハッカ記念館"
+   }
   },
   {
    "id": 3,
@@ -137,7 +157,17 @@
    "months_basis_ja": "一年中",
    "months_estimated": false,
    "description_ja": "爆裂火口の跡から湯けむりが立ちのぼり、温泉街まで硫黄のにおいが届く。",
-   "description_en": "Steam rises from an old explosion crater, and the smell of sulphur drifts down into the spa town."
+   "description_en": "Steam rises from an old explosion crater, and the smell of sulphur drifts down into the spa town.",
+   "image": {
+    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/51/Noboribetsu_hot_spring_jigokudani.JPG/960px-Noboribetsu_hot_spring_jigokudani.JPG",
+    "source_page": "https://commons.wikimedia.org/wiki/File:Noboribetsu_hot_spring_jigokudani.JPG",
+    "file": "Noboribetsu hot spring jigokudani.JPG",
+    "artist": "欅",
+    "license": "CC BY-SA 3.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/3.0",
+    "via": "wikipedia",
+    "article_ja": "登別温泉"
+   }
   },
   {
    "id": 4,
@@ -164,7 +194,17 @@
    "months_basis_ja": "６～８月",
    "months_estimated": false,
    "description_ja": "冷たい夏、海から流れ込む霧が町をおおい、潮の香りを運んでくる。",
-   "description_en": "In the cool summers, fog rolls in off the Pacific and fills the town with the smell of the sea."
+   "description_en": "In the cool summers, fog rolls in off the Pacific and fills the town with the smell of the sea.",
+   "image": {
+    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c3/Kushiro_Port_Hokkaido_Japan06s5.jpg/960px-Kushiro_Port_Hokkaido_Japan06s5.jpg",
+    "source_page": "https://commons.wikimedia.org/wiki/File:Kushiro_Port_Hokkaido_Japan06s5.jpg",
+    "file": "Kushiro Port Hokkaido Japan06s5.jpg",
+    "artist": "663highland",
+    "license": "CC BY 2.5",
+    "license_url": "https://creativecommons.org/licenses/by/2.5",
+    "via": "wikipedia",
+    "article_ja": "海霧"
+   }
   },
   {
    "id": 5,
@@ -193,7 +233,8 @@
    "months_basis_ja": "春から夏",
    "months_estimated": true,
    "description_ja": "植木の町として知られ、町中のサワラの生け垣を刈り込む季節には、青く清々しい香りが立つ。",
-   "description_en": "A town of gardeners: when the sawara cypress hedges are clipped in spring and summer, the streets smell fresh and green."
+   "description_en": "A town of gardeners: when the sawara cypress hedges are clipped in spring and summer, the streets smell fresh and green.",
+   "image": null
   },
   {
    "id": 6,
@@ -219,7 +260,8 @@
    "months_basis_ja": "5月下旬～6月上旬",
    "months_estimated": false,
    "description_ja": "町が整えた丘のぼたん園。初夏、八甲田の残雪を遠くに望みながら大輪のぼたんが香る。",
-   "description_en": "A hillside peony garden laid out by the town. In early summer the large blooms open with the snow of the Hakkoda peaks in the distance."
+   "description_en": "A hillside peony garden laid out by the town. In early summer the large blooms open with the snow of the Hakkoda peaks in the distance.",
+   "image": null
   },
   {
    "id": 7,
@@ -255,7 +297,17 @@
    "months_basis_ja": "一年中",
    "months_estimated": false,
    "description_ja": "白い岩と澄んだ入り江の浜に、潮の香りが漂う。地元の会が浜の清掃を続けている。",
-   "description_en": "White rocks and a clear cove on the Sanriku coast, with the smell of the tide. Local groups keep the beach clean."
+   "description_en": "White rocks and a clear cove on the Sanriku coast, with the smell of the tide. Local groups keep the beach clean.",
+   "image": {
+    "url": "https://upload.wikimedia.org/wikipedia/commons/9/93/Jyoudogahama.jpg",
+    "source_page": "https://commons.wikimedia.org/wiki/File:Jyoudogahama.jpg",
+    "file": "Jyoudogahama.jpg",
+    "artist": "Junpei Satoh",
+    "license": "CC BY-SA 3.0",
+    "license_url": "http://creativecommons.org/licenses/by-sa/3.0/",
+    "via": "wikipedia",
+    "article_ja": "浄土ヶ浜"
+   }
   },
   {
    "id": 8,
@@ -291,7 +343,17 @@
    "months_basis_ja": "一年中",
    "months_estimated": false,
    "description_ja": "店先で南部せんべいが焼き上がる香ばしい匂い。古い町家の残る紺屋町かいわいに漂う。",
-   "description_en": "The toasty smell of Nanbu rice-flour crackers baking in shop fronts, around the old merchant streets of Morioka."
+   "description_en": "The toasty smell of Nanbu rice-flour crackers baking in shop fronts, around the old merchant streets of Morioka.",
+   "image": {
+    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/44/Nanbu_Senbei.jpg/960px-Nanbu_Senbei.jpg",
+    "source_page": "https://commons.wikimedia.org/wiki/File:Nanbu_Senbei.jpg",
+    "file": "Nanbu Senbei.jpg",
+    "artist": "Roddy McDougall from UK",
+    "license": "CC BY 2.0",
+    "license_url": "https://creativecommons.org/licenses/by/2.0",
+    "via": "wikipedia",
+    "article_ja": "南部煎餅"
+   }
   },
   {
    "id": 9,
@@ -317,7 +379,8 @@
    "months_basis_ja": "６月中旬～７月下旬",
    "months_estimated": false,
    "description_ja": "百種を超えるゆりが植えられた園。ゆり祭りの頃は、地元の会が手入れした園内に甘い香りが満ちる。",
-   "description_en": "A garden of well over a hundred kinds of lily. During the lily festival the sweet scent fills grounds cared for by local volunteers."
+   "description_en": "A garden of well over a hundred kinds of lily. During the lily festival the sweet scent fills grounds cared for by local volunteers.",
+   "image": null
   },
   {
    "id": 10,
@@ -355,7 +418,8 @@
    "months_basis_ja": "一年中",
    "months_estimated": false,
    "description_ja": "手つかずに近い原生林が残る島。木々と草、鹿、潮の匂いがまじり合う。",
-   "description_en": "An island of near-untouched forest, where the smells of trees, grass, deer and sea mix together."
+   "description_en": "An island of near-untouched forest, where the smells of trees, grass, deer and sea mix together.",
+   "image": null
   },
   {
    "id": 11,
@@ -388,7 +452,17 @@
    "months_basis_ja": "春から秋",
    "months_estimated": true,
    "description_ja": "三百年かけて植え継がれた黒松の海岸林。松葉と土、潮の香りの中を市民が歩き、走る。",
-   "description_en": "A coastal forest of black pine planted over three centuries. People walk and jog through the smell of needles, soil and sea."
+   "description_en": "A coastal forest of black pine planted over three centuries. People walk and jog through the smell of needles, soil and sea.",
+   "image": {
+    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c3/Kaze_no_Matsubara_in_morning_mist_20180721a.jpg/960px-Kaze_no_Matsubara_in_morning_mist_20180721a.jpg",
+    "source_page": "https://commons.wikimedia.org/wiki/File:Kaze_no_Matsubara_in_morning_mist_20180721a.jpg",
+    "file": "Kaze no Matsubara in morning mist 20180721a.jpg",
+    "artist": "掬茶",
+    "license": "CC BY-SA 4.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+    "via": "wikipedia",
+    "article_ja": "風の松原"
+   }
   },
   {
    "id": 12,
@@ -414,7 +488,17 @@
    "months_basis_ja": "６月下旬～７月初旬",
    "months_estimated": false,
    "description_ja": "鉱山の町に植えられたアカシアが初夏に白い花をつけ、明治の建物が並ぶ通りに甘い香りが流れる。",
-   "description_en": "Black locust trees planted across this old mining town bloom in early summer, scenting a street of Meiji-era buildings."
+   "description_en": "Black locust trees planted across this old mining town bloom in early summer, scenting a street of Meiji-era buildings.",
+   "image": {
+    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/31/Kosaka_Mine_Office_20180916c.jpg/960px-Kosaka_Mine_Office_20180916c.jpg",
+    "source_page": "https://commons.wikimedia.org/wiki/File:Kosaka_Mine_Office_20180916c.jpg",
+    "file": "Kosaka Mine Office 20180916c.jpg",
+    "artist": "掬茶",
+    "license": "CC BY-SA 4.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+    "via": "wikipedia",
+    "article_ja": "小坂町"
+   }
   },
   {
    "id": 13,
@@ -440,7 +524,17 @@
    "months_basis_ja": "４月下旬～５月下旬",
    "months_estimated": false,
    "description_ja": "干拓地の道沿いに菜の花畑が続き、春の終わりには黄色い帯と香りが遠くまで延びる。",
-   "description_en": "On reclaimed land, rapeseed fields line the road for kilometres, a long yellow band with a honeyed smell in late spring."
+   "description_en": "On reclaimed land, rapeseed fields line the road for kilometres, a long yellow band with a honeyed smell in late spring.",
+   "image": {
+    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/05/Cherry_blossom_and_rapeseed_road_in_Ogata_Village_2018a.jpg/960px-Cherry_blossom_and_rapeseed_road_in_Ogata_Village_2018a.jpg",
+    "source_page": "https://commons.wikimedia.org/wiki/File:Cherry_blossom_and_rapeseed_road_in_Ogata_Village_2018a.jpg",
+    "file": "Cherry blossom and rapeseed road in Ogata Village 2018a.jpg",
+    "artist": "掬茶",
+    "license": "CC BY-SA 4.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+    "via": "commons",
+    "article_ja": null
+   }
   },
   {
    "id": 14,
@@ -476,7 +570,17 @@
    "months_basis_ja": "一年中",
    "months_estimated": false,
    "description_ja": "霊山の杉並木と苔むした南谷。芭蕉が「有難や雪をかほらす南谷」と詠んだ地。",
-   "description_en": "Cedar avenues and the mossy Minamidani valley on a sacred mountain, where Basho wrote of the snow’s fragrance in a haiku."
+   "description_en": "Cedar avenues and the mossy Minamidani valley on a sacred mountain, where Basho wrote of the snow’s fragrance in a haiku.",
+   "image": {
+    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e2/Mt.Haguro_stone_steps_and_cedar_trees.jpg/960px-Mt.Haguro_stone_steps_and_cedar_trees.jpg",
+    "source_page": "https://commons.wikimedia.org/wiki/File:Mt.Haguro_stone_steps_and_cedar_trees.jpg",
+    "file": "Mt.Haguro stone steps and cedar trees.jpg",
+    "artist": "掬茶",
+    "license": "CC BY-SA 4.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+    "via": "commons",
+    "article_ja": null
+   }
   },
   {
    "id": 15,
@@ -512,7 +616,8 @@
    "months_basis_ja": "一年中（特に秋）",
    "months_estimated": false,
    "description_ja": "手打ちそばの店や家々から、そばをゆでる香りが町じゅうに広がる。秋の新そばの頃はひときわ。",
-   "description_en": "The smell of buckwheat noodles being made and boiled fills the town, above all when the new harvest comes in autumn."
+   "description_en": "The smell of buckwheat noodles being made and boiled fills the town, above all when the new harvest comes in autumn.",
+   "image": null
   },
   {
    "id": 16,
@@ -541,7 +646,17 @@
    "months_basis_ja": "５月中旬～９月下旬",
    "months_estimated": false,
    "description_ja": "湖と森に囲まれた公園に数百品種のバラが咲き、初夏から秋まで香りが続く。",
-   "description_en": "Hundreds of rose varieties grow in a park ringed by lakes and woods, flowering from early summer into autumn."
+   "description_en": "Hundreds of rose varieties grow in a park ringed by lakes and woods, flowering from early summer into autumn.",
+   "image": {
+    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/48/Higashizawa_Rose_Park_20250601c.jpg/960px-Higashizawa_Rose_Park_20250601c.jpg",
+    "source_page": "https://commons.wikimedia.org/wiki/File:Higashizawa_Rose_Park_20250601c.jpg",
+    "file": "Higashizawa Rose Park 20250601c.jpg",
+    "artist": "掬茶",
+    "license": "CC BY-SA 4.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+    "via": "wikipedia",
+    "article_ja": "東沢バラ公園"
+   }
   },
   {
    "id": 17,
@@ -568,7 +683,17 @@
    "months_basis_ja": "１１月第３土曜日",
    "months_estimated": false,
    "description_ja": "古木の牡丹が咲く名園。晩秋には寿命を終えた牡丹の木を供養して焚き、ほのかな香りの煙が立つ。",
-   "description_en": "A garden of centuries-old tree peonies. In late autumn, dead peony wood is burned in a memorial bonfire that gives off a faint, sweet smoke."
+   "description_en": "A garden of centuries-old tree peonies. In late autumn, dead peony wood is burned in a memorial bonfire that gives off a faint, sweet smoke.",
+   "image": {
+    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c0/%E9%A0%88%E8%B3%80%E5%B7%9D%E7%89%A1%E4%B8%B9%E5%9C%92%E6%9C%89%E6%96%99%E9%96%8B%E5%9C%92%E6%99%82%E7%94%BB%E5%83%8F.jpg/960px-%E9%A0%88%E8%B3%80%E5%B7%9D%E7%89%A1%E4%B8%B9%E5%9C%92%E6%9C%89%E6%96%99%E9%96%8B%E5%9C%92%E6%99%82%E7%94%BB%E5%83%8F.jpg",
+    "source_page": "https://commons.wikimedia.org/wiki/File:%E9%A0%88%E8%B3%80%E5%B7%9D%E7%89%A1%E4%B8%B9%E5%9C%92%E6%9C%89%E6%96%99%E9%96%8B%E5%9C%92%E6%99%82%E7%94%BB%E5%83%8F.jpg",
+    "file": "須賀川牡丹園有料開園時画像.jpg",
+    "artist": "Skywalk0329",
+    "license": "CC BY-SA 4.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+    "via": "wikipedia",
+    "article_ja": "須賀川牡丹園"
+   }
   },
   {
    "id": 18,
@@ -604,7 +729,8 @@
    "months_basis_ja": "一年中",
    "months_estimated": false,
    "description_ja": "張子人形をつくる工房の集落。塗料に使う「にかわ」の匂いが屋敷のまわりに漂う。",
-   "description_en": "A hamlet of papier-mâché doll makers, where the smell of animal glue used in the paint hangs around the workshops."
+   "description_en": "A hamlet of papier-mâché doll makers, where the smell of animal glue used in the paint hangs around the workshops.",
+   "image": null
   },
   {
    "id": 19,
@@ -632,7 +758,17 @@
    "months_basis_ja": "１２月下旬～３月末",
    "months_estimated": false,
    "description_ja": "約百種の梅が植えられた名園。早咲きから遅咲きまで、冬の終わりから春先まで長く香る。",
-   "description_en": "One of Japan’s three great gardens, planted with about a hundred kinds of plum that flower in turn from late winter into spring."
+   "description_en": "One of Japan’s three great gardens, planted with about a hundred kinds of plum that flower in turn from late winter into spring.",
+   "image": {
+    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/ec/Kairaku-en%2C_Ibaraki_24.jpg/960px-Kairaku-en%2C_Ibaraki_24.jpg",
+    "source_page": "https://commons.wikimedia.org/wiki/File:Kairaku-en,_Ibaraki_24.jpg",
+    "file": "Kairaku-en, Ibaraki 24.jpg",
+    "artist": "Σ64",
+    "license": "CC BY 4.0",
+    "license_url": "https://creativecommons.org/licenses/by/4.0",
+    "via": "wikipedia",
+    "article_ja": "偕楽園"
+   }
   },
   {
    "id": 20,
@@ -670,7 +806,17 @@
    "months_basis_ja": "５月（六尺藤）、一年中（線香、湧き水）",
    "months_estimated": false,
    "description_ja": "境内の古い藤が五月に咲き、杉線香の産地らしく線香の香りが一年中漂う。",
-   "description_en": "An old wisteria blooms in the temple grounds in May, and incense, a local industry, scents the air all year."
+   "description_en": "An old wisteria blooms in the temple grounds in May, and incense, a local industry, scents the air all year.",
+   "image": {
+    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/da/Wisteria_floribunda5.jpg/960px-Wisteria_floribunda5.jpg",
+    "source_page": "https://commons.wikimedia.org/wiki/File:Wisteria_floribunda5.jpg",
+    "file": "Wisteria floribunda5.jpg",
+    "artist": "Raul654",
+    "license": "CC BY-SA 3.0",
+    "license_url": "http://creativecommons.org/licenses/by-sa/3.0/",
+    "via": "wikipedia",
+    "article_ja": "フジ (植物)"
+   }
   },
   {
    "id": 21,
@@ -697,7 +843,17 @@
    "months_basis_ja": "６月下旬、～８月中旬",
    "months_estimated": false,
    "description_ja": "高原の斜面が初夏にニッコウキスゲの黄色に染まり、草と花の香りが風に乗る。",
-   "description_en": "In early summer the highland slopes turn yellow with day lilies, and the wind carries the scent of grass and flowers."
+   "description_en": "In early summer the highland slopes turn yellow with day lilies, and the wind carries the scent of grass and flowers.",
+   "image": {
+    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/af/Kirifuri_Highland_20090719.jpg/960px-Kirifuri_Highland_20090719.jpg",
+    "source_page": "https://commons.wikimedia.org/wiki/File:Kirifuri_Highland_20090719.jpg",
+    "file": "Kirifuri Highland 20090719.jpg",
+    "artist": "NEON",
+    "license": "CC BY-SA 3.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/3.0",
+    "via": "wikipedia",
+    "article_ja": "霧降高原"
+   }
   },
   {
    "id": 22,
@@ -722,7 +878,17 @@
    "months_basis_ja": "５月",
    "months_estimated": false,
    "description_ja": "那須岳の中腹に約十万本のツツジが群生し、五月末から六月はじめには一帯が赤く染まる。",
-   "description_en": "About 100,000 wild azaleas cover the slopes of Mt Nasu, turning the hillside red at the end of May."
+   "description_en": "About 100,000 wild azaleas cover the slopes of Mt Nasu, turning the hillside red at the end of May.",
+   "image": {
+    "url": "https://upload.wikimedia.org/wikipedia/commons/b/b5/Mt.Chausu%26Mt.Asahi.jpg",
+    "source_page": "https://commons.wikimedia.org/wiki/File:Mt.Chausu%26Mt.Asahi.jpg",
+    "file": "Mt.Chausu&Mt.Asahi.jpg",
+    "artist": "E-190",
+    "license": "CC BY-SA 3.0",
+    "license_url": "http://creativecommons.org/licenses/by-sa/3.0/",
+    "via": "wikipedia",
+    "article_ja": "那須岳"
+   }
   },
   {
    "id": 23,
@@ -758,7 +924,17 @@
    "months_basis_ja": "一年中",
    "months_estimated": false,
    "description_ja": "町の真ん中で源泉が湧く湯畑から湯けむりが上がり、硫黄の匂いが温泉街を包む。",
-   "description_en": "Hot water pours through the wooden channels of the Yubatake in the town centre, and the sulphur smell covers the spa town."
+   "description_en": "Hot water pours through the wooden channels of the Yubatake in the town centre, and the sulphur smell covers the spa town.",
+   "image": {
+    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/6b/Yubatake_%28Kusatsu_Onsen%29.jpg/960px-Yubatake_%28Kusatsu_Onsen%29.jpg",
+    "source_page": "https://commons.wikimedia.org/wiki/File:Yubatake_(Kusatsu_Onsen).jpg",
+    "file": "Yubatake (Kusatsu Onsen).jpg",
+    "artist": "おにく",
+    "license": "CC0",
+    "license_url": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+    "via": "wikipedia",
+    "article_ja": "草津温泉"
+   }
   },
   {
    "id": 24,
@@ -794,7 +970,17 @@
    "months_basis_ja": "一年中",
    "months_estimated": false,
    "description_ja": "石畳の小路に駄菓子屋が並び、ハッカ飴や焼きだんごの甘い匂いが漂う。",
-   "description_en": "A short stone-paved lane of old sweet shops, smelling of mint candy, sugar and grilled dango."
+   "description_en": "A short stone-paved lane of old sweet shops, smelling of mint candy, sugar and grilled dango.",
+   "image": {
+    "url": "https://upload.wikimedia.org/wikipedia/commons/b/b8/Kashiya_yokocho.jpg",
+    "source_page": "https://commons.wikimedia.org/wiki/File:Kashiya_yokocho.jpg",
+    "file": "Kashiya yokocho.jpg",
+    "artist": "dailytransit",
+    "license": "CC BY-SA 2.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/2.0",
+    "via": "wikipedia",
+    "article_ja": "菓子屋横丁"
+   }
   },
   {
    "id": 25,
@@ -830,7 +1016,17 @@
    "months_basis_ja": "一年中",
    "months_estimated": false,
    "description_ja": "旧日光街道の宿場町。せんべい屋の店先から、醤油の焼ける香ばしい匂いがする。",
-   "description_en": "An old post town on the Nikko road, where soy sauce caramelising on rice crackers scents the shop fronts."
+   "description_en": "An old post town on the Nikko road, where soy sauce caramelising on rice crackers scents the shop fronts.",
+   "image": {
+    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/76/Senbei3.jpg/960px-Senbei3.jpg",
+    "source_page": "https://commons.wikimedia.org/wiki/File:Senbei3.jpg",
+    "file": "Senbei3.jpg",
+    "artist": "Ebiebi2",
+    "license": "CC BY-SA 4.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+    "via": "wikipedia",
+    "article_ja": "草加煎餅"
+   }
   },
   {
    "id": 26,
@@ -868,7 +1064,17 @@
    "months_basis_ja": "一年中",
    "months_estimated": false,
    "description_ja": "日蓮ゆかりの寺の線香と、すぐそばの磯から届く潮の香りが重なる。",
-   "description_en": "Incense from the temple of Nichiren’s birthplace meets the smell of seaweed and tide from the rocky shore next to it."
+   "description_en": "Incense from the temple of Nichiren’s birthplace meets the smell of seaweed and tide from the rocky shore next to it.",
+   "image": {
+    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/28/Kamogawa_Tanjo-ji_01.jpg/960px-Kamogawa_Tanjo-ji_01.jpg",
+    "source_page": "https://commons.wikimedia.org/wiki/File:Kamogawa_Tanjo-ji_01.jpg",
+    "file": "Kamogawa Tanjo-ji 01.jpg",
+    "artist": "Tak1701d",
+    "license": "CC BY-SA 3.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/3.0",
+    "via": "commons",
+    "article_ja": null
+   }
   },
   {
    "id": 27,
@@ -904,7 +1110,17 @@
    "months_basis_ja": "一年中",
    "months_estimated": false,
    "description_ja": "樹齢千年を超えるとされるタブノキの巨木が境内をおおい、木の香りに包まれる。",
-   "description_en": "A tabu tree said to be well over a thousand years old spreads across a shrine precinct, filling it with the smell of wood."
+   "description_en": "A tabu tree said to be well over a thousand years old spreads across a shrine precinct, filling it with the smell of wood.",
+   "image": {
+    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/fa/Huma-Machilus_thunbergii%2Cchiba%2Cjapan.JPG/960px-Huma-Machilus_thunbergii%2Cchiba%2Cjapan.JPG",
+    "source_page": "https://commons.wikimedia.org/wiki/File:Huma-Machilus_thunbergii,chiba,japan.JPG",
+    "file": "Huma-Machilus thunbergii,chiba,japan.JPG",
+    "artist": "katorisi",
+    "license": "CC BY 2.5",
+    "license_url": "https://creativecommons.org/licenses/by/2.5",
+    "via": "wikipedia",
+    "article_ja": "府馬の大クス"
+   }
   },
   {
    "id": 28,
@@ -940,7 +1156,17 @@
    "months_basis_ja": "一年中",
    "months_estimated": false,
    "description_ja": "古書店が軒を連ねる通りに、紙とインクの古い本の匂いが漂う。",
-   "description_en": "Street after street of second-hand bookshops, with the dry smell of old paper and ink."
+   "description_en": "Street after street of second-hand bookshops, with the dry smell of old paper and ink.",
+   "image": {
+    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/8f/Secondhand_bookstores%2C_at_Kanda-Jinbocho_1.jpg/960px-Secondhand_bookstores%2C_at_Kanda-Jinbocho_1.jpg",
+    "source_page": "https://commons.wikimedia.org/wiki/File:Secondhand_bookstores,_at_Kanda-Jinbocho_1.jpg",
+    "file": "Secondhand bookstores, at Kanda-Jinbocho 1.jpg",
+    "artist": "Lombroso",
+    "license": "Public domain",
+    "license_url": null,
+    "via": "wikipedia",
+    "article_ja": "神田古書店街"
+   }
   },
   {
    "id": 29,
@@ -976,7 +1202,17 @@
    "months_basis_ja": "一年中",
    "months_estimated": false,
    "description_ja": "木場から移った製材所が並び、歩くと切ったばかりの木の香りがする。",
-   "description_en": "Sawmills moved here from the old Kiba district, and the streets smell of freshly cut timber."
+   "description_en": "Sawmills moved here from the old Kiba district, and the streets smell of freshly cut timber.",
+   "image": {
+    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/4c/14%E5%8F%B7%E5%9C%B0%E7%AC%AC2%E8%B2%AF%E6%9C%A8%E5%A0%B4.jpg/960px-14%E5%8F%B7%E5%9C%B0%E7%AC%AC2%E8%B2%AF%E6%9C%A8%E5%A0%B4.jpg",
+    "source_page": "https://commons.wikimedia.org/wiki/File:14%E5%8F%B7%E5%9C%B0%E7%AC%AC2%E8%B2%AF%E6%9C%A8%E5%A0%B4.jpg",
+    "file": "14号地第2貯木場.jpg",
+    "artist": "多摩に暇人",
+    "license": "CC BY 3.0",
+    "license_url": "https://creativecommons.org/licenses/by/3.0",
+    "via": "wikipedia",
+    "article_ja": "新木場"
+   }
   },
   {
    "id": 30,
@@ -1012,7 +1248,17 @@
    "months_basis_ja": "一年中",
    "months_estimated": false,
    "description_ja": "火口跡から白い噴気が上がり、硫黄の匂いの向こうに富士山が見える。",
-   "description_en": "White fumes rise from a volcanic crater, and beyond the sulphur smell Mt Fuji comes into view."
+   "description_en": "White fumes rise from a volcanic crater, and beyond the sulphur smell Mt Fuji comes into view.",
+   "image": {
+    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/9f/161223_Owakudani_Hakone_Japan09s3.jpg/960px-161223_Owakudani_Hakone_Japan09s3.jpg",
+    "source_page": "https://commons.wikimedia.org/wiki/File:161223_Owakudani_Hakone_Japan09s3.jpg",
+    "file": "161223 Owakudani Hakone Japan09s3.jpg",
+    "artist": "663highland",
+    "license": "CC BY 2.5",
+    "license_url": "https://creativecommons.org/licenses/by/2.5",
+    "via": "wikipedia",
+    "article_ja": "大涌谷"
+   }
   },
   {
    "id": 31,
@@ -1038,7 +1284,17 @@
    "months_basis_ja": "秋",
    "months_estimated": true,
    "description_ja": "駅のまわりの家々の庭にキンモクセイが植えられ、秋には住宅街が甘い香りに包まれる。",
-   "description_en": "Most gardens near Hon-Kugenuma station have a sweet osmanthus, and in autumn the whole neighbourhood smells of apricot."
+   "description_en": "Most gardens near Hon-Kugenuma station have a sweet osmanthus, and in autumn the whole neighbourhood smells of apricot.",
+   "image": {
+    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/ea/Osmanthus_fragrans_%28orange_flowers%29.jpg/960px-Osmanthus_fragrans_%28orange_flowers%29.jpg",
+    "source_page": "https://commons.wikimedia.org/wiki/File:Osmanthus_fragrans_(orange_flowers).jpg",
+    "file": "Osmanthus fragrans (orange flowers).jpg",
+    "artist": "Laitr Keiows",
+    "license": "CC BY-SA 3.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/3.0",
+    "via": "wikipedia",
+    "article_ja": "キンモクセイ"
+   }
   },
   {
    "id": 32,
@@ -1071,7 +1327,17 @@
    "months_basis_ja": "春から秋",
    "months_estimated": true,
    "description_ja": "県内最大の潟の多くを水辺の植物がおおい、暑い日にはむっとする草の匂いが立ちこめる。",
-   "description_en": "Reeds and water plants cover much of Niigata’s largest lagoon, and on hot days the air is heavy with the smell of grass."
+   "description_en": "Reeds and water plants cover much of Niigata’s largest lagoon, and on hot days the air is heavy with the smell of grass.",
+   "image": {
+    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/dc/NiigataCityOpenData_fukushimagata001.jpg/960px-NiigataCityOpenData_fukushimagata001.jpg",
+    "source_page": "https://commons.wikimedia.org/wiki/File:NiigataCityOpenData_fukushimagata001.jpg",
+    "file": "NiigataCityOpenData fukushimagata001.jpg",
+    "artist": "新潟市（Niigata City）",
+    "license": "CC BY 2.1 jp",
+    "license_url": "https://creativecommons.org/licenses/by/2.1/jp/deed.en",
+    "via": "wikipedia",
+    "article_ja": "福島潟"
+   }
   },
   {
    "id": 33,
@@ -1097,7 +1363,17 @@
    "months_basis_ja": "春",
    "months_estimated": true,
    "description_ja": "球根の産地として知られる平野に、春はチューリップの花畑が広がる。",
-   "description_en": "A plain famous for tulip bulbs, where spring brings fields and a long-running fair full of flowers."
+   "description_en": "A plain famous for tulip bulbs, where spring brings fields and a long-running fair full of flowers.",
+   "image": {
+    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/9e/Tonami_Tulip_Park.jpg/960px-Tonami_Tulip_Park.jpg",
+    "source_page": "https://commons.wikimedia.org/wiki/File:Tonami_Tulip_Park.jpg",
+    "file": "Tonami Tulip Park.jpg",
+    "artist": "Katsutoshi Seki",
+    "license": "CC BY-SA 3.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/3.0",
+    "via": "commons",
+    "article_ja": null
+   }
   },
   {
    "id": 34,
@@ -1128,7 +1404,17 @@
    "months_basis_ja": "春から秋",
    "months_estimated": true,
    "description_ja": "深いV字谷の原生林の緑の香りを、トロッコ電車に揺られながら味わえる。",
-   "description_en": "From the gorge railway you ride through deep virgin forest and the green smell of a steep V-shaped valley."
+   "description_en": "From the gorge railway you ride through deep virgin forest and the green smell of a steep V-shaped valley.",
+   "image": {
+    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/72/S-ji-kyo_in_Kurobe_Gorge.jpg/960px-S-ji-kyo_in_Kurobe_Gorge.jpg",
+    "source_page": "https://commons.wikimedia.org/wiki/File:S-ji-kyo_in_Kurobe_Gorge.jpg",
+    "file": "S-ji-kyo in Kurobe Gorge.jpg",
+    "artist": "Yasu (talk)",
+    "license": "CC BY-SA 3.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/3.0",
+    "via": "wikipedia",
+    "article_ja": "黒部峡谷"
+   }
   },
   {
    "id": 35,
@@ -1164,7 +1450,17 @@
    "months_basis_ja": "一年中",
    "months_estimated": false,
    "description_ja": "「越中富山の薬売り」の町。生薬を調合する独特の匂いが市内のあちこちで感じられる。",
-   "description_en": "The home of travelling medicine sellers, where the smell of mixed herbal remedies can be found around town."
+   "description_en": "The home of travelling medicine sellers, where the smell of mixed herbal remedies can be found around town.",
+   "image": {
+    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d7/%E6%B1%A0%E7%94%B0%E5%B1%8B%E5%AE%89%E5%85%B5%E8%A1%9B%E5%95%86%E5%BA%97_%E5%A4%96%E8%A6%B3.JPG/960px-%E6%B1%A0%E7%94%B0%E5%B1%8B%E5%AE%89%E5%85%B5%E8%A1%9B%E5%95%86%E5%BA%97_%E5%A4%96%E8%A6%B3.JPG",
+    "source_page": "https://commons.wikimedia.org/wiki/File:%E6%B1%A0%E7%94%B0%E5%B1%8B%E5%AE%89%E5%85%B5%E8%A1%9B%E5%95%86%E5%BA%97_%E5%A4%96%E8%A6%B3.JPG",
+    "file": "池田屋安兵衛商店 外観.JPG",
+    "artist": "Arara0123",
+    "license": "CC BY-SA 4.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+    "via": "commons",
+    "article_ja": null
+   }
   },
   {
    "id": 36,
@@ -1202,7 +1498,17 @@
    "months_basis_ja": "一年中",
    "months_estimated": false,
    "description_ja": "千年以上の歴史をもつ朝市。日本海でとれた魚介の匂いが通りに満ちる。",
-   "description_en": "A morning market with a history said to be more than a thousand years long, smelling of fish and shellfish from the Sea of Japan."
+   "description_en": "A morning market with a history said to be more than a thousand years long, smelling of fish and shellfish from the Sea of Japan.",
+   "image": {
+    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/df/Wajima_Asaichi.jpg/960px-Wajima_Asaichi.jpg",
+    "source_page": "https://commons.wikimedia.org/wiki/File:Wajima_Asaichi.jpg",
+    "file": "Wajima Asaichi.jpg",
+    "artist": "HIrorinmasa",
+    "license": "CC BY-SA 3.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/3.0",
+    "via": "wikipedia",
+    "article_ja": "輪島朝市"
+   }
   },
   {
    "id": 37,
@@ -1233,7 +1539,17 @@
    "months_basis_ja": "春～秋",
    "months_estimated": true,
    "description_ja": "苔に覆われた境内に杉の大木が立ち、しっとりとした杉と土と苔の香りがする。",
-   "description_en": "Tall cedars stand over a precinct carpeted in moss, smelling of damp wood, earth and moss."
+   "description_en": "Tall cedars stand over a precinct carpeted in moss, smelling of damp wood, earth and moss.",
+   "image": {
+    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d0/Heisenji_Hakusanjinjya_HAIDEN.jpg/960px-Heisenji_Hakusanjinjya_HAIDEN.jpg",
+    "source_page": "https://commons.wikimedia.org/wiki/File:Heisenji_Hakusanjinjya_HAIDEN.jpg",
+    "file": "Heisenji Hakusanjinjya HAIDEN.jpg",
+    "artist": "藤谷良秀(Fujitani Yoshihide)",
+    "license": "CC BY-SA 4.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+    "via": "wikipedia",
+    "article_ja": "平泉寺白山神社"
+   }
   },
   {
    "id": 38,
@@ -1269,7 +1585,17 @@
    "months_basis_ja": "一年中",
    "months_estimated": false,
    "description_ja": "盆地の斜面にぶどう畑が広がり、ワイナリーではぶどうと樽の香りが漂う。",
-   "description_en": "Vineyards cover the slopes of the basin, and the wineries smell of grapes and oak barrels."
+   "description_en": "Vineyards cover the slopes of the basin, and the wineries smell of grapes and oak barrels.",
+   "image": {
+    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/1e/Marufuji_Winery_190907f.jpg/960px-Marufuji_Winery_190907f.jpg",
+    "source_page": "https://commons.wikimedia.org/wiki/File:Marufuji_Winery_190907f.jpg",
+    "file": "Marufuji Winery 190907f.jpg",
+    "artist": "江戸村のとくぞう",
+    "license": "CC BY-SA 4.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+    "via": "wikipedia",
+    "article_ja": "勝沼町"
+   }
   },
   {
    "id": 39,
@@ -1305,7 +1631,17 @@
    "months_basis_ja": "一年中",
    "months_estimated": false,
    "description_ja": "樹齢三百年の木曽ヒノキの天然林。森の中はヒノキの香りに満ちている。",
-   "description_en": "A natural forest of Kiso hinoki cypress around 300 years old, thick with the scent of the wood."
+   "description_en": "A natural forest of Kiso hinoki cypress around 300 years old, thick with the scent of the wood.",
+   "image": {
+    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d2/Akasawa_Natural_Recreational_Forest-1.jpg/960px-Akasawa_Natural_Recreational_Forest-1.jpg",
+    "source_page": "https://commons.wikimedia.org/wiki/File:Akasawa_Natural_Recreational_Forest-1.jpg",
+    "file": "Akasawa Natural Recreational Forest-1.jpg",
+    "artist": "Saigen Jiro",
+    "license": "CC0",
+    "license_url": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+    "via": "wikipedia",
+    "article_ja": "赤沢自然休養林"
+   }
   },
   {
    "id": 40,
@@ -1343,7 +1679,17 @@
    "months_basis_ja": "６月（シナノキ）、５月・１０月（バラ）、一年中（水辺、縄手通り）",
    "months_estimated": false,
    "description_ja": "松本城の表玄関の通りにシナノキの並木が続き、六月には淡い黄色の花が甘く香る。",
-   "description_en": "A row of Japanese linden lines the main approach to Matsumoto Castle, and in June the pale yellow flowers smell of honey."
+   "description_en": "A row of Japanese linden lines the main approach to Matsumoto Castle, and in June the pale yellow flowers smell of honey.",
+   "image": {
+    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/cd/Tilia_japonica_s10.jpg/960px-Tilia_japonica_s10.jpg",
+    "source_page": "https://commons.wikimedia.org/wiki/File:Tilia_japonica_s10.jpg",
+    "file": "Tilia japonica s10.jpg",
+    "artist": "Alpsdake",
+    "license": "CC0",
+    "license_url": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+    "via": "wikipedia",
+    "article_ja": "シナノキ"
+   }
   },
   {
    "id": 41,
@@ -1374,7 +1720,17 @@
    "months_basis_ja": "春、秋",
    "months_estimated": true,
    "description_ja": "中学生が世話を続ける町なかのりんご並木。春は花、秋は赤い実の香りがする。",
-   "description_en": "Apple trees in the city centre, cared for by local junior high school students: blossom in spring, ripe fruit in autumn."
+   "description_en": "Apple trees in the city centre, cared for by local junior high school students: blossom in spring, ripe fruit in autumn.",
+   "image": {
+    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/69/Apple_Trees_Street%2C_Iida.jpg/960px-Apple_Trees_Street%2C_Iida.jpg",
+    "source_page": "https://commons.wikimedia.org/wiki/File:Apple_Trees_Street,_Iida.jpg",
+    "file": "Apple Trees Street, Iida.jpg",
+    "artist": "Miyuki Meinaka",
+    "license": "CC BY-SA 4.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+    "via": "commons",
+    "article_ja": null
+   }
   },
   {
    "id": 42,
@@ -1407,7 +1763,17 @@
    "months_basis_ja": "春から秋",
    "months_estimated": true,
    "description_ja": "広い草原を風が渡り、レンゲツツジやニッコウキスゲなど草花の香りを運ぶ。",
-   "description_en": "Wind sweeps across wide grassland and wetland, carrying the scent of azaleas, day lilies and summer grass."
+   "description_en": "Wind sweeps across wide grassland and wetland, carrying the scent of azaleas, day lilies and summer grass.",
+   "image": {
+    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b3/Kirigamine_seen_from_the_east_2018-03-04.jpg/960px-Kirigamine_seen_from_the_east_2018-03-04.jpg",
+    "source_page": "https://commons.wikimedia.org/wiki/File:Kirigamine_seen_from_the_east_2018-03-04.jpg",
+    "file": "Kirigamine seen from the east 2018-03-04.jpg",
+    "artist": "Koda6029",
+    "license": "CC BY-SA 4.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+    "via": "wikipedia",
+    "article_ja": "霧ヶ峰"
+   }
   },
   {
    "id": 43,
@@ -1445,7 +1811,17 @@
    "months_basis_ja": "一年中",
    "months_estimated": false,
    "description_ja": "伊勢神宮の用材も出すヒノキの里。木の香りに加え、初夏には自生のササユリが香る。",
-   "description_en": "A village of fine cypress timber, some of it used for the Ise Shrine. In early summer, wild sasayuri lilies add their scent."
+   "description_en": "A village of fine cypress timber, some of it used for the Ise Shrine. In early summer, wild sasayuri lilies add their scent.",
+   "image": {
+    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/02/Kashimo_%C5%8Csugi_20100809.jpg/960px-Kashimo_%C5%8Csugi_20100809.jpg",
+    "source_page": "https://commons.wikimedia.org/wiki/File:Kashimo_%C5%8Csugi_20100809.jpg",
+    "file": "Kashimo Ōsugi 20100809.jpg",
+    "artist": "GAVVA",
+    "license": "Public domain",
+    "license_url": null,
+    "via": "wikipedia",
+    "article_ja": "加子母村"
+   }
   },
   {
    "id": 44,
@@ -1481,7 +1857,17 @@
    "months_basis_ja": "一年中",
    "months_estimated": false,
    "description_ja": "朝市の野菜や漬物、花の匂いに、みたらし団子やせんべいを焼く香りがまじる。",
-   "description_en": "Vegetables, pickles and flowers at the morning markets, with grilled soy-glazed dumplings and crackers in the old merchant streets."
+   "description_en": "Vegetables, pickles and flowers at the morning markets, with grilled soy-glazed dumplings and crackers in the old merchant streets.",
+   "image": {
+    "url": "https://upload.wikimedia.org/wikipedia/commons/8/89/Miyagawa_asaichi.jpg",
+    "source_page": "https://commons.wikimedia.org/wiki/File:Miyagawa_asaichi.jpg",
+    "file": "Miyagawa asaichi.jpg",
+    "artist": "Opqr",
+    "license": "CC BY-SA 3.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/3.0",
+    "via": "wikipedia",
+    "article_ja": "宮川朝市"
+   }
   },
   {
    "id": 45,
@@ -1512,7 +1898,8 @@
    "months_basis_ja": "春から秋（特に夏）",
    "months_estimated": true,
    "description_ja": "日に焼けた棚田の石垣に夕立が降ると、湯気とともに雨上がりの匂いが立ちのぼる。",
-   "description_en": "When a summer shower hits the sun-baked stone walls of the rice terraces, steam rises with the smell of wet stone."
+   "description_en": "When a summer shower hits the sun-baked stone walls of the rice terraces, steam rises with the smell of wet stone.",
+   "image": null
   },
   {
    "id": 46,
@@ -1550,7 +1937,17 @@
    "months_basis_ja": "一年中",
    "months_estimated": false,
    "description_ja": "キンモクセイやハーブなど香りの植物を集めた公園と香りの博物館。四季それぞれの香りがある。",
-   "description_en": "A park of fragrant plants such as osmanthus and herbs, next to a museum about scent, with something in season all year."
+   "description_en": "A park of fragrant plants such as osmanthus and herbs, next to a museum about scent, with something in season all year.",
+   "image": {
+    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/af/The_Museum_of_Fragrance%2C_Iwata.jpg/960px-The_Museum_of_Fragrance%2C_Iwata.jpg",
+    "source_page": "https://commons.wikimedia.org/wiki/File:The_Museum_of_Fragrance,_Iwata.jpg",
+    "file": "The Museum of Fragrance, Iwata.jpg",
+    "artist": "Coup final",
+    "license": "Public domain",
+    "license_url": null,
+    "via": "commons",
+    "article_ja": null
+   }
   },
   {
    "id": 47,
@@ -1577,7 +1974,17 @@
    "months_basis_ja": "春から初夏",
    "months_estimated": true,
    "description_ja": "台地や川沿いに茶畑が広がる一大産地。新茶の時期は製茶工場から香ばしい香りが漂う。",
-   "description_en": "Tea fields cover the plateau and the river valleys, and in the first-flush season the tea factories smell sweet and roasty."
+   "description_en": "Tea fields cover the plateau and the river valleys, and in the first-flush season the tea factories smell sweet and roasty.",
+   "image": {
+    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b1/Shimada_city_from_Makinohara_Upland.JPG/960px-Shimada_city_from_Makinohara_Upland.JPG",
+    "source_page": "https://commons.wikimedia.org/wiki/File:Shimada_city_from_Makinohara_Upland.JPG",
+    "file": "Shimada city from Makinohara Upland.JPG",
+    "artist": "Saigen Jiro",
+    "license": "CC0",
+    "license_url": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+    "via": "commons",
+    "article_ja": null
+   }
   },
   {
    "id": 48,
@@ -1608,7 +2015,17 @@
    "months_basis_ja": "６月～１２月",
    "months_estimated": false,
    "description_ja": "桜餅を包む桜葉の多くを生産する町。葉を塩漬けにする季節は、甘い桜餅の香りが町に漂う。",
-   "description_en": "Most of the cherry leaves used to wrap sakura-mochi come from here, and while they are salted the town smells of the sweet."
+   "description_en": "Most of the cherry leaves used to wrap sakura-mochi come from here, and while they are salted the town smells of the sweet.",
+   "image": {
+    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/bd/Matsuzaki_Kaigan_-01.jpg/960px-Matsuzaki_Kaigan_-01.jpg",
+    "source_page": "https://commons.wikimedia.org/wiki/File:Matsuzaki_Kaigan_-01.jpg",
+    "file": "Matsuzaki Kaigan -01.jpg",
+    "artist": "Aimaimyi",
+    "license": "CC BY-SA 3.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/3.0",
+    "via": "wikipedia",
+    "article_ja": "松崎町"
+   }
   },
   {
    "id": 49,
@@ -1644,7 +2061,8 @@
    "months_basis_ja": "一年中",
    "months_estimated": false,
    "description_ja": "浜名湖の養鰻で知られる町。鰻屋から蒲焼きのたれの焼ける匂いが流れる。",
-   "description_en": "Known for eel farming around Lake Hamana. The smell of grilled eel and its glaze drifts out of restaurants."
+   "description_en": "Known for eel farming around Lake Hamana. The smell of grilled eel and its glaze drifts out of restaurants.",
+   "image": null
   },
   {
    "id": 50,
@@ -1680,7 +2098,17 @@
    "months_basis_ja": "一年中",
    "months_estimated": false,
    "description_ja": "運河沿いに黒板張りの醸造蔵が並び、江戸時代から続く酢づくりの香りが漂う。",
-   "description_en": "Black wooden storehouses line the canal, and the smell of vinegar, brewed here since the Edo period, hangs in the air."
+   "description_en": "Black wooden storehouses line the canal, and the smell of vinegar, brewed here since the Edo period, hangs in the air.",
+   "image": {
+    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f0/Mizkan_muesum_20250729.jpg/960px-Mizkan_muesum_20250729.jpg",
+    "source_page": "https://commons.wikimedia.org/wiki/File:Mizkan_muesum_20250729.jpg",
+    "file": "Mizkan muesum 20250729.jpg",
+    "artist": "Totti",
+    "license": "CC BY-SA 4.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+    "via": "wikipedia",
+    "article_ja": "MIZKAN MUSEUM"
+   }
   },
   {
    "id": 51,
@@ -1709,7 +2137,17 @@
    "months_basis_ja": "２月～４月",
    "months_estimated": false,
    "description_ja": "春先、港にワカメをゆでる釜が並び、湯気とともに磯の香りが港をおおう。",
-   "description_en": "In early spring the port fills with vats of boiling seaweed, and the steam spreads the smell of the shore."
+   "description_en": "In early spring the port fills with vats of boiling seaweed, and the steam spreads the smell of the shore.",
+   "image": {
+    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c0/T%C5%8Dshijima.jpg/960px-T%C5%8Dshijima.jpg",
+    "source_page": "https://commons.wikimedia.org/wiki/File:T%C5%8Dshijima.jpg",
+    "file": "Tōshijima.jpg",
+    "artist": "Alpsdake",
+    "license": "CC BY-SA 4.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+    "via": "commons",
+    "article_ja": null
+   }
   },
   {
    "id": 52,
@@ -1742,7 +2180,17 @@
    "months_basis_ja": "春～秋",
    "months_estimated": true,
    "description_ja": "宮川の源流に広がるブナの原生林。木の香りと、いくつもの滝の水の匂いがする。",
-   "description_en": "Virgin beech forest at the source of the Miya River, smelling of wood and the spray of many waterfalls."
+   "description_en": "Virgin beech forest at the source of the Miya River, smelling of wood and the spray of many waterfalls.",
+   "image": {
+    "url": "https://upload.wikimedia.org/wikipedia/commons/2/2f/Mount_Odaigahara_-_panoramio.jpg",
+    "source_page": "https://commons.wikimedia.org/wiki/File:Mount_Odaigahara_-_panoramio.jpg",
+    "file": "Mount Odaigahara - panoramio.jpg",
+    "artist": "z tanuki",
+    "license": "CC BY 3.0",
+    "license_url": "https://creativecommons.org/licenses/by/3.0",
+    "via": "wikipedia",
+    "article_ja": "大台ヶ原山"
+   }
   },
   {
    "id": 53,
@@ -1780,7 +2228,17 @@
    "months_basis_ja": "一年中",
    "months_estimated": false,
    "description_ja": "内宮の杉やヒノキの森の香りに包まれ、門前町の参道ではお茶や菓子、うどんが香る。",
-   "description_en": "The cedar and cypress woods of the Inner Shrine, and on the street outside, the smells of tea, sweets and udon."
+   "description_en": "The cedar and cypress woods of the Inner Shrine, and on the street outside, the smells of tea, sweets and udon.",
+   "image": {
+    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d5/JP-Mie-Ise-Grand-Shrine-Okage-Yokocho.JPG/960px-JP-Mie-Ise-Grand-Shrine-Okage-Yokocho.JPG",
+    "source_page": "https://commons.wikimedia.org/wiki/File:JP-Mie-Ise-Grand-Shrine-Okage-Yokocho.JPG",
+    "file": "JP-Mie-Ise-Grand-Shrine-Okage-Yokocho.JPG",
+    "artist": "Kanchi1979",
+    "license": "CC BY-SA 4.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+    "via": "wikipedia",
+    "article_ja": "おはらい町"
+   }
   },
   {
    "id": 54,
@@ -1818,7 +2276,17 @@
    "months_basis_ja": "一年中",
    "months_estimated": false,
    "description_ja": "霊山を杉の巨木がおおい、堂や山麓の坂本の寺々から香の煙が流れる。",
-   "description_en": "Giant cedars cover the sacred mountain, and incense drifts from its halls and from the temple town of Sakamoto below."
+   "description_en": "Giant cedars cover the sacred mountain, and incense drifts from its halls and from the temple town of Sakamoto below.",
+   "image": {
+    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/fd/Enryakuji_Konponchudo04n4272.jpg/960px-Enryakuji_Konponchudo04n4272.jpg",
+    "source_page": "https://commons.wikimedia.org/wiki/File:Enryakuji_Konponchudo04n4272.jpg",
+    "file": "Enryakuji Konponchudo04n4272.jpg",
+    "artist": "663highland",
+    "license": "CC BY 2.5",
+    "license_url": "https://creativecommons.org/licenses/by/2.5",
+    "via": "wikipedia",
+    "article_ja": "延暦寺"
+   }
   },
   {
    "id": 55,
@@ -1854,7 +2322,17 @@
    "months_basis_ja": "一年中",
    "months_estimated": false,
    "description_ja": "日本六古窯のひとつ。登り窯や穴窯から立ちのぼる煙の匂いが、焼き物の町の歴史を伝える。",
-   "description_en": "One of Japan’s six ancient kiln towns, where the smoke from wood-fired climbing kilns carries centuries of pottery."
+   "description_en": "One of Japan’s six ancient kiln towns, where the smoke from wood-fired climbing kilns carries centuries of pottery.",
+   "image": {
+    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/46/Shigaraki_climbing_kiln_01.JPG/960px-Shigaraki_climbing_kiln_01.JPG",
+    "source_page": "https://commons.wikimedia.org/wiki/File:Shigaraki_climbing_kiln_01.JPG",
+    "file": "Shigaraki climbing kiln 01.JPG",
+    "artist": "At by At",
+    "license": "CC BY-SA 3.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/3.0",
+    "via": "commons",
+    "article_ja": null
+   }
   },
   {
    "id": 56,
@@ -1890,7 +2368,17 @@
    "months_basis_ja": "一年中",
    "months_estimated": false,
    "description_ja": "花見小路から新橋あたり。舞妓や芸妓が通り過ぎると、おしろいとびん付け油の香りが残る。",
-   "description_en": "From Hanamikoji to Shinbashi, a maiko or geiko passing by leaves the scent of face powder and pomade."
+   "description_en": "From Hanamikoji to Shinbashi, a maiko or geiko passing by leaves the scent of face powder and pomade.",
+   "image": {
+    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/65/Gion_Hanamik%C3%B4ji-d%C3%B4ri.jpg/960px-Gion_Hanamik%C3%B4ji-d%C3%B4ri.jpg",
+    "source_page": "https://commons.wikimedia.org/wiki/File:Gion_Hanamik%C3%B4ji-d%C3%B4ri.jpg",
+    "file": "Gion Hanamikôji-dôri.jpg",
+    "artist": "Yanajin33",
+    "license": "CC BY-SA 4.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+    "via": "wikipedia",
+    "article_ja": "花見小路通"
+   }
   },
   {
    "id": 57,
@@ -1926,7 +2414,17 @@
    "months_basis_ja": "一年中",
    "months_estimated": false,
    "description_ja": "平等院へ続く参道に茶屋が並び、店先で茶を焙じる香ばしい香りがする。",
-   "description_en": "Tea shops line the approach to Byodoin, and the smell of roasting tea leaves comes out onto the street."
+   "description_en": "Tea shops line the approach to Byodoin, and the smell of roasting tea leaves comes out onto the street.",
+   "image": {
+    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/ba/Phoenix_Hall_in_Byodo-in_Temple%2C_Ujirenge_Uji_city_2026.jpg/960px-Phoenix_Hall_in_Byodo-in_Temple%2C_Ujirenge_Uji_city_2026.jpg",
+    "source_page": "https://commons.wikimedia.org/wiki/File:Phoenix_Hall_in_Byodo-in_Temple,_Ujirenge_Uji_city_2026.jpg",
+    "file": "Phoenix Hall in Byodo-in Temple, Ujirenge Uji city 2026.jpg",
+    "artist": "Tomio344456",
+    "license": "CC0",
+    "license_url": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+    "via": "wikipedia",
+    "article_ja": "平等院"
+   }
   },
   {
    "id": 58,
@@ -1953,7 +2451,17 @@
    "months_basis_ja": "冬",
    "months_estimated": true,
    "description_ja": "伏見の酒蔵が並ぶ一帯。冬の仕込みの季節には新酒の香りが漂う。",
-   "description_en": "A district of old sake breweries by the canals, where the brewing season in winter brings the smell of new sake."
+   "description_en": "A district of old sake breweries by the canals, where the brewing season in winter brings the smell of new sake.",
+   "image": {
+    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/6f/Kyoto_Fushimi_Matsumoto_Sake_Brewing01s4592.jpg/960px-Kyoto_Fushimi_Matsumoto_Sake_Brewing01s4592.jpg",
+    "source_page": "https://commons.wikimedia.org/wiki/File:Kyoto_Fushimi_Matsumoto_Sake_Brewing01s4592.jpg",
+    "file": "Kyoto Fushimi Matsumoto Sake Brewing01s4592.jpg",
+    "artist": "663highland",
+    "license": "CC BY 2.5",
+    "license_url": "https://creativecommons.org/licenses/by/2.5",
+    "via": "commons",
+    "article_ja": null
+   }
   },
   {
    "id": 59,
@@ -1989,7 +2497,17 @@
    "months_basis_ja": "一中",
    "months_estimated": false,
    "description_ja": "東西の本願寺にはさまれた門前町に仏具店が集まり、お香の香りが町に広がる。",
-   "description_en": "Between the two great Hongwanji temples, a quarter of Buddhist altar shops, scented with incense."
+   "description_en": "Between the two great Hongwanji temples, a quarter of Buddhist altar shops, scented with incense.",
+   "image": {
+    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b3/Kyoto_Kyoto_Tower_Blick_auf_Nishi_Hongan-ji_1.jpg/960px-Kyoto_Kyoto_Tower_Blick_auf_Nishi_Hongan-ji_1.jpg",
+    "source_page": "https://commons.wikimedia.org/wiki/File:Kyoto_Kyoto_Tower_Blick_auf_Nishi_Hongan-ji_1.jpg",
+    "file": "Kyoto Kyoto Tower Blick auf Nishi Hongan-ji 1.jpg",
+    "artist": "Zairon",
+    "license": "CC BY-SA 4.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+    "via": "wikipedia",
+    "article_ja": "西本願寺"
+   }
   },
   {
    "id": 60,
@@ -2025,7 +2543,17 @@
    "months_basis_ja": "一年中",
    "months_estimated": false,
    "description_ja": "苔むした水掛不動に線香の煙が絶えず、その香りが小料理屋の並ぶ横丁にも流れる。",
-   "description_en": "Smoke from incense sticks never stops at the moss-covered Fudo statue, and drifts into the narrow lane of small restaurants."
+   "description_en": "Smoke from incense sticks never stops at the moss-covered Fudo statue, and drifts into the narrow lane of small restaurants.",
+   "image": {
+    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f3/%E6%B3%95%E5%96%84%E5%AF%BA_%E6%B0%B4%E6%8E%9B%E4%B8%8D%E5%8B%95.jpg/960px-%E6%B3%95%E5%96%84%E5%AF%BA_%E6%B0%B4%E6%8E%9B%E4%B8%8D%E5%8B%95.jpg",
+    "source_page": "https://commons.wikimedia.org/wiki/File:%E6%B3%95%E5%96%84%E5%AF%BA_%E6%B0%B4%E6%8E%9B%E4%B8%8D%E5%8B%95.jpg",
+    "file": "法善寺 水掛不動.jpg",
+    "artist": "＋－",
+    "license": "CC BY-SA 3.0",
+    "license_url": "http://creativecommons.org/licenses/by-sa/3.0/",
+    "via": "wikipedia",
+    "article_ja": "法善寺"
+   }
   },
   {
    "id": 61,
@@ -2061,7 +2589,8 @@
    "months_basis_ja": "一年中",
    "months_estimated": false,
    "description_ja": "焼肉店や韓国食材の店がひしめく市場に、焼肉とキムチの匂いが広く漂う。",
-   "description_en": "A market packed with Korean barbecue restaurants and food stalls, with the smell of grilled meat and kimchi everywhere."
+   "description_en": "A market packed with Korean barbecue restaurants and food stalls, with the smell of grilled meat and kimchi everywhere.",
+   "image": null
   },
   {
    "id": 62,
@@ -2099,7 +2628,17 @@
    "months_basis_ja": "1月～3月（梅）、一年中（楠、杉等の樹木・草花）",
    "months_estimated": false,
    "description_ja": "生駒山の麓の森に古木が茂る古社。木々の香りに加え、早春には梅林が香る。",
-   "description_en": "An old shrine in the woods at the foot of Mt Ikoma, with the smell of ancient trees and, in early spring, its plum grove."
+   "description_en": "An old shrine in the woods at the foot of Mt Ikoma, with the smell of ancient trees and, in early spring, its plum grove.",
+   "image": {
+    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/89/Hiraoka-jinja%2C_honden-003.jpg/960px-Hiraoka-jinja%2C_honden-003.jpg",
+    "source_page": "https://commons.wikimedia.org/wiki/File:Hiraoka-jinja,_honden-003.jpg",
+    "file": "Hiraoka-jinja, honden-003.jpg",
+    "artist": "Ocdp",
+    "license": "CC0",
+    "license_url": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+    "via": "wikipedia",
+    "article_ja": "枚岡神社"
+   }
   },
   {
    "id": 63,
@@ -2135,7 +2674,8 @@
    "months_basis_ja": "一年中",
    "months_estimated": false,
    "description_ja": "江戸時代末から続く線香の産地。工場の並ぶ町に、お香の香りが暮らしの匂いとして漂う。",
-   "description_en": "A centre of incense making since the mid-19th century, where the smell of incense is simply part of daily life."
+   "description_en": "A centre of incense making since the mid-19th century, where the smell of incense is simply part of daily life.",
+   "image": null
   },
   {
    "id": 64,
@@ -2164,7 +2704,17 @@
    "months_basis_ja": "秋から冬",
    "months_estimated": true,
    "description_ja": "海沿いに酒蔵が集まる日本有数の酒どころ。仕込みの季節には新酒の香りがする。",
-   "description_en": "One of Japan’s great sake districts, with breweries along the coast that smell of new sake in the brewing season."
+   "description_en": "One of Japan’s great sake districts, with breweries along the coast that smell of new sake in the brewing season.",
+   "image": {
+    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/bc/SawanoTsuru_SakeMuseum.jpg/960px-SawanoTsuru_SakeMuseum.jpg",
+    "source_page": "https://commons.wikimedia.org/wiki/File:SawanoTsuru_SakeMuseum.jpg",
+    "file": "SawanoTsuru SakeMuseum.jpg",
+    "artist": "PlusMinus",
+    "license": "CC BY-SA 3.0",
+    "license_url": "http://creativecommons.org/licenses/by-sa/3.0/",
+    "via": "commons",
+    "article_ja": null
+   }
   },
   {
    "id": 65,
@@ -2190,7 +2740,8 @@
    "months_basis_ja": "4月下旬～５月上旬",
    "months_estimated": false,
    "description_ja": "十世紀に植えられたと伝わる藤が狭い境内をおおい、花の頃には甘い香りに包まれる。",
-   "description_en": "A wisteria said to have been planted in the 10th century covers the small shrine grounds in sweet-smelling blossom."
+   "description_en": "A wisteria said to have been planted in the 10th century covers the small shrine grounds in sweet-smelling blossom.",
+   "image": null
   },
   {
    "id": 66,
@@ -2226,7 +2777,17 @@
    "months_basis_ja": "一年中",
    "months_estimated": false,
    "description_ja": "国内の墨の多くをつくる町。店先や作業場から一年中、墨の落ち着いた香りが漂う。",
-   "description_en": "Most of Japan’s ink sticks are made here, and the calm smell of ink comes from shops and workshops all year."
+   "description_en": "Most of Japan’s ink sticks are made here, and the calm smell of ink comes from shops and workshops all year.",
+   "image": {
+    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/99/Kobaien_20141001.jpg/960px-Kobaien_20141001.jpg",
+    "source_page": "https://commons.wikimedia.org/wiki/File:Kobaien_20141001.jpg",
+    "file": "Kobaien 20141001.jpg",
+    "artist": "Degueulasse",
+    "license": "CC BY 3.0",
+    "license_url": "https://creativecommons.org/licenses/by/3.0",
+    "via": "commons",
+    "article_ja": null
+   }
   },
   {
    "id": 67,
@@ -2251,7 +2812,17 @@
    "months_basis_ja": "８月",
    "months_estimated": false,
    "description_ja": "八月の十日間、奈良公園に無数のろうそくが灯り、ろうの燃える匂いが夏の夜に漂う。",
-   "description_en": "For ten days in August, thousands of candles are lit across Nara Park, and the smell of burning wax fills the summer night."
+   "description_en": "For ten days in August, thousands of candles are lit across Nara Park, and the smell of burning wax fills the summer night.",
+   "image": {
+    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/dc/Nara_Tokae_Ukimido.jpg/960px-Nara_Tokae_Ukimido.jpg",
+    "source_page": "https://commons.wikimedia.org/wiki/File:Nara_Tokae_Ukimido.jpg",
+    "file": "Nara Tokae Ukimido.jpg",
+    "artist": "cktse (Flickr)",
+    "license": "CC BY-SA 2.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/2.0",
+    "via": "wikipedia",
+    "article_ja": "なら燈花会"
+   }
   },
   {
    "id": 68,
@@ -2289,7 +2860,17 @@
    "months_basis_ja": "一年中",
    "months_estimated": false,
    "description_ja": "約二キロの参道に杉の巨木と苔むした墓碑が並び、杉と線香の香りが一年中漂う。",
-   "description_en": "A two-kilometre path through giant cedars and mossy graves, scented with cedar and incense all year."
+   "description_en": "A two-kilometre path through giant cedars and mossy graves, scented with cedar and incense all year.",
+   "image": {
+    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/7f/Choishi_Path_-_Okunoin_Cemetery_-_Koyasan_-_Japan_-_22_%2847949824922%29.jpg/960px-Choishi_Path_-_Okunoin_Cemetery_-_Koyasan_-_Japan_-_22_%2847949824922%29.jpg",
+    "source_page": "https://commons.wikimedia.org/wiki/File:Choishi_Path_-_Okunoin_Cemetery_-_Koyasan_-_Japan_-_22_(47949824922).jpg",
+    "file": "Choishi Path - Okunoin Cemetery - Koyasan - Japan - 22 (47949824922).jpg",
+    "artist": "Adam Jones from Kelowna, BC, Canada",
+    "license": "CC BY-SA 2.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/2.0",
+    "via": "commons",
+    "article_ja": null
+   }
   },
   {
    "id": 69,
@@ -2315,7 +2896,8 @@
    "months_basis_ja": "春",
    "months_estimated": true,
    "description_ja": "紀の川沿いに桃畑が広がり、春には一面の花がかすみのように見え、ほのかに甘く香る。",
-   "description_en": "Peach orchards line the Kino River, and in spring the blossom looks like a pink mist with a faint sweet smell."
+   "description_en": "Peach orchards line the Kino River, and in spring the blossom looks like a pink mist with a faint sweet smell.",
+   "image": null
   },
   {
    "id": 70,
@@ -2351,7 +2933,17 @@
    "months_basis_ja": "一年中",
    "months_estimated": false,
    "description_ja": "川沿いに白壁の土蔵が並ぶ古い町並み。醤油や酒を醸す香りが一年中漂う。",
-   "description_en": "White-walled storehouses along a small river, where soy sauce and sake are still brewed and scent the street."
+   "description_en": "White-walled storehouses along a small river, where soy sauce and sake are still brewed and scent the street.",
+   "image": {
+    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/ec/Kurayoshi_Utsubuki-Tamagawa33bs3s4410.jpg/960px-Kurayoshi_Utsubuki-Tamagawa33bs3s4410.jpg",
+    "source_page": "https://commons.wikimedia.org/wiki/File:Kurayoshi_Utsubuki-Tamagawa33bs3s4410.jpg",
+    "file": "Kurayoshi Utsubuki-Tamagawa33bs3s4410.jpg",
+    "artist": "663highland",
+    "license": "CC BY 2.5",
+    "license_url": "https://creativecommons.org/licenses/by/2.5",
+    "via": "wikipedia",
+    "article_ja": "打吹玉川"
+   }
   },
   {
    "id": 71,
@@ -2382,7 +2974,17 @@
    "months_basis_ja": "春から秋",
    "months_estimated": true,
    "description_ja": "地震で隆起した平らな岩場が広がり、海風に乗って磯の香りがする。",
-   "description_en": "A wide shelf of seabed raised by an earthquake, swept by sea wind that smells of rock pools."
+   "description_en": "A wide shelf of seabed raised by an earthquake, swept by sea wind that smells of rock pools.",
+   "image": {
+    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/8e/Tatamigaura_01.jpg/960px-Tatamigaura_01.jpg",
+    "source_page": "https://commons.wikimedia.org/wiki/File:Tatamigaura_01.jpg",
+    "file": "Tatamigaura 01.jpg",
+    "artist": "jkyZjdjNjN",
+    "license": "CC BY 3.0",
+    "license_url": "https://creativecommons.org/licenses/by/3.0",
+    "via": "wikipedia",
+    "article_ja": "石見畳ヶ浦"
+   }
   },
   {
    "id": 72,
@@ -2410,7 +3012,8 @@
    "months_basis_ja": "春",
    "months_estimated": true,
    "description_ja": "なだらかな丘に桃畑が続き、花の季節も実りの季節も甘い香りに包まれる。",
-   "description_en": "Gentle hills covered in peach orchards, sweet-smelling both when they flower and when the white peaches ripen."
+   "description_en": "Gentle hills covered in peach orchards, sweet-smelling both when they flower and when the white peaches ripen.",
+   "image": null
   },
   {
    "id": 73,
@@ -2438,7 +3041,8 @@
    "months_basis_ja": "５月初旬～６月初旬",
    "months_estimated": false,
    "description_ja": "山頂から麓までブナの原生林が続き、春は若葉と山頂付近のカタクリの花が香る。",
-   "description_en": "Virgin beech forest from summit to foot. In spring there is the smell of new leaves, and dogtooth violets near the top."
+   "description_en": "Virgin beech forest from summit to foot. In spring there is the smell of new leaves, and dogtooth violets near the top.",
+   "image": null
   },
   {
    "id": 74,
@@ -2474,7 +3078,17 @@
    "months_basis_ja": "一年中",
    "months_estimated": false,
    "description_ja": "満ち潮で回廊の下まで海になり、社殿が潮の香りに包まれる。",
-   "description_en": "At high tide the sea comes in under the shrine’s corridors, and the whole precinct smells of salt water."
+   "description_en": "At high tide the sea comes in under the shrine’s corridors, and the whole precinct smells of salt water.",
+   "image": {
+    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/ef/Itsukushima_Shrine_Torii_Gate_%2813890465459%29.jpg/960px-Itsukushima_Shrine_Torii_Gate_%2813890465459%29.jpg",
+    "source_page": "https://commons.wikimedia.org/wiki/File:Itsukushima_Shrine_Torii_Gate_(13890465459).jpg",
+    "file": "Itsukushima Shrine Torii Gate (13890465459).jpg",
+    "artist": "redlegsfan21",
+    "license": "CC BY-SA 2.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/2.0",
+    "via": "wikipedia",
+    "article_ja": "厳島神社"
+   }
   },
   {
    "id": 75,
@@ -2512,7 +3126,8 @@
    "months_basis_ja": "一年中",
    "months_estimated": false,
    "description_ja": "数百品種の柑橘を集めた公園。花や果実の柑橘の香りを一年中楽しめる。",
-   "description_en": "A park of hundreds of citrus varieties, with the scent of citrus flowers or fruit at any time of year."
+   "description_en": "A park of hundreds of citrus varieties, with the scent of citrus flowers or fruit at any time of year.",
+   "image": null
   },
   {
    "id": 76,
@@ -2537,7 +3152,8 @@
    "months_basis_ja": "春",
    "months_estimated": false,
    "description_ja": "明治のはじめ、禄を失った武士のために植えられた夏みかん。五月には土塀ごしに花が香る。",
-   "description_en": "Summer oranges were planted in samurai gardens after the Meiji Restoration, and in May their blossom scents the walled streets."
+   "description_en": "Summer oranges were planted in samurai gardens after the Meiji Restoration, and in May their blossom scents the walled streets.",
+   "image": null
   },
   {
    "id": 77,
@@ -2573,7 +3189,17 @@
    "months_basis_ja": "一年中",
    "months_estimated": false,
    "description_ja": "江戸時代からの藍の産地。発酵させてつくる藍の染料には、独特の匂いがある。",
-   "description_en": "An indigo-growing region since the Edo period. The fermented dye has a strong, earthy smell of its own."
+   "description_en": "An indigo-growing region since the Edo period. The fermented dye has a strong, earthy smell of its own.",
+   "image": {
+    "url": "https://upload.wikimedia.org/wikipedia/commons/4/44/Aizumi_Ai_no_Yakata.jpg",
+    "source_page": "https://commons.wikimedia.org/wiki/File:Aizumi_Ai_no_Yakata.jpg",
+    "file": "Aizumi Ai no Yakata.jpg",
+    "artist": "Tamago915",
+    "license": "CC BY-SA 3.0",
+    "license_url": "http://creativecommons.org/licenses/by-sa/3.0/",
+    "via": "wikipedia",
+    "article_ja": "藍住町"
+   }
   },
   {
    "id": 78,
@@ -2600,7 +3226,17 @@
    "months_basis_ja": "夏",
    "months_estimated": true,
    "description_ja": "夏、急斜面の棚田の集落で茶葉を蒸し、すり、天日に干す匂いが風に乗って広がる。",
-   "description_en": "In summer, terraced hamlets steam, roll and sun-dry tea leaves for this fermented tea, and the smell rides the wind."
+   "description_en": "In summer, terraced hamlets steam, roll and sun-dry tea leaves for this fermented tea, and the smell rides the wind.",
+   "image": {
+    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/74/%E7%A5%9E%E7%94%B0%E8%8C%B6.jpg/960px-%E7%A5%9E%E7%94%B0%E8%8C%B6.jpg",
+    "source_page": "https://commons.wikimedia.org/wiki/File:%E7%A5%9E%E7%94%B0%E8%8C%B6.jpg",
+    "file": "神田茶.jpg",
+    "artist": "Shugyoso",
+    "license": "CC BY-SA 4.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+    "via": "wikipedia",
+    "article_ja": "阿波晩茶"
+   }
   },
   {
    "id": 79,
@@ -2636,7 +3272,17 @@
    "months_basis_ja": "一年中",
    "months_estimated": false,
    "description_ja": "樹齢七百年を超えるクスノキが境内にそびえ、クスノキ特有の清涼な香りがする。",
-   "description_en": "Camphor trees seven or eight centuries old tower over the shrine, with their sharp, clean smell."
+   "description_en": "Camphor trees seven or eight centuries old tower over the shrine, with their sharp, clean smell.",
+   "image": {
+    "url": "https://upload.wikimedia.org/wikipedia/commons/7/73/Shirotori_shrine_Kagawa.jpg",
+    "source_page": "https://commons.wikimedia.org/wiki/File:Shirotori_shrine_Kagawa.jpg",
+    "file": "Shirotori shrine Kagawa.jpg",
+    "artist": "Bakkai",
+    "license": "CC BY-SA 3.0",
+    "license_url": "http://creativecommons.org/licenses/by-sa/3.0/",
+    "via": "wikipedia",
+    "article_ja": "白鳥神社 (東かがわ市)"
+   }
   },
   {
    "id": 80,
@@ -2674,7 +3320,17 @@
    "months_basis_ja": "一年中",
    "months_estimated": false,
    "description_ja": "和ろうそくづくりが続く町並み。ろうの匂いに、老舗の味噌・醤油蔵の麹の香りがまじる。",
-   "description_en": "A preserved street where Japanese candles are still made from plant wax, mixed with the smell of koji from old miso and soy makers."
+   "description_en": "A preserved street where Japanese candles are still made from plant wax, mixed with the smell of koji from old miso and soy makers.",
+   "image": {
+    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e0/Uchiko-za_ac_%281%29.jpg/960px-Uchiko-za_ac_%281%29.jpg",
+    "source_page": "https://commons.wikimedia.org/wiki/File:Uchiko-za_ac_(1).jpg",
+    "file": "Uchiko-za ac (1).jpg",
+    "artist": "Asturio Cantabrio",
+    "license": "CC BY-SA 4.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+    "via": "wikipedia",
+    "article_ja": "内子町"
+   }
   },
   {
    "id": 81,
@@ -2700,7 +3356,17 @@
    "months_basis_ja": "秋",
    "months_estimated": true,
    "description_ja": "国の天然記念物のキンモクセイの巨木。秋、この花の香りとともに祭りの季節が来るといわれる。",
-   "description_en": "A giant sweet osmanthus, a natural monument. Locals say the autumn festival arrives on the scent of its flowers."
+   "description_en": "A giant sweet osmanthus, a natural monument. Locals say the autumn festival arrives on the scent of its flowers.",
+   "image": {
+    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/ea/Ozimorizi01.jpg/960px-Ozimorizi01.jpg",
+    "source_page": "https://commons.wikimedia.org/wiki/File:Ozimorizi01.jpg",
+    "file": "Ozimorizi01.jpg",
+    "artist": "Dokudami",
+    "license": "CC BY-SA 3.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/3.0",
+    "via": "wikipedia",
+    "article_ja": "王至森寺"
+   }
   },
   {
    "id": 82,
@@ -2728,7 +3394,17 @@
    "months_basis_ja": "４月～５月",
    "months_estimated": false,
    "description_ja": "海に面した斜面のみかん畑。四、五月の夕方、海沿いを歩くとみかんの花の香りがする。",
-   "description_en": "Mandarin orchards on slopes above the sea. On April and May evenings, the coast road smells of orange blossom."
+   "description_en": "Mandarin orchards on slopes above the sea. On April and May evenings, the coast road smells of orange blossom.",
+   "image": {
+    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/12/Yawatahama_Port_-_panoramio_%281%29.jpg/960px-Yawatahama_Port_-_panoramio_%281%29.jpg",
+    "source_page": "https://commons.wikimedia.org/wiki/File:Yawatahama_Port_-_panoramio_(1).jpg",
+    "file": "Yawatahama Port - panoramio (1).jpg",
+    "artist": "Nagono",
+    "license": "CC BY-SA 3.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/3.0",
+    "via": "wikipedia",
+    "article_ja": "八幡浜市"
+   }
   },
   {
    "id": 83,
@@ -2764,7 +3440,17 @@
    "months_basis_ja": "一年中",
    "months_estimated": false,
    "description_ja": "欄干のない沈下橋に、清流の匂いと河原の草花、稲わらの香りを風が運ぶ。",
-   "description_en": "The wind over the river’s railing-less bridges carries the smell of clear water, riverside flowers and rice straw."
+   "description_en": "The wind over the river’s railing-less bridges carries the smell of clear water, riverside flowers and rice straw.",
+   "image": {
+    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/96/Shimanto_sada_chinkabashi.jpg/960px-Shimanto_sada_chinkabashi.jpg",
+    "source_page": "https://commons.wikimedia.org/wiki/File:Shimanto_sada_chinkabashi.jpg",
+    "file": "Shimanto sada chinkabashi.jpg",
+    "artist": "四万十人",
+    "license": "CC BY-SA 3.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/3.0",
+    "via": "wikipedia",
+    "article_ja": "沈下橋"
+   }
   },
   {
    "id": 84,
@@ -2795,7 +3481,17 @@
    "months_basis_ja": "春から秋",
    "months_estimated": true,
    "description_ja": "山の斜面に積み上げた千枚田。土や水、草花、稲わらの匂いが季節ごとに移り変わる。",
-   "description_en": "Terraced rice fields stacked up a mountainside, where the smells of soil, water, grass and straw change with the seasons."
+   "description_en": "Terraced rice fields stacked up a mountainside, where the smells of soil, water, grass and straw change with the seasons.",
+   "image": {
+    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/27/%E7%A5%9E%E5%9C%A8%E5%B1%85%E3%81%AE%E5%8D%83%E6%9E%9A%E7%94%B0.jpg/960px-%E7%A5%9E%E5%9C%A8%E5%B1%85%E3%81%AE%E5%8D%83%E6%9E%9A%E7%94%B0.jpg",
+    "source_page": "https://commons.wikimedia.org/wiki/File:%E7%A5%9E%E5%9C%A8%E5%B1%85%E3%81%AE%E5%8D%83%E6%9E%9A%E7%94%B0.jpg",
+    "file": "神在居の千枚田.jpg",
+    "artist": "Asset utilitist",
+    "license": "CC0",
+    "license_url": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+    "via": "commons",
+    "article_ja": null
+   }
   },
   {
    "id": 85,
@@ -2826,7 +3522,17 @@
    "months_basis_ja": "梅（１月～４月上旬）、楠（４月末～５月末）",
    "months_estimated": false,
    "description_ja": "菅原道真ゆかりの梅が早春に香り、新緑の頃は千年といわれる大樟の森が香る。",
-   "description_en": "Plum trees linked to the scholar Sugawara no Michizane bloom in early spring, then the old camphor woods smell fresh in May."
+   "description_en": "Plum trees linked to the scholar Sugawara no Michizane bloom in early spring, then the old camphor woods smell fresh in May.",
+   "image": {
+    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/8b/20100719_Dazaifu_Tenmangu_Shrine_3328.jpg/960px-20100719_Dazaifu_Tenmangu_Shrine_3328.jpg",
+    "source_page": "https://commons.wikimedia.org/wiki/File:20100719_Dazaifu_Tenmangu_Shrine_3328.jpg",
+    "file": "20100719 Dazaifu Tenmangu Shrine 3328.jpg",
+    "artist": "Jakub Hałun",
+    "license": "CC BY-SA 4.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+    "via": "wikipedia",
+    "article_ja": "太宰府天満宮"
+   }
   },
   {
    "id": 86,
@@ -2854,7 +3560,17 @@
    "months_basis_ja": "３月～４月",
    "months_estimated": false,
    "description_ja": "たけのこの産地の竹林。春先、風にそよぐ竹林のさわやかな香りがする。",
-   "description_en": "A bamboo forest in a well-known bamboo shoot area, fresh-smelling as the wind moves through it in early spring."
+   "description_en": "A bamboo forest in a well-known bamboo shoot area, fresh-smelling as the wind moves through it in early spring.",
+   "image": {
+    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/53/%E5%90%88%E9%A6%AC%E7%AB%B9%E6%9E%97%E5%85%AC%E5%9C%92_-_panoramio.jpg/960px-%E5%90%88%E9%A6%AC%E7%AB%B9%E6%9E%97%E5%85%AC%E5%9C%92_-_panoramio.jpg",
+    "source_page": "https://commons.wikimedia.org/wiki/File:%E5%90%88%E9%A6%AC%E7%AB%B9%E6%9E%97%E5%85%AC%E5%9C%92_-_panoramio.jpg",
+    "file": "合馬竹林公園 - panoramio.jpg",
+    "artist": "sk01",
+    "license": "CC BY-SA 3.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/3.0",
+    "via": "commons",
+    "article_ja": null
+   }
   },
   {
    "id": 87,
@@ -2890,7 +3606,17 @@
    "months_basis_ja": "一年中",
    "months_estimated": false,
    "description_ja": "水路の舟下りを終えると、鰻屋の並ぶ沖端に甘辛いたれの匂いが漂う。",
-   "description_en": "At the end of the canal boat ride, the eel restaurants of Okinohata smell of sweet soy glaze."
+   "description_en": "At the end of the canal boat ride, the eel restaurants of Okinohata smell of sweet soy glaze.",
+   "image": {
+    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/2c/Fukuoka_Yanagawa03bs3200.jpg/960px-Fukuoka_Yanagawa03bs3200.jpg",
+    "source_page": "https://commons.wikimedia.org/wiki/File:Fukuoka_Yanagawa03bs3200.jpg",
+    "file": "Fukuoka Yanagawa03bs3200.jpg",
+    "artist": "663highland",
+    "license": "CC BY 2.5",
+    "license_url": "https://creativecommons.org/licenses/by/2.5",
+    "via": "wikipedia",
+    "article_ja": "柳川市"
+   }
   },
   {
    "id": 88,
@@ -2928,7 +3654,17 @@
    "months_basis_ja": "一年中",
    "months_estimated": false,
    "description_ja": "弧を描く浜に百万本ともいわれるクロマツが続き、玄界灘の潮風と松の香りが混じる。",
-   "description_en": "A curving belt of a million black pines along the Genkai Sea, where salt wind mixes with the smell of pine."
+   "description_en": "A curving belt of a million black pines along the Genkai Sea, where salt wind mixes with the smell of pine.",
+   "image": {
+    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f7/Nijinomatsubara.jpg/960px-Nijinomatsubara.jpg",
+    "source_page": "https://commons.wikimedia.org/wiki/File:Nijinomatsubara.jpg",
+    "file": "Nijinomatsubara.jpg",
+    "artist": "ascesis",
+    "license": "CC BY-SA 3.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/3.0",
+    "via": "wikipedia",
+    "article_ja": "虹の松原"
+   }
   },
   {
    "id": 89,
@@ -2964,7 +3700,17 @@
    "months_basis_ja": "一年中",
    "months_estimated": false,
    "description_ja": "鍋島藩の御用窯が置かれた山あいの里。窯から上がる煙と土の匂いが歴史を感じさせる。",
-   "description_en": "A valley of kilns that once made porcelain for the Nabeshima lords, smelling of clay and kiln smoke."
+   "description_en": "A valley of kilns that once made porcelain for the Nabeshima lords, smelling of clay and kiln smoke.",
+   "image": {
+    "url": "https://upload.wikimedia.org/wikipedia/commons/3/31/Floral_Plate_Nabeshima.JPG",
+    "source_page": "https://commons.wikimedia.org/wiki/File:Floral_Plate_Nabeshima.JPG",
+    "file": "Floral Plate Nabeshima.JPG",
+    "artist": "local government atelier",
+    "license": "Public domain",
+    "license_url": null,
+    "via": "wikipedia",
+    "article_ja": "鍋島焼"
+   }
   },
   {
    "id": 90,
@@ -3002,7 +3748,8 @@
    "months_basis_ja": "１２月～１月（水仙）、潮（一年中）",
    "months_estimated": false,
    "description_ja": "海を見下ろす斜面に水仙が群れ咲き、冬には甘い花の香りと潮風がまじり合う。",
-   "description_en": "Narcissus covers the slopes above the sea, and in winter its sweet scent blends with the salt wind."
+   "description_en": "Narcissus covers the slopes above the sea, and in winter its sweet scent blends with the salt wind.",
+   "image": null
   },
   {
    "id": 91,
@@ -3029,7 +3776,8 @@
    "months_basis_ja": "夏",
    "months_estimated": true,
    "description_ja": "シイやカシの大木が残る照葉樹林。市民の手で植え育てる水源の森も広がる。",
-   "description_en": "An evergreen forest of old chinquapin and oak, alongside a watershed forest planted by Minamata’s citizens."
+   "description_en": "An evergreen forest of old chinquapin and oak, alongside a watershed forest planted by Minamata’s citizens.",
+   "image": null
   },
   {
    "id": 92,
@@ -3065,7 +3813,17 @@
    "months_basis_ja": "一年中",
    "months_estimated": false,
    "description_ja": "天主堂を中心にした小さな漁村。港の海の香りの中に、教会の鐘の音が聞こえる。",
-   "description_en": "A small fishing village gathered around its church, where the smell of the harbour comes with the sound of the bell."
+   "description_en": "A small fishing village gathered around its church, where the smell of the harbour comes with the sound of the bell.",
+   "image": {
+    "url": "https://upload.wikimedia.org/wikipedia/commons/8/8d/Sakitsu_Church.jpg",
+    "source_page": "https://commons.wikimedia.org/wiki/File:Sakitsu_Church.jpg",
+    "file": "Sakitsu Church.jpg",
+    "artist": "Kotaro",
+    "license": "CC BY-SA 4.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+    "via": "commons",
+    "article_ja": null
+   }
   },
   {
    "id": 93,
@@ -3101,7 +3859,17 @@
    "months_basis_ja": "一年中",
    "months_estimated": false,
    "description_ja": "市内のあちこちから湯けむりが上がり、八つの温泉地それぞれに違う湯の香りがある。",
-   "description_en": "Steam rises all over the city, and each of Beppu’s eight hot spring districts has its own smell."
+   "description_en": "Steam rises all over the city, and each of Beppu’s eight hot spring districts has its own smell.",
+   "image": {
+    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a4/Beppu_City.jpg/960px-Beppu_City.jpg",
+    "source_page": "https://commons.wikimedia.org/wiki/File:Beppu_City.jpg",
+    "file": "Beppu City.jpg",
+    "artist": "Japanexperterna",
+    "license": "CC BY-SA 3.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/3.0",
+    "via": "commons",
+    "article_ja": null
+   }
   },
   {
    "id": 94,
@@ -3139,7 +3907,8 @@
    "months_basis_ja": "一年中",
    "months_estimated": false,
    "description_ja": "ラベンダーやバラ、香りの木々を集めた森林公園と、香りの文化を伝える博物館。",
-   "description_en": "A forest park planted with lavender, roses and fragrant trees, with a museum about the culture of scent."
+   "description_en": "A forest park planted with lavender, roses and fragrant trees, with a museum about the culture of scent.",
+   "image": null
   },
   {
    "id": 95,
@@ -3170,7 +3939,17 @@
    "months_basis_ja": "夏から秋",
    "months_estimated": true,
    "description_ja": "大分特産のカボスの産地。初夏の花から初秋の実りまで、さわやかな香りが城下町に漂う。",
-   "description_en": "The two castle towns grow most of Oita’s kabosu citrus, fresh-smelling from early-summer flowers to early-autumn fruit."
+   "description_en": "The two castle towns grow most of Oita’s kabosu citrus, fresh-smelling from early-summer flowers to early-autumn fruit.",
+   "image": {
+    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c7/Kabosu.jpg/960px-Kabosu.jpg",
+    "source_page": "https://commons.wikimedia.org/wiki/File:Kabosu.jpg",
+    "file": "Kabosu.jpg",
+    "artist": "B.K. Bullock",
+    "license": "Public domain",
+    "license_url": null,
+    "via": "wikipedia",
+    "article_ja": "カボス"
+   }
   },
   {
    "id": 96,
@@ -3204,7 +3983,17 @@
    "months_basis_ja": "春から秋",
    "months_estimated": true,
    "description_ja": "ミヤマキリシマや草花、干し草の香りが高原を渡る。草原は野焼きによって保たれている。",
-   "description_en": "Wild azaleas, flowers and drying hay scent the highland grasslands, which are kept open by burning."
+   "description_en": "Wild azaleas, flowers and drying hay scent the highland grasslands, which are kept open by burning.",
+   "image": {
+    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/84/%E4%B9%85%E4%BD%8F%E9%AB%98%E5%8E%9F%E3%82%B3%E3%83%86%E3%83%BC%E3%82%B8%E3%82%88%E3%82%8A_-_panoramio.jpg/960px-%E4%B9%85%E4%BD%8F%E9%AB%98%E5%8E%9F%E3%82%B3%E3%83%86%E3%83%BC%E3%82%B8%E3%82%88%E3%82%8A_-_panoramio.jpg",
+    "source_page": "https://commons.wikimedia.org/wiki/File:%E4%B9%85%E4%BD%8F%E9%AB%98%E5%8E%9F%E3%82%B3%E3%83%86%E3%83%BC%E3%82%B8%E3%82%88%E3%82%8A_-_panoramio.jpg",
+    "file": "久住高原コテージより - panoramio.jpg",
+    "artist": "Naoki Iwashita",
+    "license": "CC BY-SA 3.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/3.0",
+    "via": "wikipedia",
+    "article_ja": "久住高原"
+   }
   },
   {
    "id": 97,
@@ -3233,7 +4022,17 @@
    "months_basis_ja": "秋",
    "months_estimated": true,
    "description_ja": "秋の五ヶ瀬川に大きなやなが架けられ、鮎を焼く香りが河原に漂う。",
-   "description_en": "In autumn a large weir trap is built on the river, and the smell of grilled sweetfish drifts across the banks."
+   "description_en": "In autumn a large weir trap is built on the river, and the smell of grilled sweetfish drifts across the banks.",
+   "image": {
+    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a6/Gokasegawa.jpg/960px-Gokasegawa.jpg",
+    "source_page": "https://commons.wikimedia.org/wiki/File:Gokasegawa.jpg",
+    "file": "Gokasegawa.jpg",
+    "artist": "As6673",
+    "license": "Public domain",
+    "license_url": null,
+    "via": "wikipedia",
+    "article_ja": "五ヶ瀬川"
+   }
   },
   {
    "id": 98,
@@ -3271,7 +4070,17 @@
    "months_basis_ja": "一年中",
    "months_estimated": false,
    "description_ja": "集落の背後まで迫る照葉樹林から花の香りが吹きおろし、名産の鯖節の香りもまじる。",
-   "description_en": "Wind from the island’s evergreen forest brings the smell of flowers down to the villages, mixed with the local smoked mackerel."
+   "description_en": "Wind from the island’s evergreen forest brings the smell of flowers down to the villages, mixed with the local smoked mackerel.",
+   "image": {
+    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/cc/Shiratani_Unsui_Gorge_11.jpg/960px-Shiratani_Unsui_Gorge_11.jpg",
+    "source_page": "https://commons.wikimedia.org/wiki/File:Shiratani_Unsui_Gorge_11.jpg",
+    "file": "Shiratani Unsui Gorge 11.jpg",
+    "artist": "Σ64",
+    "license": "CC BY 3.0",
+    "license_url": "https://creativecommons.org/licenses/by/3.0",
+    "via": "wikipedia",
+    "article_ja": "白谷雲水峡"
+   }
   },
   {
    "id": 99,
@@ -3307,7 +4116,17 @@
    "months_basis_ja": "一年中",
    "months_estimated": false,
    "description_ja": "潮が引くと砂の道で陸とつながる無人島。砂州を歩いて渡り、潮風を全身で感じられる。",
-   "description_en": "An uninhabited island joined to the shore by a sandbar at low tide. You can walk across through the sea breeze."
+   "description_en": "An uninhabited island joined to the shore by a sandbar at low tide. You can walk across through the sea breeze.",
+   "image": {
+    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d9/Chiringashima_and_tombolo_20180430.jpg/960px-Chiringashima_and_tombolo_20180430.jpg",
+    "source_page": "https://commons.wikimedia.org/wiki/File:Chiringashima_and_tombolo_20180430.jpg",
+    "file": "Chiringashima and tombolo 20180430.jpg",
+    "artist": "Tam0031",
+    "license": "CC BY-SA 4.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+    "via": "wikipedia",
+    "article_ja": "知林ヶ島"
+   }
   },
   {
    "id": 100,
@@ -3345,7 +4164,17 @@
    "months_basis_ja": "一年中",
    "months_estimated": false,
    "description_ja": "赤瓦の家並みが残る島。どこにいても潮の香りがし、ハイビスカスやブーゲンビリアが咲く。",
-   "description_en": "An island of red-tiled houses and coral walls, where the sea is always in the air and hibiscus and bougainvillea bloom."
+   "description_en": "An island of red-tiled houses and coral walls, where the sea is always in the air and hibiscus and bougainvillea bloom.",
+   "image": {
+    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/7c/Village_in_Taketomi_Island_-_located_at_southwest_Japan.jpg/960px-Village_in_Taketomi_Island_-_located_at_southwest_Japan.jpg",
+    "source_page": "https://commons.wikimedia.org/wiki/File:Village_in_Taketomi_Island_-_located_at_southwest_Japan.jpg",
+    "file": "Village in Taketomi Island - located at southwest Japan.jpg",
+    "artist": "ippei & janine naoi",
+    "license": "CC BY 2.0",
+    "license_url": "https://creativecommons.org/licenses/by/2.0",
+    "via": "wikipedia",
+    "article_ja": "竹富島"
+   }
   }
  ]
 }

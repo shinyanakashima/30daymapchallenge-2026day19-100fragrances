@@ -78,6 +78,7 @@
         '<li>The six kinds of scent are a guide, assigned from each name and its description. Places with more than one scent are placed by the main one; the others are listed as “also”.</li>' +
         '<li>Seasons come from the official pages. Months marked “estimated” were read from words such as “spring” or “autumn”.</li>' +
         '<li>Descriptions are short summaries written for this map, not quotations.</li>' +
+        '<li>Photos come from Wikipedia and Wikimedia Commons under the licence shown with each one. Some show the town or the subject (a flower, a dish) rather than the exact place.</li>' +
         '</ul>' +
         '<h3>Sources</h3><ul>' +
         '<li>Ministry of the Environment, Japan: <a href="https://www.env.go.jp/air/kaori/ichiran.htm" target="_blank" rel="noopener">Kaori Fukei 100-sen (100 Fragrant Landscapes)</a>, list and entry pages; press release of 30 October 2001</li>' +
@@ -152,6 +153,7 @@
         '<li>かおりの種類は、名称と説明から分けた目安です。複数のかおりがあるものは主なかおりで分け、ほかのかおりは「ほかに」として示しています。</li>' +
         '<li>季節は環境省の紹介ページによります。「推定」は「春」「秋」などの表現から月に読み替えたものです。</li>' +
         '<li>説明文はこの地図のために書いた短い要約で、紹介ページからの転載ではありません。</li>' +
+        '<li>写真はWikipedia・Wikimedia Commonsの自由ライセンス画像で、ライセンスは写真ごとに表示しています。地点そのものではなく、町や対象（花・料理など）の写真の場合があります。</li>' +
         '</ul>' +
         '<h3>出典</h3><ul>' +
         '<li>環境省「<a href="https://www.env.go.jp/air/kaori/ichiran.htm" target="_blank" rel="noopener">かおり風景100選</a>」（一覧表・各地点の紹介ページ）、報道発表資料（2001年10月30日）</li>' +
@@ -365,6 +367,7 @@
             if (d < bd) { bd = d; best = it; }
           });
           select(best ? best.id : null);
+          if (isNarrow()) hoverPlace(null);
         });
         map.on('mousemove', function (e) {
           var hits = map.queryRenderedFeatures([[e.point.x - 10, e.point.y - 10], [e.point.x + 10, e.point.y + 10]], { layers: ['hit'] });

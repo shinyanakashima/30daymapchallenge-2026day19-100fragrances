@@ -188,7 +188,7 @@ h1 .t-sub { display: inline; font-size: 14px; font-weight: 400; color: var(--ink
   .wheel-panel { right: auto; left: 50%; transform: translateX(-50%); bottom: 26px; width: 260px; padding: 2px 2px 4px; }
   .wheel-hint { font-size: 11px; max-width: 220px; }
   .seg text { font-size: 12.5px; }
-  .card { left: var(--gutter); right: var(--gutter); top: auto; bottom: 34px; width: auto; max-height: 52%; z-index: 4; }
+  .card { left: var(--gutter); right: var(--gutter); top: auto; bottom: 34px; width: auto; max-height: 56%; z-index: 4; background: rgba(12, 10, 32, 0.97); }
   .maplibregl-ctrl-top-right { display: none; }
 }
 

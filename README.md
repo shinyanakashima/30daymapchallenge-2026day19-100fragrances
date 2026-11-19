@@ -17,7 +17,7 @@ It is the second half of a pair with Day 11, [The 100 Soundscapes of Japan: a so
 - Scent wheel with six kinds of scent, each part sized by its count; hover a part to see its places, click to keep them. The wheel in the corner also gives the count for each kind
 - A month ring around the wheel: pick a month and only the scents of that month stay lit (`?month=1`–`12`)
 - Each place is a dot on the rim of the wheel, north to south; hover a dot or a haze for a name tag, click for details
-- Click a haze for its name, place, kind of scent, season and a short description
+- Click a haze for a photo, its name, place, kind of scent, season and a short description
 - On opening, the hazes rise one after another from Hokkaido down to Okinawa
 - English and Japanese (`?lang=ja`); a kind of scent can be set with `?scent=flower` (`green`, `water`, `smoke`, `food`, `other`)
 - Keyboard: ← / → move around the wheel, ↑ / ↓ change the month, 0 shows all, Esc closes
@@ -73,6 +73,7 @@ Rules for mixed entries: the main kind is the scent the title puts first (e.g. N
 | `months_basis_ja` | “季節” (season) from the official page |
 | `months_estimated` | `true` if the months were read from words such as “spring” or “autumn” |
 | `description_ja` / `description_en` | Short description written for this map (1–2 sentences) |
+| `image` | Freely licensed photo from Wikipedia / Wikimedia Commons: `url`, `source_page`, `file`, `artist`, `license`, `license_url`, `via`, `article_ja` (`null` if none) |
 
 `data/japan-land.geojson` is the land outline of Japan extracted from Natural Earth 1:10m countries, and `data/japan-sea-mask.geojson` is its inverse, used to keep the blank-map tiles on land only (same files as Day 11).
 
@@ -85,6 +86,7 @@ Rules for mixed entries: the main kind is the scent the title puts first (e.g. N
 5. **Seasons**: “一年中” (all year) became 12 months. Month ranges were taken as written. Seasons given only as words were converted (spring = Mar–May or the part that fits the plant, summer = Jun–Aug, autumn = Sep–Nov or the part that fits, winter = Dec–Feb, “spring to autumn” = Apr–Oct) and marked as estimated (24 items). Places where one scent is there all year and another only in season (No. 20, 40, 62, 90) are marked all year, with the details kept in `months_basis_ja`.
 6. **Kinds of scent**: assigned as described above.
 7. **Descriptions and English names**: written for this map. Photos and text from the Ministry's pages are not reproduced.
+8. **Photos**: the lead image of a related Japanese Wikipedia article (free licences only), replaced with a Wikimedia Commons search result where the lead image was a map, a logo, an aerial photo or a different place. The photographer and licence were read from the Commons file metadata. 81 of 100 have a photo. Some show the town or the subject (a flower, a dish) rather than the exact place.
 
 ## Notes
 
@@ -100,6 +102,7 @@ Rules for mixed entries: the main kind is the scent the title puts first (e.g. N
 - Base map: 地理院タイル 白地図 (GSI Tiles, blank map), Geospatial Information Authority of Japan. https://maps.gsi.go.jp/development/ichiran.html
 - Base map: Natural Earth (public domain), via world-atlas 2.0.2. https://www.naturalearthdata.com/
 - Coordinates checked with the GSI address search and reverse geocoder; a few sites located with © OpenStreetMap contributors.
+- Photos: Wikipedia (ja) and Wikimedia Commons. Each photo is used under the licence shown with it (CC0, CC BY, CC BY-SA, public domain); see `image` in `data/fragrances.json`.
 - Map library: MapLibre GL JS 4.7.1
 - Colour palette: taken from the [Mapterhorn](https://mapterhorn.com/) logo, as in Day 11
 
@@ -115,7 +118,7 @@ Day 11「[日本の音風景100選 音の暦](https://shinyanakashima.github.io/
 - 6つのかおりの種類を選べる輪（各区画の大きさは件数に比例）。マウスを乗せるとその場所が浮かび、クリックで固定。種類ごとの件数も輪に表示
 - 輪の外周の月を選ぶと、その月にかおる場所だけが残ります（`?month=1`〜`12`）
 - 輪の縁の点が各地点（北から南の順）。点や霞にマウスを乗せると名前が出ます
-- 霞をクリックすると、名称、場所、かおりの種類、季節、短い説明を表示
+- 霞をクリックすると、写真、名称、場所、かおりの種類、季節、短い説明を表示
 - 開いたとき、北海道から沖縄へ順に霞が立ちのぼります
 - 英語と日本語の切り替え（`?lang=ja`）
 - 「動きを減らす」設定の端末では霞の揺らぎと立ちのぼりを止めます
@@ -141,6 +144,7 @@ Day 11「[日本の音風景100選 音の暦](https://shinyanakashima.github.io/
 4. 緯度経度は、国土地理院の地名・住所検索（一部は OpenStreetMap）で場所を探し、すべての点を国土地理院の逆ジオコーダで現在の市町村と照合しました。町・海岸・森・農地・複数市町村にまたがるものは代表点です（65件）。施設の位置を確かめきれなかったもの（No. 6、9、65、81）は、その施設がある地区の代表点としています。
 5. 季節は紹介ページの「季節」を月に直しました。「春」「秋」など言葉だけのものは「推定」としています（24件）。
 6. 説明文と英語名はこの地図のために書いたものです。紹介ページの写真や文章は転載していません。
+7. 写真は、関連する日本語版Wikipedia記事の代表画像（自由ライセンスのみ）を使い、地図・航空写真・別の場所の画像だった場合はWikimedia Commonsで探して差し替えました（100件中81件）。作者とライセンスはCommonsのファイル情報から取り、写真の下に表示しています。
 
 ### 注記
 
@@ -152,6 +156,7 @@ Day 11「[日本の音風景100選 音の暦](https://shinyanakashima.github.io/
 
 - 環境省「かおり風景100選」（一覧表・各地点の紹介ページ）、報道発表資料「かおり風景１００選の選定について」（2001年10月30日）
 - 背景地図：地理院タイル（白地図）、Natural Earth
+- 写真：Wikipedia（日本語版）・Wikimedia Commons（各写真に記載のライセンス）
 - 配色：[Mapterhorn](https://mapterhorn.com/) のロゴの色（Day 11 と共通）
 
 ## License
