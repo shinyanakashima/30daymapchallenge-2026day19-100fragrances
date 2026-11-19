@@ -18,6 +18,7 @@
       subtitle: 'a map of scents',
       lead: '100 places where a scent is part of the landscape, chosen in 2001 by Japan’s Ministry of the Environment.',
       pairShort: 'Day 11: Soundscapes →',
+      aboutShort: 'About',
       pairKicker: 'Part 2 of a pair · Day 11',
       pairTitle: 'The 100 Soundscapes of Japan →',
       about: 'About & notes',
@@ -47,6 +48,7 @@
       monthHint: function (m, n) { return 'Scents of ' + ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'][m - 1] + ': ' + n + ' places'; },
       monthLabel: 'Month',
       also: 'also',
+      tour: 'Tour from the south', tourShort: 'Tour', tourStop: 'Stop',
       photo: 'Photo',
       season: 'Season',
       allYear: 'All year',
@@ -87,13 +89,15 @@
         '<p>#30DayMapChallenge 2026 · Day 19 · Senses: Smell · <a href="https://github.com/shinyanakashima/30daymapchallenge-2026day19-100fragrances" target="_blank" rel="noopener">Data &amp; code</a></p>' +
         '<p>The map is tilted, and a thin plume of scent rises from each place, swaying as it fades.</p>' +
         '<p>The outer ring of the wheel picks a month: only the scents of that month stay lit. Hover a name tag or a dot on the wheel to find a place.</p>' +
-        '<p>Keyboard: ← / → move around the wheel, ↑ / ↓ change the month, 0 shows all, Esc closes.</p>'
+        '<p>“Tour from the south” visits the places one by one from Okinawa up to Hokkaido (only the scents chosen on the wheel, if any). Drag the map, click a place or press Esc to stop.</p>' +
+        '<p>Keyboard: ← / → move around the wheel (during the tour, previous / next place), ↑ / ↓ change the month, 0 shows all, Esc closes.</p>'
     },
     ja: {
       title: '日本のかおり風景100選',
       subtitle: 'かおりの地図',
       lead: '2001年に環境省が選んだ、かおりが風景の一部になっている100の場所。',
       pairShort: 'Day 11 音の暦 →',
+      aboutShort: '注記',
       pairKicker: '2部作の後編・Day 11',
       pairTitle: '日本の音風景100選 音の暦 →',
       about: 'この地図について・注記',
@@ -123,6 +127,7 @@
       monthHint: function (m, n) { return m + '月にかおる場所 ' + n + '件'; },
       monthLabel: '月',
       also: 'ほかに',
+      tour: '南からめぐる', tourShort: 'めぐる', tourStop: '止める',
       photo: '写真',
       season: '季節',
       allYear: '一年中',
@@ -163,7 +168,8 @@
         '<p>#30DayMapChallenge 2026・Day 19・Senses: Smell・<a href="https://github.com/shinyanakashima/30daymapchallenge-2026day19-100fragrances" target="_blank" rel="noopener">データとコード</a></p>' +
         '<p>地図を斜めから見下ろし、各地点からかおりが細く立ちのぼって揺れながら消えていく様子を描いています。</p>' +
         '<p>輪の外周で月を選ぶと、その月にかおる場所だけが残ります。輪の縁の点にマウスを乗せると、その場所が地図に示されます。</p>' +
-        '<p>キーボード：← / → で輪を回る、↑ / ↓ で月を変える、0 ですべて、Esc で閉じる。</p>'
+        '<p>「南からめぐる」を押すと、沖縄から北海道へ南から順に1か所ずつめぐります（輪で種類や月を選んでいるときは、その場所だけ）。地図をドラッグする、地点を押す、Esc で止まります。</p>' +
+        '<p>キーボード：← / → で輪を回る（ツアー中は前後の場所へ）、↑ / ↓ で月を変える、0 ですべて、Esc で閉じる。</p>'
     }
   };
 
@@ -209,7 +215,9 @@
         gsi: {
           type: 'raster',
           tiles: ['https://cyberjapandata.gsi.go.jp/xyz/blank/{z}/{x}/{y}.png'],
-          tileSize: 256, minzoom: 5, maxzoom: 14
+          tileSize: 256, minzoom: 5, maxzoom: 14,
+          // the blank map has no tiles over the open sea beyond Japan
+          bounds: [121.0, 19.4, 154.0, 46.9]
         }
       },
       layers: [
@@ -400,6 +408,7 @@
             if (state.focus && it.category !== state.focus) d += 1000;
             if (d < bd) { bd = d; best = it; }
           });
+          tourStop();
           select(best ? best.id : null);
           if (isNarrow()) hoverPlace(null);
         });
@@ -450,15 +459,18 @@
 
   // ---------- focus ----------
   function clearAll() {
+    tourStop();
     state.focus = null; state.month = null; state.preview = null;
     applyFocus();
   }
   function setFocus(c) {
+    tourStop();
     state.focus = (c && c !== state.focus) ? c : null;
     state.preview = null;
     applyFocus();
   }
   function setMonth(m) {
+    tourStop();
     state.month = (m && m !== state.month) ? m : null;
     applyFocus();
   }
@@ -636,9 +648,11 @@
   // ---------- keyboard ----------
   document.addEventListener('keydown', function (e) {
     var tag = (e.target && e.target.tagName) || '';
-    if (e.key === 'Escape') { select(null); closeAbout(); return; }
+    if (e.key === 'Escape') { if (tour.on) { tourStop(); return; } select(null); closeAbout(); return; }
     if (tag === 'INPUT' || tag === 'TEXTAREA') return;
+    if (tour.on && (e.key === 'ArrowRight' || e.key === 'ArrowLeft')) { tourGo(tour.i + (e.key === 'ArrowRight' ? 1 : -1)); e.preventDefault(); return; }
     var i = state.focus ? CATS.indexOf(state.focus) : -1;
+    if (e.key === 'ArrowDown' || e.key === 'ArrowUp') tourStop();
     if (e.key === 'ArrowRight') { setFocus(CATS[(i + 1) % CATS.length]); e.preventDefault(); }
     else if (e.key === 'ArrowLeft') { setFocus(CATS[(i - 1 + CATS.length) % CATS.length]); e.preventDefault(); }
     else if (e.key === 'ArrowDown') { state.month = state.month ? state.month % 12 + 1 : 1; applyFocus(); e.preventDefault(); }
@@ -714,7 +728,69 @@
     }
     $('cardLoc').innerHTML = loc;
   }
-  $('cardClose').addEventListener('click', function () { select(null); });
+  $('cardClose').addEventListener('click', function () { tourStop(); select(null); });
+
+  // ---------- tour ----------
+  // Visit the places one by one from the south (Okinawa) to the north (Hokkaido).
+  var tour = { on: false, list: [], i: 0, timer: null };
+  var FLY_MS = 2600, STAY_MS = 4200;
+  function tourPadding() {
+    var W = window.innerWidth, H = window.innerHeight;
+    if (isNarrow()) return { top: 90, bottom: Math.round(H * 0.56), left: 20, right: 20 };
+    return { top: 140, bottom: 60, left: 40, right: 420 };
+  }
+  function tourUI() {
+    var t = T[state.lang], b = $('tourBtn');
+    b.setAttribute('aria-pressed', tour.on ? 'true' : 'false');
+    $('tourLabel').textContent = tour.on ? t.tourStop : (isNarrow() ? t.tourShort : t.tour);
+    $('tourN').textContent = tour.on ? (tour.i + 1) + '/' + tour.list.length : '';
+    b.setAttribute('aria-label', tour.on ? t.tourStop : t.tour);
+  }
+  function tourGo(i) {
+    if (!tour.on) return;
+    clearTimeout(tour.timer);
+    if (i < 0) i = 0;
+    if (i >= tour.list.length) { tourStop(true); return; }
+    tour.i = i;
+    var it = tour.list[i];
+    hoverPlace(null);
+    select(it.id);
+    tourUI();
+    var still = reduceMotion && reduceMotion.matches;
+    var opts = { center: [it.lon, it.lat], zoom: 7.4, pitch: 55, bearing: camAngles().bearing, padding: tourPadding() };
+    if (still) map.jumpTo(opts); else map.flyTo(Object.assign({ duration: FLY_MS, curve: 1.3 }, opts));
+    tour.timer = setTimeout(function () { tourGo(tour.i + 1); }, (still ? 0 : FLY_MS) + STAY_MS);
+  }
+  function tourStart() {
+    var list = items.filter(isLit).sort(function (a, b) { return a.lat - b.lat || a.lon - b.lon; });
+    if (!list.length) return;
+    tour.on = true; tour.list = list;
+    closeAbout();
+    tourGo(0);
+  }
+  function tourStop(finished) {
+    if (!tour.on) return;
+    tour.on = false;
+    clearTimeout(tour.timer);
+    tourUI();
+    if (finished) {
+      select(null);
+      // fly back out to the whole of Japan
+      var here = { center: map.getCenter(), zoom: map.getZoom(), pitch: map.getPitch(), bearing: map.getBearing(), padding: map.getPadding() };
+      map.setPadding({ top: 0, bottom: 0, left: 0, right: 0 });
+      setCamera();
+      var there = { center: map.getCenter(), zoom: map.getZoom(), pitch: map.getPitch(), bearing: map.getBearing() };
+      if (!(reduceMotion && reduceMotion.matches)) {
+        map.jumpTo(here);
+        map.flyTo(Object.assign({ duration: FLY_MS, padding: { top: 0, bottom: 0, left: 0, right: 0 } }, there));
+      }
+    }
+  }
+  $('tourBtn').addEventListener('click', function () { if (tour.on) tourStop(); else tourStart(); });
+  // dragging or zooming the map by hand ends the tour
+  ['dragstart', 'wheel', 'touchstart'].forEach(function (ev) {
+    map.on(ev, function (e) { if (tour.on && e.originalEvent) tourStop(); });
+  });
 
   // ---------- about ----------
   function openAbout() {
@@ -741,6 +817,7 @@
       if (typeof v === 'string') e.textContent = v;
     });
     $('wheelHint').textContent = t.wheelHint;
+    tourUI();
     $('pairLink').href = DAY11 + (state.lang === 'ja' ? '?lang=ja' : '');
     Array.prototype.forEach.call(document.querySelectorAll('.lang button'), function (b) {
       b.setAttribute('aria-pressed', b.getAttribute('data-lang') === state.lang ? 'true' : 'false');
