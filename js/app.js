@@ -85,6 +85,7 @@
         '<li>Base map: land outline from <a href="https://www.naturalearthdata.com/" target="_blank" rel="noopener">Natural Earth</a>; detail from <a href="https://maps.gsi.go.jp/development/ichiran.html" target="_blank" rel="noopener">GSI Tiles (blank map)</a>, Geospatial Information Authority of Japan.</li>' +
         '</ul>' +
         '<p>#30DayMapChallenge 2026 · Day 19 · Senses: Smell · <a href="https://github.com/shinyanakashima/30daymapchallenge-2026day19-100fragrances" target="_blank" rel="noopener">Data &amp; code</a></p>' +
+        '<p>The map is tilted, and a thin plume of scent rises from each place, swaying as it fades.</p>' +
         '<p>The outer ring of the wheel picks a month: only the scents of that month stay lit. Hover a name tag or a dot on the wheel to find a place.</p>' +
         '<p>Keyboard: ← / → move around the wheel, ↑ / ↓ change the month, 0 shows all, Esc closes.</p>'
     },
@@ -160,6 +161,7 @@
         '<li>背景地図：陸域の輪郭 <a href="https://www.naturalearthdata.com/" target="_blank" rel="noopener">Natural Earth</a>、詳細 <a href="https://maps.gsi.go.jp/development/ichiran.html" target="_blank" rel="noopener">地理院タイル（白地図）</a>（国土地理院）</li>' +
         '</ul>' +
         '<p>#30DayMapChallenge 2026・Day 19・Senses: Smell・<a href="https://github.com/shinyanakashima/30daymapchallenge-2026day19-100fragrances" target="_blank" rel="noopener">データとコード</a></p>' +
+        '<p>地図を斜めから見下ろし、各地点からかおりが細く立ちのぼって揺れながら消えていく様子を描いています。</p>' +
         '<p>輪の外周で月を選ぶと、その月にかおる場所だけが残ります。輪の縁の点にマウスを乗せると、その場所が地図に示されます。</p>' +
         '<p>キーボード：← / → で輪を回る、↑ / ↓ で月を変える、0 ですべて、Esc で閉じる。</p>'
     }
@@ -235,6 +237,35 @@
     keyboard: false
   });
   map.touchZoomRotate.disableRotation();
+  // the map is tilted so the scents can rise from it
+  // a tilted view, north kept roughly at the top so the outline of Japan stays familiar
+  function camAngles() { return isNarrow() ? { pitch: 45, bearing: 18 } : { pitch: 45, bearing: -12 }; }
+  var FRAME = [[122.9, 24.3], [124.2, 24.4], [129.7, 33.2], [130.6, 31.2], [132.6, 32.8], [135.8, 33.5], [139.0, 34.7], [140.9, 35.7],
+    [141.6, 38.3], [142.0, 39.6], [141.3, 41.4], [139.9, 41.5], [141.6, 45.4], [145.6, 43.3], [143.9, 42.9], [139.4, 38.2], [135.2, 35.6], [130.9, 34.3]];
+  function setCamera() {
+    var a = camAngles(), pad = fitPadding(), W = map.getContainer().clientWidth, H = map.getContainer().clientHeight;
+    var cam = map.cameraForBounds([[122.6, 24.0], [146.2, 45.6]], { padding: pad, bearing: a.bearing });
+    if (!cam) return;
+    map.jumpTo({ center: cam.center, zoom: cam.zoom, bearing: a.bearing, pitch: a.pitch });
+    // fit the tilted outline of Japan into the free area of the screen, leaving room above for the rising scent
+    var top = pad.top + 40;
+    for (var k = 0; k < 4; k++) {
+      var xs = [], ys = [];
+      FRAME.forEach(function (c) { var q = map.project(c); xs.push(q.x); ys.push(q.y); });
+      var x0 = Math.min.apply(null, xs), x1 = Math.max.apply(null, xs), y0 = Math.min.apply(null, ys), y1 = Math.max.apply(null, ys);
+      var aw = W - pad.left - pad.right, ah = H - top - pad.bottom;
+      var dz = Math.log(Math.min(aw / (x1 - x0), ah / (y1 - y0))) / Math.LN2;
+      var cx = (x0 + x1) / 2, cy = (y0 + y1) / 2, tx = pad.left + aw / 2, ty = top + ah / 2;
+      var c0 = map.unproject([cx, cy]), c1 = map.unproject([tx, ty]);
+      var cen = map.getCenter();
+      map.jumpTo({ center: [cen.lng + (c0.lng - c1.lng), cen.lat + (c0.lat - c1.lat)], zoom: map.getZoom() + dz * 0.9 });
+    }
+  }
+  map.once('load', setCamera);
+  var lastCamNarrow = isNarrow();
+  window.addEventListener('resize', function () {
+    if (isNarrow() !== lastCamNarrow && map.loaded()) { lastCamNarrow = isNarrow(); setCamera(); }
+  });
   window.fragranceMap = map;
   map.addControl(new maplibregl.AttributionControl({
     compact: true,
@@ -244,8 +275,8 @@
 
   function fitPadding() {
     var w = window.innerWidth;
-    if (w <= 720) return { top: 90, bottom: 290, left: 20, right: 20 };
-    return { top: 84, bottom: 30, left: 60, right: 340 };
+    if (w <= 720) return { top: 84, bottom: 290, left: 16, right: 16 };
+    return { top: 76, bottom: 30, left: 30, right: 360 };
   }
 
   function catColor() {
@@ -321,6 +352,7 @@
             'circle-radius': hazeRadius(0.7, 1),
             'circle-color': catColor(),
             'circle-blur': 1,
+            'circle-pitch-alignment': 'map',
             'circle-opacity': hazeOpacity(0.28, 0.2, 0.025, introOn() ? 47 : null),
             'circle-translate': [0, 0]
           }
@@ -331,6 +363,7 @@
             'circle-radius': hazeRadius(0.26, 1),
             'circle-color': catColor(),
             'circle-blur': 0.9,
+            'circle-pitch-alignment': 'map',
             'circle-opacity': hazeOpacity(0.55, 0.36, 0.04, introOn() ? 47 : null)
           }
         });
@@ -341,6 +374,7 @@
             'circle-color': 'rgba(0,0,0,0)',
             'circle-stroke-color': '#ffffff',
             'circle-stroke-width': 1.5,
+            'circle-pitch-alignment': 'map',
             'circle-stroke-opacity': ['case', SEL, 0.9, HL, 0.55, 0]
           }
         });
@@ -739,7 +773,8 @@
   // The hazes slowly breathe and the middle layer drifts a little, like a scent on a light wind.
   var rafId = null;
   var lastDraw = 0;
-  var INTRO_MS = 3600, introStart = null, introDone = false;
+  var INTRO_MS = 3600, introStart = null, introDone = false, revealTh = introOn0() ? 47 : null;
+  function introOn0() { return !(reduceMotion && reduceMotion.matches); }
   function introOn() { return !introDone && !(reduceMotion && reduceMotion.matches); }
   function drawHaze(t, drift) {
     if (!map.getLayer('haze-wide')) return;
@@ -753,24 +788,81 @@
       // hazes rise one after another from Hokkaido down to Okinawa
       var k = Math.min(1, (ts - introStart) / INTRO_MS);
       var e = 1 - Math.pow(1 - k, 2);
-      setReveal(47 - e * 27);
-      if (k >= 1) { introDone = true; setReveal(null); }
+      revealTh = 47 - e * 27;
+      setReveal(revealTh);
+      if (k >= 1) { introDone = true; revealTh = null; setReveal(null); }
     }
     if (ts - lastDraw > 50) {
       var t = ts / 1000;
       drawHaze(t, [Math.sin(t * 0.21) * 5 + 2, Math.cos(t * 0.17) * 3 - 1]);
       lastDraw = ts;
     }
+    drawPlumes(ts / 1000, false);
     rafId = requestAnimationFrame(frame);
   }
   function drawStatic() {
     if (!map.getLayer('haze-wide')) return;
-    if (!introDone) { introDone = true; setReveal(null); }
+    if (!introDone) { introDone = true; revealTh = null; setReveal(null); }
+    drawPlumes(0, true);
     map.setPaintProperty('haze-wide', 'circle-radius', hazeRadius(1, 1));
     map.setPaintProperty('haze-drift', 'circle-radius', hazeRadius(0.7, 1));
     map.setPaintProperty('haze-core', 'circle-radius', hazeRadius(0.26, 1));
     map.setPaintProperty('haze-drift', 'circle-translate', [0, 0]);
   }
+  // ---------- rising scent ----------
+  // Each place sends up soft wisps that sway and fade, drawn on a canvas over the tilted map.
+  var plume = $('plume'), pctx = plume.getContext('2d');
+  var sprites = {};
+  function sprite(col) {
+    if (sprites[col]) return sprites[col];
+    var c = document.createElement('canvas'); c.width = c.height = 64;
+    var g = c.getContext('2d'), gr = g.createRadialGradient(32, 32, 0, 32, 32, 32);
+    gr.addColorStop(0, col); gr.addColorStop(0.35, col + 'aa'); gr.addColorStop(1, col + '00');
+    g.fillStyle = gr; g.fillRect(0, 0, 64, 64);
+    return (sprites[col] = c);
+  }
+  function sizePlume() {
+    var r = window.devicePixelRatio || 1, w = plume.clientWidth, h = plume.clientHeight;
+    if (plume.width !== Math.round(w * r) || plume.height !== Math.round(h * r)) {
+      plume.width = Math.round(w * r); plume.height = Math.round(h * r);
+    }
+    pctx.setTransform(r, 0, 0, r, 0, 0);
+  }
+  var WISPS = 5, LIFE = 4.2;
+  function drawPlumes(t, still) {
+    if (!items.length) return;
+    sizePlume();
+    var w = plume.clientWidth, h = plume.clientHeight;
+    pctx.clearRect(0, 0, w, h);
+    var s = Math.max(isNarrow() ? 0.6 : 0.9, Math.min(1.8, Math.pow(2, map.getZoom() - 5)));
+    var f = state.preview || state.focus, any = !!f || !!state.month;
+    pctx.globalCompositeOperation = 'screen';
+    items.forEach(function (it) {
+      var p = map.project([it.lon, it.lat]);
+      if (p.x < -60 || p.x > w + 60 || p.y < -40 || p.y > h + 200) return;
+      var a = !any ? 0.4 : (isLit(it) ? 0.75 : 0.05);
+      if (state.selected === it.id) a = 1;
+      if (revealTh != null) a *= Math.max(0, Math.min(1, (it.lat - revealTh) / 2.5));
+      if (a <= 0.01) return;
+      var img = sprite(COLORS[it.category]);
+      var ph = (it.id * 0.618) % 1;
+      for (var k = 0; k < WISPS; k++) {
+        // u: 0 at the ground, 1 at the top of the plume
+        var u = still ? (k + 0.5) / WISPS : ((t / LIFE + ph + k / WISPS) % 1);
+        var rise = u * 64 * s;
+        var sway = Math.sin(t * 0.9 + it.id + u * 5) * 7 * s * u;
+        var size = (7 + 24 * u) * s;
+        var al = a * Math.sin(Math.PI * u) * (1 - u * 0.35) * 0.5;
+        pctx.globalAlpha = al;
+        pctx.drawImage(img, p.x + sway - size / 2, p.y - rise - size / 2, size, size);
+      }
+    });
+    pctx.globalAlpha = 1;
+    pctx.globalCompositeOperation = 'source-over';
+  }
+  map.on('move', function () { if (reduceMotion && reduceMotion.matches) drawPlumes(0, true); });
+  window.addEventListener('resize', function () { if (reduceMotion && reduceMotion.matches) drawPlumes(0, true); });
+
   function startAnimation() {
     if (rafId) cancelAnimationFrame(rafId);
     rafId = null;

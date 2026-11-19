@@ -10,7 +10,7 @@
 
 On 30 October 2001, Japan's Ministry of the Environment selected the *100 Fragrant Landscapes of Japan* (かおり風景100選) from 600 entries: places where a good scent belongs to the scenery, culture or daily life, and where local people work to keep it. Lavender fields and plum groves sit on the list next to hot spring sulphur, incense, soy sauce, old books and the smell of rain on stone.
 
-This map places the 100 scents as soft, drifting hazes coloured by the kind of scent. Pick a kind on the scent wheel and its places come forward while the rest fade.
+This map places the 100 scents on a tilted map as soft hazes coloured by the kind of scent, each sending up a thin plume that sways and fades. Pick a kind on the scent wheel and its places come forward while the rest fade.
 
 It is the second half of a pair with Day 11, [The 100 Soundscapes of Japan: a sound calendar](https://shinyanakashima.github.io/30daymapchallenge-2026day11-100soundscapes/). Day 11 shows sounds by *when* you can hear them; this map shows scents by *what* they smell of.
 
@@ -21,7 +21,7 @@ It is the second half of a pair with Day 11, [The 100 Soundscapes of Japan: a so
 - On opening, the hazes rise one after another from Hokkaido down to Okinawa
 - English and Japanese (`?lang=ja`); a kind of scent can be set with `?scent=flower` (`green`, `water`, `smoke`, `food`, `other`)
 - Keyboard: ← / → move around the wheel, ↑ / ↓ change the month, 0 shows all, Esc closes
-- The hazes stop moving, and do not rise on opening, when the device is set to reduce motion
+- The hazes and plumes stop moving, and do not rise on opening, when the device is set to reduce motion
 
 ### Counts
 
@@ -111,7 +111,7 @@ Rules for mixed entries: the main kind is the scent the title puts first (e.g. N
 ## 日本語
 
 2001年10月30日、環境省は全国600件の応募から「かおり風景100選」を選びました。ラベンダー畑や梅林と並んで、温泉の硫黄、線香、醤油、古書、雨上がりの石のにおいまでが選ばれています。
-この地図では100のかおりを、ふわりと漂う霞としてかおりの種類ごとの色で置きました。「かおりの輪」から種類を選ぶと、そのかおりの場所が濃く浮かび、ほかは薄くなります。
+この地図では斜めから見下ろした日本に100のかおりを霞として置き、各地点からかおりが細く立ちのぼる様子を、かおりの種類ごとの色で描きました。「かおりの輪」から種類を選ぶと、そのかおりの場所が濃く浮かび、ほかは薄くなります。
 
 Day 11「[日本の音風景100選 音の暦](https://shinyanakashima.github.io/30daymapchallenge-2026day11-100soundscapes/?lang=ja)」と対になる2部作の後編です。Day 11 は音を「いつ聞けるか」で、この地図はかおりを「どんなかおりか」で見せます。
 
@@ -121,7 +121,7 @@ Day 11「[日本の音風景100選 音の暦](https://shinyanakashima.github.io/
 - 霞をクリックすると、写真、名称、場所、かおりの種類、季節、短い説明を表示
 - 開いたとき、北海道から沖縄へ順に霞が立ちのぼります
 - 英語と日本語の切り替え（`?lang=ja`）
-- 「動きを減らす」設定の端末では霞の揺らぎと立ちのぼりを止めます
+- 「動きを減らす」設定の端末では霞の揺らぎ・煙の動き・開いたときの立ちのぼりを止めます
 
 ### かおりの種類の分け方
 
